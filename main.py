@@ -193,8 +193,8 @@ async def main():
         await expect(page.get_by_label("bb1a35a8df2349ef87bb47fece39a062")).to_be_visible(timeout=15000)
 
         # Lista das unidades que se deseja processar
-        unidades = ["Unidade 01", "Unidade 02", "Unidade 03", "Unidade 04", "Unidade 05", "Unidade 06", "Unidade 07", "Unidade 08", "Unidade 09", "Unidade 10"]
-
+        unidades = ["Semana 01", "Semana 02", "Semana 03", "Semana 04", "Semana 05", "Semana 06", "Semana 07", "Semana 08", "Semana 09", "Semana 10"]
+        
         # Lista onde serão armazenados os dados coletados
         rows = []
 
