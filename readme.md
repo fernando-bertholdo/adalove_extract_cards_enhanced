@@ -1,195 +1,460 @@
-# **Extração de Cards do AdaLove para CSV**
+# 🚀 Adalove Extract Cards v2
 
-Este projeto tem como objetivo **auxiliar estudantes a extrair, de forma automatizada**, todas as informações presentes nos *cards* do [AdaLove (Inteli)](https://adalove.inteli.edu.br/) e **salvá-las em um arquivo CSV**. Com isso, é possível **migrar os dados** para plataformas de organização de preferência, como Trello, Notion, Google Sheets ou qualquer outra ferramenta que suporte importação de CSV. 
+> **📋 DISCLAIMER**: Este projeto tem **fins puramente acadêmicos e educacionais**, visando otimizar o aprendizado e organização de materiais de estudo. O autor não se responsabiliza pelo uso inadequado da ferramenta. Use por sua conta e risco, respeitando os termos de uso da plataforma AdaLove e políticas institucionais.
 
-O projeto é escrito em Python, utilizando **Playwright** para automação de navegação em páginas web, e **asyncio** para gerenciar tarefas de forma assíncrona.
+**Extração completa e automatizada de cards do AdaLove com organização inteligente por turma**
 
----
+## 🌟 Inspiração e Origem
 
-## **Índice**
-- [**Extração de Cards do AdaLove para CSV**](#extração-de-cards-do-adalove-para-csv)
-  - [**Índice**](#índice)
-  - [**Visão Geral**](#visão-geral)
-  - [**Tecnologias Utilizadas**](#tecnologias-utilizadas)
-  - [**Instalação e Configuração**](#instalação-e-configuração)
-    - [**Pré-requisitos**](#pré-requisitos)
-    - [**Clonando o Repositório**](#clonando-o-repositório)
-    - [**Instalando as Dependências**](#instalando-as-dependências)
-    - [**Executando o Playwright Install**](#executando-o-playwright-install)
-    - [**Configurando Variáveis de Ambiente**](#configurando-variáveis-de-ambiente)
-  - [**Como Executar o Script**](#como-executar-o-script)
-  - [**Estrutura dos Arquivos**](#estrutura-dos-arquivos)
-  - [**Funcionamento Geral do Script**](#funcionamento-geral-do-script)
-  - [**Possíveis Erros e Soluções**](#possíveis-erros-e-soluções)
-  - [**Contato**](#contato)
+Este projeto foi **inspirado e desenvolvido a partir** do trabalho original de [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards). A versão atual representa uma **evolução significativa** com funcionalidades expandidas, organização aprimorada e extração completa de materiais acadêmicos.
 
----
+## 📋 O Que Este Script Faz
 
-## **Visão Geral**
-Este projeto foi desenvolvido para:
-- **Automatizar** o processo de login no AdaLove (via conta do Google).
-- **Identificar e percorrer** unidades específicas (ex.: *Unidade 01*, *Unidade 02*, etc.).
-- **Coletar informações** de cada *card* presente em cada unidade (título, tipo, professor, data de instrução, descrição, link, e possíveis atividades ponderadas).
-- **Organizar** essas informações em uma lista.
-- **Salvar** tudo em um arquivo `cards_adalove.csv`, de maneira ordenada, preenchendo eventuais lacunas de datas de forma automática.
-- **Liberar** o navegador, encerrar o contexto e apresentar o **tempo de execução** total do script.
+✅ **Login automático** na plataforma AdaLove  
+✅ **Extração completa** de todos os cards de todas as semanas  
+✅ **Captura links e materiais** anexados aos cards (Google Drive, PDFs, etc.)  
+✅ **Organização automática** por pasta da turma com nome personalizado  
+✅ **Logs detalhados** para acompanhamento e debug  
 
-O arquivo CSV gerado poderá então ser **importado** em qualquer plataforma que aceite esse formato, como Trello, Notion, Excel, Google Sheets, entre outras.
+## 🎯 Script Principal
+
+**USE APENAS**: `adalove_extractor.py` 
+
+Este é o script final e definitivo que combina todas as funcionalidades necessárias.
 
 ---
 
-## **Tecnologias Utilizadas**
-- **Python 3.9+**  
-- **Playwright**: biblioteca de automação de navegadores, permite controlar o Chrome, Firefox e Safari.  
-- **asyncio**: biblioteca nativa do Python para gerenciar operações assíncronas.  
-- **dotenv** (`python-dotenv`): para carregar variáveis de ambiente com segurança (credenciais).  
-- **CSV** (biblioteca nativa do Python): para leitura e escrita de arquivos CSV.
+## 🚀 Como Usar
 
----
+### 1. **Preparação**
+Crie e ative um ambiente virtual (recomendado) antes de instalar as dependências — isso mantém as dependências isoladas do sistema.
 
-## **Instalação e Configuração**
-
-### **Pré-requisitos**
-- Python 3.9 ou superior instalado na sua máquina.  
-- Pip (gerenciador de pacotes do Python) atualizado para a última versão.  
-- Navegador Google Chrome (caso deseje visualizar a automação em modo não-headless).
-
-### **Clonando o Repositório**
-Se você ainda não clonou o repositório, utilize:
+macOS / Linux (zsh/bash):
 ```bash
-git clone https://github.com/tonyJonas/adalove_extract_cards
-cd adalove_extract_cards
+# criar e ativar venv
+python3 -m venv venv
+source venv/bin/activate
+
+# atualizar pip e instalar dependências
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+playwright install chromium # instala o navegador usado pelo Playwright
 ```
 
-### **Instalando as Dependências**
-Há um arquivo `requirements.txt` que lista todas as bibliotecas necessárias:
+Windows (PowerShell):
+```powershell
+# criar e ativar venv
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# atualizar pip e instalar dependências
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+playwright install chromium # instala o navegador usado pelo Playwright
+```
+
+Windows (CMD):
+```cmd
+<!-- criar e ativar venv -->
+python -m venv venv
+.\venv\Scripts\activate
+
+<!-- # atualizar pip e instalar dependências -->
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+<!-- # instala o navegador usado pelo Playwright -->
+playwright install chromium 
+```
+
+# Configurar credenciais no .env (copie do .env.example)
+```
+LOGIN=seu.email@sou.inteli.edu.br
+SENHA=sua_senha
+```
+
+### 2. **Execução**
+```bash
+python adalove_extractor.py
+```
+
+### 3. **Processo Automatizado**
+```
+📁 Digite nome da turma: [SEU_INPUT] → Cria pasta organizada
+🔑 Login automático → Credenciais do .env  
+👆 Selecione turma na interface → Manual (mais confiável)
+⚙️ Extração automática → Todas as semanas
+💾 Salvamento → dados_extraidos/SEU_INPUT/cards_completos_TIMESTAMP.csv
+```
+
+---
+
+## 📊 Dados Extraídos (Conteúdo Acadêmico Completo)
+
+Para cada card, o script captura **TODOS os materiais acadêmicos**:
+
+### ✅ **Conteúdo Principal**
+- 📝 **Título e descrição** completos
+- 📄 **Texto completo** do card
+- 🏷️ **Tipo** (Atividade, Projeto, Material, etc.)
+- 📅 **Semana** e posição
+
+### ✅ **Materiais Anexados**
+- 🔗 **Links externos** encontrados no card
+- 📎 **Google Drive, Docs, Sheets** automaticamente categorizados
+- 📁 **Arquivos** (PDFs, DOCs, PPTs, etc.) identificados
+- 🖼️ **Imagens** e outros recursos capturados
+
+### 📊 **Exemplo de Saída CSV:**
+```csv
+semana,indice,id,titulo,descricao,tipo,links,materiais,arquivos,texto_completo
+Semana 01,1,card-123,"Intro Python","Conceitos básicos","Atividade","Link: https://example.com","Google Drive: https://drive.google.com/...","exercicios.pdf: https://...","Texto completo do card..."
+Semana 01,2,card-124,"Git Básico","Controle de versão","Material","","Docs: https://docs.google.com/...","tutorial.pdf: https://...","Git Básico\nControle de versão\nComandos essenciais..."
+```
+
+---
+
+## 📁 Organização Automática por Turma
+
+### 🎯 **Como Funciona**
+O script solicita o **nome da turma** no início e cria automaticamente a estrutura organizacional:
+
+### **Exemplo de Uso:**
+```bash
+$ python adalove_extractor.py
+📁 Digite o nome da turma para organizar os dados: 2025-1B-T13
+```
+
+### **Resultado Automático:**
+```
+dados_extraidos/
+└── 2025-1B-T13/
+    └── cards_completos_20250825_194523.csv
+```
+
+### **Múltiplas Turmas:**
+```
+dados_extraidos/
+├── 2025-1B-T13/
+│   ├── cards_completos_20250825_194523.csv
+│   └── cards_completos_20250826_143012.csv
+├── ES06-2025/
+│   └── cards_completos_20250825_201538.csv
+└── outro_modulo/
+    └── cards_completos_20250826_084521.csv
+```
+
+### ✅ **Vantagens da Organização:**
+- 📁 **Pasta individual** para cada turma
+- 🔄 **Timestamping** evita sobrescrever dados
+- 📚 **Histórico preservado** de todas as extrações
+- 🔍 **Fácil localização** dos dados por turma
+
+---
+
+## 🔧 Funcionalidades Detalhadas
+
+### 🔐 **Login Inteligente**
+- **Automático**: Usa credenciais do arquivo `.env`
+- **Fallback manual**: Se automático falhar, permite login manual
+- **Detecção**: Reconhece automaticamente redirecionamentos do Google
+
+### 🔍 **Descoberta Automática de Semanas**
+- **Scanning**: Encontra todas as semanas disponíveis automaticamente
+- **Flexível**: Funciona com qualquer quantidade de semanas
+- **Logs**: Mostra quais semanas foram descobertas
+
+### 📎 **Extração Completa de Materiais**
+- **Links externos**: Todos os URLs encontrados nos cards
+- **Google Workspace**: Drive, Docs, Sheets automaticamente categorizados
+- **Arquivos**: PDFs, DOCs, PPTs, etc. identificados separadamente
+- **Recursos**: Imagens e outros materiais capturados
+- **Categorização**: Separa links, materiais e arquivos automaticamente
+
+### 🗂️ **Sistema de Organização**
+- **Input personalizado**: Nome da turma definido pelo usuário
+- **Criação automática**: Estrutura de pastas gerada automaticamente
+- **Preservação**: Dados anteriores nunca são sobrescritos
+- **Logs individuais**: Log separado para cada turma e execução
+
+---
+
+## 📝 Sistema de Logs
+
+### **Localização**: `logs/nome_turma_TIMESTAMP.log`
+
+### **Conteúdo dos Logs:**
+- ✅ **Processo de login** detalhado (automático ou manual)
+- ✅ **Semanas descobertas** e processadas
+- ✅ **Cards encontrados** por semana
+- ✅ **Links e materiais** capturados por card
+- ✅ **Estatísticas finais** da extração
+- ❌ **Erros** com contexto para debug
+
+### **Exemplo de Log:**
+```
+14:30:15 | INFO | 🚀 Iniciando extração para turma: 2025-1B-T13
+14:30:16 | INFO | 🔑 Fazendo login...
+14:30:20 | INFO | ✅ Login realizado!
+14:30:23 | INFO | 🔍 Descobrindo semanas disponíveis...
+14:30:25 | INFO | 📊 10 semanas descobertas
+14:30:27 | INFO | 🔄 Semana 01 (1/10)
+14:30:30 | INFO |    ✅ 14 cards encontrados
+14:30:35 | INFO |    📊 14 cards processados com sucesso
+```
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+adalove_extract_cards/
+├── 🎯 adalove_extractor.py         # SCRIPT PRINCIPAL (USAR ESTE)
+├── 💾 main_completo_original.py    # Backup do script original
+├── 📋 README.md                    # Este guia
+├── 🔧 .env.example                 # Exemplo de configuração
+├── 🔐 .env                         # Suas credenciais (criar baseado no .example)
+├── 📦 requirements.txt             # Dependências Python
+├── 📚 documents/                   # Documentação técnica detalhada
+│   ├── README_reformulacao.md      # Histórico da reformulação
+│   ├── GUIA_EXTRACAO.md           # Guias técnicos
+│   └── DADOS_EXTRAIDOS.md         # Especificações dos dados
+├── 💾 dados_extraidos/            # DADOS ORGANIZADOS POR TURMA
+│   ├── README.md                   # Explica organização dos dados
+│   ├── turma_2025-1B-T13/        # Exemplo de pasta de turma
+│   └── turma_ES06/                # Outra pasta de turma
+├── 📝 logs/                        # Logs das execuções
+├── 🗂️ arquivos_antigos/           # Scripts de desenvolvimento (histórico)
+└── ⚙️ venv/                       # Ambiente virtual Python
+```
+
+---
+
+## ⚡ Exemplo de Execução Completa
+
+```bash
+$ python adalove_extractor.py
+
+🚀 ADALOVE CARDS EXTRACTOR - VERSÃO FINAL
+📋 Este script faz extração completa incluindo:
+   ✅ Títulos e descrições dos cards
+   ✅ Links e materiais anexados  
+   ✅ Arquivos e documentos
+   ✅ Organização por pasta da turma
+
+📁 Digite o nome da turma para organizar os dados: 2025-1B-T13
+🔑 Fazendo login...
+✅ Login realizado!
+🏠 Navegando para academic-life...
+📁 Dados serão salvos em: dados_extraidos/2025-1B-T13/
+👆 Agora selecione a turma na interface:
+⏸️ Pressione Enter após selecionar a turma na página: [ENTER]
+🔍 Descobrindo semanas disponíveis...
+📊 10 semanas descobertas:
+   📅 Semana 01
+   📅 Semana 02
+   ...
+📚 Processando 10 semanas...
+🔄 Semana 01 (1/10)
+   ✅ 14 cards encontrados
+   📊 14 cards processados com sucesso
+🔄 Semana 02 (2/10)
+   ✅ 23 cards encontrados
+   📊 23 cards processados com sucesso
+...
+
+🎉 EXTRAÇÃO CONCLUÍDA COM SUCESSO!
+📊 127 cards extraídos
+📚 10 semanas processadas  
+🔗 89 cards com links
+📎 67 cards com materiais
+📁 Pasta: dados_extraidos/2025-1B-T13/
+💾 Arquivo: cards_completos_20250825_194523.csv
+```
+
+---
+
+## 🎯 Diferenciais da Versão Final
+
+### 🌟 **Evolução do Projeto Original ([Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards))**
+
+#### **🚀 Melhorias Arquitetônicas:**
+- **Script Original**: Estrutura básica de extração
+- **Esta Versão**: Sistema completo com organização automática, logs detalhados e extração de materiais
+
+#### **📊 Capacidades de Extração:**
+- **Script Original**: Foco em dados básicos dos cards
+- **Esta Versão**: **Extração acadêmica completa** incluindo:
+  - ✅ Links externos e materiais do Google Drive
+  - ✅ Arquivos anexados (PDFs, DOCs, etc.)
+  - ✅ Categorização automática de conteúdo
+  - ✅ Texto completo preservado
+
+#### **🗂️ Sistema de Organização:**
+- **Script Original**: Salvamento simples
+- **Esta Versão**: **Organização inteligente**:
+  - ✅ Pastas automáticas por turma (nome personalizado)
+  - ✅ Timestamping para preservar histórico
+  - ✅ Estrutura de projeto profissional
+
+#### **🔧 Robustez e Confiabilidade:**
+- **Script Original**: Automação básica
+- **Esta Versão**: **Sistema inteligente**:
+  - ✅ Login com fallback manual
+  - ✅ Descoberta automática de semanas
+  - ✅ Logs detalhados para debug
+  - ✅ Tratamento de erros robusto
+
+### 🔄 **Evolução Interna do Projeto**
+
+#### **❌ Antes (Desenvolvimento - Confuso):**
+- `main_completo.py` → Apenas testava (não extraía dados)
+- `extrator_completo.py` → Extraía + CSV + JSON + Relatório
+- `extrator_simples.py` → Extraía básico (sem materiais)
+- **Múltiplos scripts** gerando confusão
+
+#### **✅ Agora (Final - Simples):**
+- `adalove_extractor.py` → **SCRIPT ÚNICO** que faz tudo:
+  - ✅ Login automático inteligente
+  - ✅ Extração de dados completos + materiais
+  - ✅ Organização automática por turma
+  - ✅ Salva CSV otimizado
+  - ✅ Logs detalhados
+  - ✅ Interface confiável
+
+### 🏆 **Principais Inovações desta Versão:**
+
+1. **📎 Extração de Materiais Acadêmicos**
+   - Captura **todos os links e arquivos** dos cards
+   - **Categorização automática** (links, materiais, arquivos)
+   - **Preservação completa** do conteúdo acadêmico
+
+2. **🗂️ Organização por Turma**
+   - **Input personalizado** do nome da turma
+   - **Criação automática** de estrutura de pastas
+   - **Histórico preservado** de todas as extrações
+
+3. **🔧 Sistema de Logs Avançado**
+   - **Logs detalhados** por turma e timestamp
+   - **Debug facilitado** com contexto completo
+   - **Acompanhamento** de cada etapa da extração
+
+4. **🎯 Interface Inteligente**
+   - **Seleção manual** da turma (mais confiável)
+   - **Login com fallback** (automático + manual)
+   - **Descoberta automática** de semanas disponíveis
+
+---
+
+## 🚨 Pontos Importantes
+
+### ⚙️ **Configuração Necessária**
+- **Arquivo `.env`**: Configure suas credenciais (use `.env.example` como base)
+- **Dependências**: Execute `pip install playwright python-dotenv`
+- **Playwright**: Execute `playwright install chromium`
+
+### 🧩 Dependências mínimas x extras (dev)
+O projeto agora separa as dependências em dois conjuntos:
+
+- `requirements.txt` → dependências mínimas necessárias para executar o extractor (recomendado para a maioria dos usuários).
+- `requirements-dev.txt` → pacotes opcionais/extra para análises, relatórios e desenvolvimento (p.ex. `pandas`, `numpy`).
+
+Instalação (ambiente virtual ativado):
+
+Instalar apenas o necessário para rodar o extractor:
 ```bash
 pip install -r requirements.txt
+playwright install chromium
 ```
 
-Esse comando instalará:
-- **playwright**
-- **python-dotenv**
-- E quaisquer outras dependências necessárias.
-
-### **Executando o Playwright Install**
-Após instalar as bibliotecas, é **fundamental** que você instale os navegadores suportados pelo Playwright. Para isso, rode:
+Instalar também as dependências de desenvolvimento/analise:
 ```bash
-playwright install
+pip install -r requirements-dev.txt
 ```
-Esse comando baixa as versões necessárias de navegadores (Chromium, Firefox, WebKit), garantindo a compatibilidade.
 
-### **Configurando Variáveis de Ambiente**
-Este script utiliza o **dotenv** para armazenar credenciais de login de forma mais segura.  
+Manter essa separação reduz o tempo de instalação e o tamanho do ambiente para quem só precisa executar a extração.
 
-1. Crie um arquivo chamado `.env` na raiz do seu projeto (caso ainda não exista).
-2. Dentro deste arquivo, defina as variáveis `LOGIN` e `SENHA`:
-   ```
-   LOGIN=seu.email@exemplo.com
-   SENHA=suaSenha
-   ```
-3. Salve o arquivo. As credenciais serão carregadas automaticamente no script Python.
-4. Caso não queira utilizar o **dotenv**, apenas substitua as variáveis das credenciais com seu login e senha do Adalove.
+### 🎯 **Processo de Uso**
+- **Seleção manual** da turma é **intencional** (mais confiável que automação)
+- **Nome da turma** é solicitado para **organização automática**
+- **Dados nunca são sobrescritos** (timestamping automático)
 
+### 📊 **Resultados**
+- **CSV completo** com todos os dados acadêmicos
+- **Organização por turma** em pastas separadas
+- **Logs detalhados** para qualquer troubleshooting necessário
 
 ---
 
-## **Como Executar o Script**
-Com todas as dependências instaladas e o arquivo `.env` configurado, execute:
+## 🏆 Resumo Final
+
+### ✅ **1 Script para Tudo**
+`adalove_extractor.py` → Solução completa e definitiva
+
+### ✅ **Extração Acadêmica Total**
+Links, materiais, arquivos, Google Drive → Tudo que um módulo contém
+
+### ✅ **Organização Automática**
+Pasta por turma + timestamping → Zero confusão, máxima organização
+
+### ✅ **Interface Limpa**
+Documentação organizada + projeto estruturado → Profissional e fácil de usar
+
+---
+
+## 🚀 **PRONTO PARA USO!**
+
+**Execute agora:**
 ```bash
-python main.py
+python adalove_extractor.py
 ```
 
-Assim que o script iniciar, ele:
-1. Abrirá o navegador (Chrome) em modo **não-headless** (visível).
-2. Acessará a página de login do AdaLove, clicando em **Entrar com o Google**.
-3. Inserirá o seu **e-mail** e **senha** (da variável de ambiente).
-4. Esperará o carregamento da página principal (identificando um elemento específico).
-5. Processará todas as unidades definidas na lista `unidades` (você pode alterar essa lista no código, conforme sua necessidade).
-6. Criará o arquivo `cards_adalove.csv` ao final, caso ele não exista.
-7. Exibirá na tela o **tempo total de execução** do script.
+1. ✅ Digite o nome da turma para organização
+2. ✅ Login automático (ou manual se necessário)  
+3. ✅ Selecione a turma na interface da página
+4. ✅ Aguarde extração completa de todas as semanas
+5. ✅ Dados completos salvos em `dados_extraidos/nome_turma/`
 
 ---
 
-## **Estrutura dos Arquivos**
-A estrutura básica do projeto é:
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License** - uma das licenças open source mais permissivas.
+
+### MIT License
+
 ```
-.
-├── .env                  # Armazena as credenciais (LOGIN e SENHA)
-├── main.py               # Script principal contendo o código de extração
-├── requirements.txt      # Todas as dependências necessárias
-└── README.md             # Este arquivo de documentação
+Copyright (c) 2025 Fernando Bertholdo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
-Caso você tenha organizado de outra forma, adeque as instruções para refletir a sua estrutura de pastas.
+### 🌟 **Contribuições**
+- **Projeto original**: [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards)
+- **Esta versão**: Desenvolvida e expandida por Fernando Bertholdo
+
+### ⚖️ **Responsabilidade**
+- Este software é fornecido "como está", sem garantias
+- O uso é por **conta e risco** do usuário
+- **Fins acadêmicos e educacionais** recomendados
+- Respeite os **termos de uso** da plataforma AdaLove
 
 ---
 
-## **Funcionamento Geral do Script**
-
-1. **Carrega variáveis de ambiente**:
-   - Utiliza `load_dotenv()` para carregar `LOGIN` e `SENHA` do arquivo `.env`.
-
-2. **Abre o navegador**:
-   - A chamada `await p.chromium.launch(channel="chrome", headless=False)` permite abrir o Chrome em modo visual (não-headless).
-
-3. **Faz o login**:
-   - Preenche o campo "E-mail ou telefone" com o valor de `LOGIN`.
-   - Clica no botão "Próxima".
-   - Preenche o campo "Digite sua senha" com o valor de `SENHA`.
-   - Clica novamente em "Próxima".
-   - Verifica se um *elemento-chave* da página foi carregado.
-
-4. **Processa as unidades**:
-   - Para cada item da lista `unidades` (ex.: "Unidade 01", "Unidade 02", ...):
-     - Abre uma nova aba no mesmo contexto.
-     - Navega até a página de *academic-life*.
-     - Clica no texto da unidade.
-     - Localiza todos os *cards* (atributo `data-rbd-draggable-id`).
-     - Para cada card, coleta título, tipo, professor, data, descrição, link e/ou se a atividade é ponderada.
-     - Fecha a aba ao terminar.
-
-5. **Salva no CSV**:
-   - Cria ou sobrescreve o arquivo `cards_adalove.csv`.
-   - Escreve o cabeçalho e as linhas com as informações coletadas.
-
-6. **Preenche datas ausentes**:
-   - Lê o CSV recém-criado.
-   - Qualquer linha onde a coluna `Data_instrucao` seja "N/A" recebe a última data válida encontrada no arquivo.
-
-7. **Finaliza**:
-   - Fecha o navegador.
-   - Imprime o tempo total de execução e a mensagem de conclusão.
-
----
-
-## **Possíveis Erros e Soluções**
-
-- **Erro de Timeout durante o Login**  
-  Se sua conexão for lenta ou a página do Google demorar mais que o esperado para carregar, aumente o valor de `timeout` nos `await expect(...)` ou realize um `page.wait_for_timeout(...)` adicional antes.
-
-- **Erro de Seletor não encontrado**  
-  Verifique se o seletor utilizado ainda está válido. Mudanças na interface do AdaLove podem quebrar o script. Atualize a string do seletor para refletir a nova estrutura, caso o repositório esteja desatualizado.
-
-- **Problemas com variáveis de ambiente**  
-  Certifique-se de que o arquivo `.env` está presente na raiz do projeto e que seu conteúdo está formatado corretamente:
-  ```env
-  LOGIN=seu.email@exemplo.com
-  SENHA=suaSenha
-  ```
-  Também confirme se o `.env` está sendo carregado antes de acessar `os.environ`.
-
-- **Navegador não abre**  
-  Depois de instalar as dependências com `pip install -r requirements.txt`, é crucial rodar `playwright install`. Caso contrário, o Playwright não terá os binários necessários.
-
----
-
-## **Contato**
-Em caso de dúvidas, sugestões ou problemas, entre em contato comigo:  
-**E-mail**: [tony.sousa@sou.inteli.edu.br](mailto:tony.sousa@sou.inteli.edu.br)
-
----
-
-<p align="center">
-  <i>Obrigado por utilizar este projeto, fico feliz por ajudar outras pessoas! Fico à disposição para ajudar no que for preciso.</i>
-</p>
+**🎉 Ferramenta completa para extração acadêmica do AdaLove!**
