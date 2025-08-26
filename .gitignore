@@ -1,3 +1,90 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Env files
 .env
+.env.*
+
+# macOS
+.DS_Store
+
+# Logs and output data
+logs/
+dados_extraidos/
+data/
+*.log
+
+# VSCode
+.vscode/
+# Arquivos de credenciais (IMPORTANTE - nunca commitar)
+.env
+
+# Ambientes virtuais Python
+venv/
 extract_cards_venv/
-cards_adalove.csv
+env/
+.venv/
+
+# Arquivos de dados extraídos (podem conter informações sensíveis)
+dados_extraidos/
+*.csv
+
+# Logs (podem conter informações sensíveis)
+logs/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
