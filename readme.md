@@ -1,4 +1,4 @@
-# 🚀 Adalove Extract Cards v2
+# 🚀 Adalove Extract Cards - *Enhanced*
 
 > **📋 DISCLAIMER**: Este projeto tem **fins puramente acadêmicos e educacionais**, visando otimizar o aprendizado e organização de materiais de estudo. O autor não se responsabiliza pelo uso inadequado da ferramenta. Use por sua conta e risco, respeitando os termos de uso da plataforma AdaLove e políticas institucionais.
 
