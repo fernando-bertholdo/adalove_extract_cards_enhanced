@@ -16,7 +16,7 @@ __pycache__/
 
 # Logs and output data
 logs/
-dados_extraidos/
+# dados_extraidos/
 data/
 *.log
 
@@ -32,8 +32,8 @@ env/
 .venv/
 
 # Arquivos de dados extraídos (podem conter informações sensíveis)
-dados_extraidos/
-*.csv
+# dados_extraidos/
+# *.csv
 
 # Logs (podem conter informações sensíveis)
 logs/
