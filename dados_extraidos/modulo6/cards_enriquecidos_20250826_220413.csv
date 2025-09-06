@@ -1,0 +1,2678 @@
+semana,semana_num,sprint,indice,id,titulo,descricao,tipo,data_ddmmaaaa,hora_hhmm,data_hora_iso,professor,is_instrucao,is_autoestudo,is_atividade_ponderada,parent_instruction_id,parent_instruction_title,anchor_method,anchor_confidence,links_urls,materiais_urls,arquivos_urls,num_links,num_materiais,num_arquivos,record_hash,texto_completo,links,materiais,arquivos
+Semana 01,1,1,1,46d403bdd15b4fe8a68dbf1e9880f00c,Workshop com Parceiro,24/04/2025 - 14:00h,Outros,24/04/2025,14:00,2025-04-24T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,93fa506122e2fa6d6019741b0a42ed3912b2ded2,"Workshop com Parceiro
+
+
+
+
+
+
+
+
+24/04/2025 - 14:00h",,,
+Semana 01,1,1,2,6ec59e1a3c00451994a3f359a92a340e,Filtragem Colaborativa baseada em Item,"25/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,25/04/2025,14:00,2025-04-25T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,c235e274f290c21554b3313b2cbe1dfb5d6f8b73,"Filtragem Colaborativa baseada em Item
+
+
+
+
+
+
+
+
+25/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,3,81084fd18dae4e2c80cb8d77075c50a3,Recommendation Algorithm with SVD,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,101ef66a2e6629481fb76d99a95d60014fd2141d,"Recommendation Algorithm with SVD
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,4,c641fc49242f4a4f8fb07ed97f1161e2,Visualizing SVD for Recommender Systems,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,4de87389b30e6fe15866e354d20d19eb5b9dbf7f,"Visualizing SVD for Recommender Systems
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,5,be12c320e74743e9a990cd118667390c,Cold start (recommender systems),Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,c299238b79e5fed2254a2c1c227f188aa31e698a,"Cold start (recommender systems)
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,6,d248db41e1bc4dce9d9dd291ab2af8c0,Filtragem Colaborativa Baseada em Item: Como os Itens se Recomendam entre Si,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,976b0eb146d7d345ce1390c73b950bce52326980,"Filtragem Colaborativa Baseada em Item: Como os Itens se Recomendam entre Si
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,7,0ae2d4c337704d16976a4beedbc8b0ff,Filtragem Colaborativa por Usuário,"23/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,23/04/2025,14:00,2025-04-23T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,592bb23260c080357812193924ab9d945e04ed7a,"Filtragem Colaborativa por Usuário
+
+
+
+
+
+
+
+
+23/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,8,95496afc63f24f4da7cc7e1fedbb9a78,Introdução a Sistemas de Recomendação,Ovidio Lopes da Cruz Netto,Outros,,,,,True,False,False,,,,,,,,0,0,0,2bc4fef18855d971730735c0cd7302a8cbe3d628,"Introdução a Sistemas de Recomendação
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,9,7e7539e842094fec85240a43bc578b87,Recommender system,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,5647587553cf67290c828542da52ef17f18876fa,"Recommender system
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,10,497555f622884fb59d54aa2f0f49359a,A Filtragem Colaborativa,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,6e36329f058894342768a0e18e970e3578f079ed,"A Filtragem Colaborativa
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,11,260c915acefe4efab9c2a2b6989602a5,Sistemas de recomendação: Filtragem Colaborativa baseada no Usuário,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,59074e884d2844877d0f488453ba8aa0c317a65d,"Sistemas de recomendação: Filtragem Colaborativa baseada no Usuário
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,12,90d5bf87466b44239a99f951fe0a0f7d,User-based Collaborative Filtering in Python,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,de4025abbd33430ce28baeaea0fc308a1c4d62cd,"User-based Collaborative Filtering in Python
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,13,e3de821a8d1943509338767a8c25f2f1,Music Recommendation System Using Spotify Dataset,Ovidio Lopes da Cruz Netto,Outros,,,,Music Recommendation System Using Spotify Dataset,False,False,False,,,,,,,,0,0,0,e62c7f3ec0878023ee286f6203e50c55c1528951,"Music Recommendation System Using Spotify Dataset
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 01,1,1,14,e14d0761d54a4b3ea0803ff1e7a4afec,Onboarding e Sprint Planning 1,22/04/2025 - 14:00h,Outros,22/04/2025,14:00,2025-04-22T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,27c03bd81295ba8021fea6872a0a5a51b0682206,"Onboarding e Sprint Planning 1
+
+
+
+
+
+
+
+
+22/04/2025 - 14:00h",,,
+Semana 02,2,1,1,98be1544303241d4bac6c8c5279d2b05,"Projeto de Software orientado a objetos: conceito de entidades, propriedades, separação de contextos e diagrama UML de classes","28/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Projeto,28/04/2025,14:00,2025-04-28T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,5104935327eb5c2b494ced592662c881a0fbf0df,"Projeto de Software orientado a objetos: conceito de entidades, propriedades, separação de contextos e diagrama UML de classes
+
+
+
+
+
+
+
+
+28/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 02,2,1,2,5677284a52f84a12a92d8b4103a803b8,Classes e objetos. Definições e uso,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,7e2aec21f068379370038a3e963cc928444bb989,"Classes e objetos. Definições e uso
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 02,2,1,3,8c782c43374d49e1b7dd62bfa6624dac,Propriedades e Métodos: Definindo o Comportamento dos Objetos,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,2e10c246e5a6ab4b85dfaa67485d83e810cf99ac,"Propriedades e Métodos: Definindo o Comportamento dos Objetos
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 02,2,1,4,9dba8418e03c4d8bab7c48242b10369a,Separação de Contextos: Organizando Responsabilidades no Software,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,6c9d89f4f740a3494166fd0b1a9362d72c258084,"Separação de Contextos: Organizando Responsabilidades no Software
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 02,2,1,5,5ff13dd658794dd09b693886736fc005,Diagramas de Classes UML: Visualizando a Estrutura do Sistema,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,a46fb7cdee984382250f4df45d3cda68cd752f8f,"Diagramas de Classes UML: Visualizando a Estrutura do Sistema
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 02,2,1,6,4727030ab2d64ec5ac2a6132c3e7e5ae,Mapeamento e Gestão Por Processos - BPM,"29/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",Outros,29/04/2025,14:00,2025-04-29T14:00:00-03:00,Vanessa Tavares Nunes,True,False,False,,,,,,,,0,0,0,d6cf8b695b0bf08a04f50e88d9851db739e39427,"Mapeamento e Gestão Por Processos - BPM
+
+
+
+
+
+
+
+
+29/04/2025 - 14:00h
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,7,0bae9835389b4d3081e59a5a7823e61d,"Gerenciar os processos, para agregar valor à organização",Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,3dedcab6f5ef22f072ba03469021428e7757cbef,"Gerenciar os processos, para agregar valor à organização
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,8,1e6c227119dd478d993657bf8be4df77,Gestão de processos (parte I),Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,e363e9608583d5b591fe4ddcd915c1157b3a39aa,"Gestão de processos (parte I)
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,9,32ca65bb3cd440b5b4dd619e0c59a8ff,Modelagem de processos,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,d3c4dc788d4bef80fb465460eb3394472ed95aee,"Modelagem de processos
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,10,86dfd42f08f942639b92a6eccedf9879,Guia BPMN,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,fec3256c7b0a9eda7333d7b656ef5f961dafcc20,"Guia BPMN
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,11,a193e273f92a48d884644d632d63ef89,What is a business process?,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,a5a88e2b43471112c6374908e790283f87b4d3d0,"What is a business process?
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,12,907b4fe54a0a41abaca40f14c0a009fd,Introduction to the BPM lifecycle,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,a1b4dc93376b63721bc1d5774001cb18d2b0a82a,"Introduction to the BPM lifecycle
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,13,e588d7842b3c49019ad2222ef19dea7f,Process identification,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,9759e8a1c85f2d1c9ac2cae3351086f1484b81d8,"Process identification
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,14,e1df34d8533847fa92895b5b698c4295,Designation via reference models,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,42b93bd347d7520146e689b4e8b471a305cefd86,"Designation via reference models
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,15,14f5706bd3354adda39e60b798ab60b1,Download da Ferramenta ARIS,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,667b87010eea1d277c8879f74faf640ca44fbdaf,"Download da Ferramenta ARIS
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,16,36d8143bb71448ccbbaa23428b489e98,Tutorial da ferramenta ARIS,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,False,False,False,,,,,,,,0,0,0,b3b5b2c739b7253535adfc4a4c19aed6edd14e02,"Tutorial da ferramenta ARIS
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes",,,
+Semana 02,2,1,17,4be49226dd3f4cdfb9b98045f987a20d,Sprint Review  e  Retrospective 1,30/04/2025 - 14:00h,Outros,30/04/2025,14:00,2025-04-30T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,a7e2f03628cc1b0cac79ba794d1c31a4e0acad75,"Sprint Review  e  Retrospective 1
+
+
+
+
+
+
+
+
+30/04/2025 - 14:00h",,,
+Semana 02,2,1,18,46d7a66e8ddb4e1898c1325a4e1e838a,Questão de Negócios Parte 1 - Tarefa de modelagem de processos,"Nota: 0.0
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes
+
+Atividade ponderada",Atividade,,,,Vanessa Tavares Nunes,False,False,True,4727030ab2d64ec5ac2a6132c3e7e5ae,Mapeamento e Gestão Por Processos - BPM,"professor,sim=0.08,prev_prox=0.30",high,,,,0,0,0,4783b8974e96f44ee2e4a2cd86b0dda41dec20e2,"Questão de Negócios Parte 1 - Tarefa de modelagem de processos
+
+Nota: 0.0
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes
+
+Atividade ponderada",,,
+Semana 02,2,1,19,1ba0a1168df341408cb9343e97fbbf3f,ENTENDIMENTO DO PROJETO E DO NEGÓCIO,"Nota: 8.1
+
+Atividade ponderada",Atividade,,,,,False,False,True,4be49226dd3f4cdfb9b98045f987a20d,Sprint Review  e  Retrospective 1,"sim=0.17,prev_prox=1.30",medium,,,,0,0,0,e51e8c2c3bbece06da5d90c4fae80bb1084484f7,"ENTENDIMENTO DO PROJETO E DO NEGÓCIO
+
+Nota: 8.1
+
+Atividade ponderada",,,
+Semana 02,2,1,20,f1ed632241f24b918da506b68d52fd8f,ESPECIFICAÇÃO DE REQUISITOS FUNCIONAIS E NÃO FUNCIONAIS,"Nota: 8.2
+
+Atividade ponderada",Atividade,,,,,False,False,True,4be49226dd3f4cdfb9b98045f987a20d,Sprint Review  e  Retrospective 1,"sim=0.14,prev_prox=1.20",medium,,,,0,0,0,fbcc2d7c7f051d5229af472d5573c85f6afce58a,"ESPECIFICAÇÃO DE REQUISITOS FUNCIONAIS E NÃO FUNCIONAIS
+
+Nota: 8.2
+
+Atividade ponderada",,,
+Semana 02,2,1,21,3731ea819a3442c6aea76e9805a7eb80,BASE DE DADOS PARA MODELO DE RECOMENDAÇÃO,"Nota: 6.6
+
+Atividade ponderada",Atividade,,,,BASE DE DADOS PARA MODELO DE RECOMENDAÇÃO,False,False,True,4be49226dd3f4cdfb9b98045f987a20d,Sprint Review  e  Retrospective 1,"sim=0.00,prev_prox=1.10",medium,,,,0,0,0,5d134d0918f92a95d5357a3a97183791b6098eaa,"BASE DE DADOS PARA MODELO DE RECOMENDAÇÃO
+
+Nota: 6.6
+
+Atividade ponderada",,,
+Semana 02,2,1,22,5c37c380e7c4418485d3eb2b4bbb3139,GESTÃO EVOLUTIVA DO PROJETO,"Nota: 8.0
+
+Atividade ponderada",Atividade,,,,GESTÃO EVOLUTIVA DO PROJETO,False,False,True,4be49226dd3f4cdfb9b98045f987a20d,Sprint Review  e  Retrospective 1,"sim=0.00,prev_prox=1.00",medium,,,,0,0,0,3f592b4455398f9abbee2add7c338f14f9977014,"GESTÃO EVOLUTIVA DO PROJETO
+
+Nota: 8.0
+
+Atividade ponderada",,,
+Semana 02,2,1,23,51fd5946b86742918b77eaf8f4fee09c,GESTÃO DE CONFIGURAÇÃO,"Nota: 8.1
+
+Atividade ponderada",Atividade,,,,GESTÃO DE CONFIGURAÇÃO,False,False,True,4be49226dd3f4cdfb9b98045f987a20d,Sprint Review  e  Retrospective 1,"sim=0.00,prev_prox=0.90",medium,,,,0,0,0,378f37f3c968ef0b33523ed737294cb3d7a0dafd,"GESTÃO DE CONFIGURAÇÃO
+
+Nota: 8.1
+
+Atividade ponderada",,,
+Semana 03,3,2,1,a67a324c0deb44a7a9b00c20d28beb62,Sprint Planning 2 e Demonstração de Aprendizagem,05/05/2025 - 10:00h,Outros,05/05/2025,10:00,2025-05-05T10:00:00-03:00,,True,False,False,,,,,,,,0,0,0,18bc43aedfdbeb28c9fa3ff778ad1c383fddcbba,"Sprint Planning 2 e Demonstração de Aprendizagem
+
+
+
+
+
+
+
+
+05/05/2025 - 10:00h",,,
+Semana 03,3,2,2,55f98d38ad094bdaa61696bff0217339,Sistemas de recomendação baseados em filtragem colaborativa,"06/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,06/05/2025,14:00,2025-05-06T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,ba38c63e5fce8377370fd7eb0a0489af6098dcce,"Sistemas de recomendação baseados em filtragem colaborativa
+
+
+
+
+
+
+
+
+06/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 03,3,2,3,1a31f4ccc74a4acaa0fb793a94d59a08,What Content-Based Filtering is and Why You Should Use It,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,d9b27a4a8905ef9da86c7bca17cc4c48699e3aa7,"What Content-Based Filtering is and Why You Should Use It
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 03,3,2,4,813fb6a68b124a16a55624c84034d333,Building a Content-Based Book Recommendation Engine,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,cf3382d468d4d78cbc1b7b56268b5a27dd2b53c7,"Building a Content-Based Book Recommendation Engine
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 03,3,2,5,e629a2d956104093ade0ddfe32c31878,Recommender Systems: Behind the Scenes of Machine Learning-Based Personalization,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,fdeab1911a848d922264cd04aa51cb6f1b31e91d,"Recommender Systems: Behind the Scenes of Machine Learning-Based Personalization
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 03,3,2,6,ab467695cd784b468e9b9ae71fb895ac,Fundamentos de comunicação e interface aplicados à computação e sistemas móveis,"07/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",Outros,07/05/2025,14:00,2025-05-07T14:00:00-03:00,Bruna Mayer Costa,True,False,False,,,,,,,,0,0,0,b1bd07da56786d95c727464c5b9ac8884b6a4853,"Fundamentos de comunicação e interface aplicados à computação e sistemas móveis
+
+
+
+
+
+
+
+
+07/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,7,7584afda18fe463486450e10158d924b,"Decomposição em Valores Singulares (SVD): Entendendo através da teoria de matrizes, autovalores e autovetores","08/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",Outros,08/05/2025,14:00,2025-05-08T14:00:00-03:00,Luciano Galdino,True,False,False,,,,,,,,0,0,0,650d844c0e8c7eeb819bb593f31dfd78ef7003fb,"Decomposição em Valores Singulares (SVD): Entendendo através da teoria de matrizes, autovalores e autovetores
+
+
+
+
+
+
+
+
+08/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 03,3,2,8,bce3067b31864a36b3d9ece65b77d8b8,Teoria: Fatoração de Matriz,Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,43d129eae7e0cfcf35eb0963725237ffc36671e8,"Teoria: Fatoração de Matriz
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 03,3,2,9,cb5c49c7b26c46acbd59fd4932c054ac,Vídeo 1: A.I. Experiments: Visualizing High-Dimensional Space (by Google for Developers),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,1d34cccbb126a9651493df09b71665465849c45e,"Vídeo 1: A.I. Experiments: Visualizing High-Dimensional Space (by Google for Developers)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 03,3,2,10,f81c3fbe8fbb4991aefe96e09407e5cd,Vídeo 2: Singular Value Decomposition (SVD): Mathematical Overview (by Steve Brunton),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,979ccdb0504fac1bda8538faac835128e3e8f761,"Vídeo 2: Singular Value Decomposition (SVD): Mathematical Overview (by Steve Brunton)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 03,3,2,11,4d1aaac6676043d1a1ffda79feffe4e3,Tópicos de BD: Stored Procedures e Functions,"09/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",Outros,09/05/2025,14:00,2025-05-09T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,d563db57bed6d4de4963d594790c9f3adbf1f9f3,"Tópicos de BD: Stored Procedures e Functions
+
+
+
+
+
+
+
+
+09/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 03,3,2,12,be93d7e39d5c40d1aa6a792c50e257df,PL/pgSQL — SQL Procedural Language,Hermano Peixoto de Oliveira Junior,Outros,,,,,False,False,False,,,,,,,,0,0,0,5e7141a874103a2dd5c662b683a0011392470bb8,"PL/pgSQL — SQL Procedural Language
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 03,3,2,13,f7be21925e8b442381b87e076667767b,Procedimentos Armazenados e Sobrecarga de Função - PostgreSQL,Hermano Peixoto de Oliveira Junior,Outros,,,,,False,False,False,,,,,,,,0,0,0,b3b846af614f7a1e1d4ec709a2f9bcb6738cea94,"Procedimentos Armazenados e Sobrecarga de Função - PostgreSQL
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 03,3,2,14,928ce688391c42b59933facf4a5b2241,O que é e Como Criar uma Procedure no PostgreSQL?,Hermano Peixoto de Oliveira Junior,Outros,,,,,False,False,False,,,,,,,,0,0,0,61147addcc26af364d4714686313995535b23180,"O que é e Como Criar uma Procedure no PostgreSQL?
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 03,3,2,15,fdace7cdfc9d496a9b13831e5414b936,Creating Mobile App Wireframes: A Step-by-Step Guide,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,731a244247c1c06416226ace4a78241ee31dc0a4,"Creating Mobile App Wireframes: A Step-by-Step Guide
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,16,7ff4562360524776838aec68de590711,A Complete Guide To Mobile First Design,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,9ac6aef63c2e9c4a45d3589c06e86fe9758c17cc,"A Complete Guide To Mobile First Design
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,17,b2c7bb09513f4621afde06ecefd55832,4 Foundational UI Design Principles | C.R.A.P.,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,f15c6d16de22557e9ec8f3c7a7c1e80959fafd8f,"4 Foundational UI Design Principles | C.R.A.P.
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,18,c76172bc7423451da89130c1186a692e,Tipos de Navegação,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,679608e1a0aa86cfc83b8504677f2d00e674180e,"Tipos de Navegação
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,19,1c3a54c6f7c441fc838ff65d728838ad,Benchmarking: Como Efetuar A Análise De Competidores Em UX Design?,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,22d74d5a8d923e7249507ab0eb261c7cd70ea3e4,"Benchmarking: Como Efetuar A Análise De Competidores Em UX Design?
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,20,9285f9242ccc4af5992b00aebdc8d47e,"Fácil de usar: como os segredos do design user friendly estão mudando o modo como vivemos, trabalhamos e nos divertimos.",Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,125d6b220edf665e50574b95dd9034a11273b3d9,"Fácil de usar: como os segredos do design user friendly estão mudando o modo como vivemos, trabalhamos e nos divertimos.
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 03,3,2,21,d7894481dc1b414b8407efc041880836,Análise e Desenvolvimento de Sistemas de Recomendação de Vestuário com Dados da ModCloth,"Nota: 10.0
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto
+
+Atividade ponderada",Atividade,,,,,False,False,True,4d1aaac6676043d1a1ffda79feffe4e3,Tópicos de BD: Stored Procedures e Functions,"sim=0.12,prev_prox=0.50",medium,,,,0,0,0,67bd9cb0ad7477d9cb3d34cfa9d11ad493f9b59f,"Análise e Desenvolvimento de Sistemas de Recomendação de Vestuário com Dados da ModCloth
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto
+
+Atividade ponderada",,,
+Semana 03,3,2,22,770f2dbf8ce143b684c657cbd6edb73d,What is Mobile First Design?,"Nota: 10.0
+
+
+
+
+
+
+
+
+Bruna Mayer Costa
+
+Atividade ponderada",Atividade,,,,Bruna Mayer Costa,False,False,True,ab467695cd784b468e9b9ae71fb895ac,Fundamentos de comunicação e interface aplicados à computação e sistemas móveis,"professor,sim=0.00,prev_prox=0.00",high,,,,0,0,0,b1d9caf989c0135f5a3f01a7965fb828662c3038,"What is Mobile First Design?
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Bruna Mayer Costa
+
+Atividade ponderada",,,
+Semana 03,3,2,23,697cba84e6f445cbbe31c03d07016557,Questão Ponderada: Singular Value Decomposition,"Nota: 0.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",Atividade,,,,Luciano Galdino,False,False,True,7584afda18fe463486450e10158d924b,"Decomposição em Valores Singulares (SVD): Entendendo através da teoria de matrizes, autovalores e autovetores","professor,sim=0.00,prev_prox=0.00",high,,,,0,0,0,b8188d740650d69d65f0b22507a9f160b8128257,"Questão Ponderada: Singular Value Decomposition
+
+Nota: 0.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",,,
+Semana 04,4,2,1,eec074faad524a00851975644ae1d328,Arquitetura Geral e Orientada a Serviços (SOA) e a perspectiva de requisitos não funcionais,"12/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,12/05/2025,14:00,2025-05-12T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,e5fd00c9b5ebe04e604547a4c7bd2e71fa32c85d,"Arquitetura Geral e Orientada a Serviços (SOA) e a perspectiva de requisitos não funcionais
+
+
+
+
+
+
+
+
+12/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,2,2faee3c7bf47443598b271692248a457,Exemplo de um diagrama de arquitetura SOA de componentes,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,7a719865f8756593d7112f3abad4f15e4c63ebe4,"Exemplo de um diagrama de arquitetura SOA de componentes
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,3,8559de005160463bbe02bace7ff395be,Exemplo de um diagrama de arquitetura SOA em UML,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,813278f216eceddd2d6c0103b9c86eabee013781,"Exemplo de um diagrama de arquitetura SOA em UML
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,4,41d90b739bd94540929ef37afe1979ef,Arquitetura de Referencia SOA - TOGAF,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,f368dda4f08723074aad1c05767cc33dec87a71d,"Arquitetura de Referencia SOA - TOGAF
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,5,8d4af0a31a0f4d9592b79c2d294294b1,Requisitos não funcionais no contexto de SOA,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,b0697fdf4cc8dd0d57df6a9609507d6036d6089f,"Requisitos não funcionais no contexto de SOA
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,6,c15c3b62b8fa4337969cc36e9ae58308,Criando Diagramas - StarUML,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,f1239a27995077f91398891cfbcf91cfd9a719b7,"Criando Diagramas - StarUML
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,7,1013d106be7a49d3a59021cf90714ed9,Norma ISO 25010,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,417fca7c80a657d41efb18fc3b9f03ee85398ed7,"Norma ISO 25010
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,8,52c832acf08f4ccba2370f4a2a935842,Arquitetura Orientada a Serviços - Visão da IBM,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,6114e37179420c923b112b899025daa0eecbc6c4,"Arquitetura Orientada a Serviços - Visão da IBM
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,9,fa37a5fbcd6949478c7beea70ac67e7d,Arquitetura Orientada a Serviços - Visão da Microsoft,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,9fe5eb30373dc54b214afb154aee40e6c080b429,"Arquitetura Orientada a Serviços - Visão da Microsoft
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,10,e08a5f2c73e44deebca70266a7109e4a,Arquitetura Orientada a Serviços - Visão da AWS,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,74c431947faa87233f3a654cd2a55abbba688c48,"Arquitetura Orientada a Serviços - Visão da AWS
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 04,4,2,11,fcec2ea8172b4362a1268869c052f398,SOA do ponto de vista de negócio,"13/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",Outros,13/05/2025,14:00,2025-05-13T14:00:00-03:00,Rafael Ricardo Jacomossi,True,False,False,,,,,,,,0,0,0,0ab4a4cfffc3de76de77c6074ad5cee9feda66bd,"SOA do ponto de vista de negócio
+
+
+
+
+
+
+
+
+13/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 04,4,2,12,3ea67c6c398f4530ae9f3ac9e63a3fde,Benefícios da SOA para negócios,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,e2a3517ab03b0950830e0f352f063e8ddaef1553,"Benefícios da SOA para negócios
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 04,4,2,13,0b6b7e9cf6ed4bccba59636b063d6997,Qual a importância da SOA (Arquitetura Orientada a Serviços) para a adaptação das empresas às necessidades de negócios atuais?,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,374ea75c4b490e4456b6dd606a7dc9d7f280f8cc,"Qual a importância da SOA (Arquitetura Orientada a Serviços) para a adaptação das empresas às necessidades de negócios atuais?
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 04,4,2,14,82a6d5bdde2640899e90618b996896fe,Negócios Online - Arquiteturas Orientadas a Serviços,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,e18b3aaa54113f1cfc227b205186b770b4962ead,"Negócios Online - Arquiteturas Orientadas a Serviços
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 04,4,2,15,dd4f07c97c8a4e5da8c82fbe3ff3585e,Padrões de interação e recursos de personalização,"14/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",Outros,14/05/2025,14:00,2025-05-14T14:00:00-03:00,Bruna Mayer Costa,True,False,False,,,,,,,,0,0,0,6bba78a747903f69419bea6e02220ddb2b036b19,"Padrões de interação e recursos de personalização
+
+
+
+
+
+
+
+
+14/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 04,4,2,16,4956814657f04c21ab117e10e0527567,"The internet is starting to break, here's why",Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,831113687a5901d9116b616efa2e6def7b2e068c,"The internet is starting to break, here's why
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 04,4,2,17,2467b75666c54de6ad8165a1b30639d2,Intro to UI Design Patterns,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,77d89196275fcfa54c42abaeb7df2f19382db2da,"Intro to UI Design Patterns
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 04,4,2,18,8412397749d94f42b2c5ce1559054a08,"Basics of UI Design for Mobile Apps - Artboard Size, Screen Density and Resolution for Beginners",Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,dba29f0d21dce58190ffe1cf666f63422c36c657,"Basics of UI Design for Mobile Apps - Artboard Size, Screen Density and Resolution for Beginners
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 04,4,2,19,04d269a7c4bf4a328693d3514df39bb7,How to Develop and Test a Mobile-First Design in 2021,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,293a29185d5e2b08c4b8e0159bb06c41de20be99,"How to Develop and Test a Mobile-First Design in 2021
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 04,4,2,20,025ca71f292749ccae923d04b5819633,Medidas de proximidade: Encontrando Vizinhos com K-NN,"15/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",Outros,15/05/2025,14:00,2025-05-15T14:00:00-03:00,Luciano Galdino,True,False,False,,,,,,,,0,0,0,4b4af76a1a9d193c1ba7c06af83087b86d3316da,"Medidas de proximidade: Encontrando Vizinhos com K-NN
+
+
+
+
+
+
+
+
+15/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 04,4,2,21,885a1c31dd0a4e2d9ec3b674efbaa8ca,Videoaula 1: Top 6 Machine Learning Algorithms for Beginners - Classification (by Visual Studio Design),Luciano Galdino,Outros,,,,Luciano Galdino,True,False,False,,,,,,,,0,0,0,bf3e9b134fe9eaa8662cd1203bd22311376b9bf5,"Videoaula 1: Top 6 Machine Learning Algorithms for Beginners - Classification (by Visual Studio Design)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 04,4,2,22,644c178a5d8348f6b51ac77756f2d27e,Teoria: Modelos Preditivos: Métodos baseados em distâncias,Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,4dfb4f6b90b9d0beb3099d9f94bd42072f42d273,"Teoria: Modelos Preditivos: Métodos baseados em distâncias
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 04,4,2,23,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,16/05/2025 - 14:00h,Outros,16/05/2025,14:00,2025-05-16T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,6253bb084e848151827e4966856c3b10d6d07fd1,"Sprint Review  e  Retrospective 2
+
+
+
+
+
+
+
+
+16/05/2025 - 14:00h",,,
+Semana 04,4,2,24,277c40ef15af4f8bae1066d25358a308,Arquitetura SOA e requisitos não funcionais,"Nota: 9.0
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto
+
+Atividade ponderada",Atividade,,,,,False,False,True,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,"sim=0.14,prev_prox=1.40",medium,,,,0,0,0,5be80dbf2d63b09d91691da9346ece7f1c15e375,"Arquitetura SOA e requisitos não funcionais
+
+Nota: 9.0
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto
+
+Atividade ponderada",,,
+Semana 04,4,2,25,f1ffa63f4ec2480ca6790f11bd7a0553,Atividade de UX: Figma,"Nota: 2.8
+
+
+
+
+
+
+
+
+Bruna Mayer Costa
+
+Atividade ponderada",Atividade,,,,Bruna Mayer Costa,False,False,True,dd4f07c97c8a4e5da8c82fbe3ff3585e,Padrões de interação e recursos de personalização,"professor,sim=0.11,prev_prox=0.50",high,,,,0,0,0,6d2e24397f9325bf0c50ec492aa35b060037016a,"Atividade de UX: Figma
+
+Nota: 2.8
+
+
+
+
+
+
+
+
+Bruna Mayer Costa
+
+Atividade ponderada",,,
+Semana 04,4,2,26,e4e6703e0df24c06856b922712463982,Questão Ponderada: Medidas de Proximidade,"Nota: 10.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",Atividade,,,,Luciano Galdino,False,False,True,025ca71f292749ccae923d04b5819633,Medidas de proximidade: Encontrando Vizinhos com K-NN,"professor,sim=0.30,prev_prox=0.90",high,,,,0,0,0,14fd370dc9e516e9555b768b4473caeedc46dbf9,"Questão Ponderada: Medidas de Proximidade
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",,,
+Semana 04,4,2,27,c2a612c2279b4c338527a4c4cfd3c9e6,MODELAGEM DE DADOS,"Nota: 6.3
+
+Atividade ponderada",Atividade,,,,MODELAGEM DE DADOS,False,False,True,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,"sim=0.00,prev_prox=1.10",medium,,,,0,0,0,acda30049622edce0d3e0daca4159417ac4dc6f0,"MODELAGEM DE DADOS
+
+Nota: 6.3
+
+Atividade ponderada",,,
+Semana 04,4,2,28,a366cc843ddb4bd8846fc935f9bd0d73,SOLUÇÃO TÉCNICA  (DESIGN),"Nota: 6.6
+
+Atividade ponderada",Atividade,,,,,False,False,True,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,"sim=0.00,prev_prox=1.00",medium,,,,0,0,0,2d6a9227c3bdf879cad15ea6a39dd9a1b560ebe3,"SOLUÇÃO TÉCNICA  (DESIGN)
+
+Nota: 6.6
+
+Atividade ponderada",,,
+Semana 04,4,2,29,e7dd99b778d94d00a110ec6ecdae5e82,MODELO DE RECOMENDAÇÃO BASEADO EM FILTRAGEM COLABORATIVA,"Nota: 6.0
+
+Atividade ponderada",Atividade,,,,MODELO DE RECOMENDAÇÃO BASEADO EM FILTRAGEM COLABORATIVA,False,False,True,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,"sim=0.00,prev_prox=0.90",medium,,,,0,0,0,a477cca1d8273ff3d2bb29f89ff78b3d35c44511,"MODELO DE RECOMENDAÇÃO BASEADO EM FILTRAGEM COLABORATIVA
+
+Nota: 6.0
+
+Atividade ponderada",,,
+Semana 04,4,2,30,0a4067cdfb2b412292e743fb7f5d444b,PROJETO VISUAL DA SOLUÇÃO,"Nota: 7.1
+
+Atividade ponderada",Atividade,,,,PROJETO VISUAL DA SOLUÇÃO,False,False,True,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,"sim=0.00,prev_prox=0.80",medium,,,,0,0,0,6f609e3b214327b47d0dc3bd1c9034224e7821db,"PROJETO VISUAL DA SOLUÇÃO
+
+Nota: 7.1
+
+Atividade ponderada",,,
+Semana 04,4,2,31,a949dae9585649e896c4bf4e2d3bc6f2,GESTÃO DE PROJETOS EVOLUTIVA,"Nota: 6.8
+
+Atividade ponderada",Atividade,,,,GESTÃO DE PROJETOS EVOLUTIVA,False,False,True,b9aabc3c1177448ca15416088178549b,Sprint Review  e  Retrospective 2,"sim=0.00,prev_prox=0.70",medium,,,,0,0,0,f52d05bdbb8fc6bd9245e1be14eb286f0ce9b38c,"GESTÃO DE PROJETOS EVOLUTIVA
+
+Nota: 6.8
+
+Atividade ponderada",,,
+Semana 05,5,3,1,af12860269f14e3d8f9d9f028a4b0bd8,Sprint Planning 3 e Demonstração de Aprendizagem,19/05/2025 - 14:00h,Outros,19/05/2025,14:00,2025-05-19T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,bc27770e2b34214b7a974c2d099cbf9f532fd68c,"Sprint Planning 3 e Demonstração de Aprendizagem
+
+
+
+
+
+
+
+
+19/05/2025 - 14:00h",,,
+Semana 05,5,3,2,42a64baf1c044bc08501d6f993d4b2f1,FrontEnd Mobile e Arquitetura MVVM (React Native),"20/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,20/05/2025,14:00,2025-05-20T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,97fc4fa63e572a5f3898c51cb1056428692178d8,"FrontEnd Mobile e Arquitetura MVVM (React Native)
+
+
+
+
+
+
+
+
+20/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 05,5,3,3,819dc344a2844ebf81dc7f0aee0426fe,Primeiro app com React Native,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,3358df630fc6dbe6bffb304b97094d629975a38a,"Primeiro app com React Native
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 05,5,3,4,e7b0ea4c5a9644749aaebccd8b3bf81e,MVVM com React Native,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,392bfd69abe48c7f39e707742b12a056e8479cc5,"MVVM com React Native
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 05,5,3,5,6fac45482c914dc382116c36d883c354,Exemplo de MVVM com Redux em React Native,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,2cf8294e50bf86895013b3159f502631fbc1626b,"Exemplo de MVVM com Redux em React Native
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 05,5,3,6,9e275fcaeb33418b8e2cb5aeb9499342,Tópicos de BD: Transactions e Triggers,"21/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",Outros,21/05/2025,14:00,2025-05-21T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,53197a7eb4997654f73b40af96eccaaba202249a,"Tópicos de BD: Transactions e Triggers
+
+
+
+
+
+
+
+
+21/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 05,5,3,7,1b77d97f7f6043448f10787bfcd9c970,PostgreSQL 15 Documentation – SQL Language: Triggers and Transactions,Hermano Peixoto de Oliveira Junior,Outros,,,,,False,False,False,,,,,,,,0,0,0,011b73b642451b2fe529a44286c6bab2852f4371,"PostgreSQL 15 Documentation – SQL Language: Triggers and Transactions
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 05,5,3,8,ed34b55980ca4a76b618542a283b87c2,PostgreSQL Triggers,Hermano Peixoto de Oliveira Junior,Outros,,,,PostgreSQL Triggers,False,False,False,,,,,,,,0,0,0,6138383f20578a41c96cd6da6cef784e16dafcbc,"PostgreSQL Triggers
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 05,5,3,9,d8bdf37b5b594bb292a7450e76bc4377,PostgreSQL Transactions,Hermano Peixoto de Oliveira Junior,Outros,,,,PostgreSQL Transactions,False,False,False,,,,,,,,0,0,0,1db357114e98c9b95b4a54376f74a7b7bdcb57a2,"PostgreSQL Transactions
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",,,
+Semana 05,5,3,10,037054b36ca8495e9a4764bf0c1a8146,Centróides e Clusters: Explorando Padrões com Agrupamento de Dados (algoritmo k-means).,"22/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",Outros,22/05/2025,14:00,2025-05-22T14:00:00-03:00,Luciano Galdino,True,False,False,,,,,,,,0,0,0,d37bec7ff613e928081741ff34727bf21bd5564f,"Centróides e Clusters: Explorando Padrões com Agrupamento de Dados (algoritmo k-means).
+
+
+
+
+
+
+
+
+22/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 05,5,3,11,3f3d1e3c60d14bd99a92268b00b16c6f,Teoria: Clusterização - Algoritmo k-means (k-médias),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,f23bd7c24e02b65df1025ba83586eb0d0cc0bf03,"Teoria: Clusterização - Algoritmo k-means (k-médias)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 05,5,3,12,ac4ce076a14e44d88a1ea5df14570c8c,Vídeo 1: k-means clustering (by TileStats),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,305df2638b94c7fec33fc616da14a750df0adcac,"Vídeo 1: k-means clustering (by TileStats)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 05,5,3,13,b564c2658d24489c93b0caf09003ce52,Vídeo 2: k-Means-Clustering visualized (by Valinor),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,e9bcccd9d477d461ee1afc7dc247f8b84333268c,"Vídeo 2: k-Means-Clustering visualized (by Valinor)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 05,5,3,14,417ce32f644447b3a2254afb150fb8a8,Tipos de testes de usabilidade: avaliando personalização e gamificação,"23/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",Outros,23/05/2025,14:00,2025-05-23T14:00:00-03:00,Bruna Mayer Costa,True,False,False,,,,,,,,0,0,0,d71fff2f2e77561ff687c5e93524cd6c9cf924a5,"Tipos de testes de usabilidade: avaliando personalização e gamificação
+
+
+
+
+
+
+
+
+23/05/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,15,cc33eb59aab04f7b800548cb93673dcd,Ferramentas de Avaliação: Lighthouse,Bruna Mayer Costa,Avaliação,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,95ec2a94d99722124b149378871552539e55f441,"Ferramentas de Avaliação: Lighthouse
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,16,7f30bf91bf5d4548a8459b7df6d7f80f,LightHouse: Teste um site!,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,386e111183284a66a5693ee892ac42326135e4a2,"LightHouse: Teste um site!
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,17,cae950d27bb043698e01ddeb8eedc915,Fim do Flipper? Debugger React Native,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,f0a4d569333094a1ee78b0bd46ef694fa05aaba8,"Fim do Flipper? Debugger React Native
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,18,3a3edefc47e14f9bb3d3d34b6775c72d,Escalas Numéricas de Usabilidade: System Usability Scale (SUS),Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,3b3c1d75c405829a2c58416255c849b17686fa2a,"Escalas Numéricas de Usabilidade: System Usability Scale (SUS)
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,19,da592ac6339c4319950f67aef3cd47da,Preparando Testes,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,b1fce1a8a7b76b7d99d335ab5530e376288f128a,"Preparando Testes
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,20,c74553e0d1054f5b82a92244d5dae254,Qualidades de uma navegação bem sucedida.,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,a7c0232dc1eb5d3b1a21492a9ebb93b0d4f0bf4f,"Qualidades de uma navegação bem sucedida.
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 05,5,3,21,50761d11b1a4443a8ba3acc1fc0a0d2b,Questão Ponderada: Clusterização por meio do algoritmo k-means,"Nota: 10.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",Atividade,,,,Luciano Galdino,False,False,True,037054b36ca8495e9a4764bf0c1a8146,Centróides e Clusters: Explorando Padrões com Agrupamento de Dados (algoritmo k-means).,"professor,sim=0.17,prev_prox=0.40",high,,,,0,0,0,dd09fc9b13637a4946cc916b1dc70e7aeaa45f42,"Questão Ponderada: Clusterização por meio do algoritmo k-means
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",,,
+Semana 05,5,3,22,269a9a68383840048ab149a89eb97e93,Atividade de UX: Preparando Testes,"Nota: 8.5
+
+
+
+
+
+
+
+
+Bruna Mayer Costa
+
+Atividade ponderada",Atividade,,,,Bruna Mayer Costa,False,False,True,417ce32f644447b3a2254afb150fb8a8,Tipos de testes de usabilidade: avaliando personalização e gamificação,"professor,sim=0.18,prev_prox=0.70",high,,,,0,0,0,65d398bb2d0c32d6e619e2d3eeeb53453ba47034,"Atividade de UX: Preparando Testes
+
+Nota: 8.5
+
+
+
+
+
+
+
+
+Bruna Mayer Costa
+
+Atividade ponderada",,,
+Semana 06,6,3,1,b43f0062796e4ac884eac237bf6164f7,Orientação a objetos com TDD,"26/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",Outros,26/05/2025,10:00,2025-05-26T10:00:00-03:00,Afonso Cesar Lelis Brandão,True,False,False,,,,,,,,0,0,0,37b2c221dac18f8162db937992e5329bb0d9d4b8,"Orientação a objetos com TDD
+
+
+
+
+
+
+
+
+26/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,2,fd30d89f0d5a4bf59abc598154b10062,"Test-Driven Development (TDD), Programação Orientada a Objetos (OOP) e Behavior-Driven Development (BDD) em C# .NET 9.0",,Outros,,,,,False,False,False,,,,,,,,0,0,0,6bd3cd7e960524bffb3195371ac5b5d5df54c4c2,"Test-Driven Development (TDD), Programação Orientada a Objetos (OOP) e Behavior-Driven Development (BDD) em C# .NET 9.0",,,
+Semana 06,6,3,3,12f09bf10f8343cfa17e88c26fb85d75,".NET testes unitários do zero | parte 01 | fakers, assertions, traits, facts, theories, traits",Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,dd1e3c8b185955b994ed08fcdeec01835163c237,".NET testes unitários do zero | parte 01 | fakers, assertions, traits, facts, theories, traits
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,4,b9ef1b8ed39a49eba9e41665c7ac2508,Curso de linguagem C orientado a testes: Curso de C utilizando Test Driven Development (TDD),Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,4038b74b3fc9f3a4aea4fc24018c79ce8181226c,"Curso de linguagem C orientado a testes: Curso de C utilizando Test Driven Development (TDD)
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,5,5ecff01b50874f4385f58cc6af65b8fc,TDD: fundamentos do desenvolvimento orientado a testes,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,80d56aab1301f151f43a5c63228d52ac790ea06e,"TDD: fundamentos do desenvolvimento orientado a testes
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,6,807493c04b5d44d9b5f32e9b631c7613,Gerenciamento de funil de leads,"27/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",Outros,27/05/2025,10:00,2025-05-27T10:00:00-03:00,Rafael Ricardo Jacomossi,True,False,False,,,,,,,,0,0,0,0e877809b9f90166d1f1b3d0dfe35eacf24c94e3,"Gerenciamento de funil de leads
+
+
+
+
+
+
+
+
+27/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 06,6,3,7,897541ab9a284e319821850abb480c88,O que é Marketing Digital?,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,29cbb29a2121334177641b80d71948d76c51f232,"O que é Marketing Digital?
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 06,6,3,8,f15e3345ee924b1ba54e932e5559aed6,O que são Leads?,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,104b6177e951663c601d77ff78a5b5b8f7a4671f,"O que são Leads?
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 06,6,3,9,a01b81c94f1f429a86bb8f3785ebf6a0,Funil de vendas: saiba o que é e conheça suas etapas,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,eb73b4d2f121c00e6ac09cf465318643cdd99bff,"Funil de vendas: saiba o que é e conheça suas etapas
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 06,6,3,10,13e52da4b8e741a988cfe4c5fc207567,The New Rules of B2B Lead Generation,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,99d4f45966fc6a86f6f4c8347d7116ce7f6e53ff,"The New Rules of B2B Lead Generation
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 06,6,3,11,86cb7fc0df5d447097b7ea2a2137ab24,Ética e gestão do conhecimento,"28/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",Outros,28/05/2025,10:00,2025-05-28T10:00:00-03:00,,True,False,False,,,,,,,,0,0,0,f8955780d0bacd20aced267ab0938eceb59cf686,"Ética e gestão do conhecimento
+
+
+
+
+
+
+
+
+28/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 06,6,3,12,280b076e7f74485192dccfca231d3c87,Qual é a sua estratégia de gestão de conhecimento?,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,ea6ef8eef0fc7fa58275637f5c6010ea2c5d9a55,"Qual é a sua estratégia de gestão de conhecimento?
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 06,6,3,13,7c74ae3ea428491a9031526da645eb3d,AI4People - Um framework de ética na computação,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,5e9b2efe86bc35fd10d02f604aa84464cc1cb6df,"AI4People - Um framework de ética na computação
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 06,6,3,14,d4e81aa1110b49dab94d1ba8195be012,Testes de Integração,"29/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",Outros,29/05/2025,10:00,2025-05-29T10:00:00-03:00,Afonso Cesar Lelis Brandão,True,False,False,,,,,,,,0,0,0,940921baad7e4103e3a12afb991c71b05095007e,"Testes de Integração
+
+
+
+
+
+
+
+
+29/05/2025 - 10:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,15,a2fb230ef4d042a0b77fab53145b6fe8,Testes de Integração Aplicados a Software Orientado a Objetos,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,0b5964a42e677518f37ac61097424ec87b534447,"Testes de Integração Aplicados a Software Orientado a Objetos
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,16,14617d8b930a4a16a2ed50043daed8ac,2 Níveis de Testes | O que são Testes de Integração?,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,e438c47e78c4ff21fb53f3891638d2e480bfc88c,"2 Níveis de Testes | O que são Testes de Integração?
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,17,97aa1a93ac714c4f90cd9c842217d5fb,Testes de Integração em .NET: Teoria e Práticas Avançadas,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,a44b512d674970573453aeb1f97758cd1d6fe37d,"Testes de Integração em .NET: Teoria e Práticas Avançadas
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 06,6,3,18,0761aff0347c477e8f4afe09c1b4d4c8,Sprint Review e Retrospective 3,30/05/2025 - 10:00h,Outros,30/05/2025,10:00,2025-05-30T10:00:00-03:00,,True,False,False,,,,,,,,0,0,0,f628761f8e16f47dcd5dc7fdd4a0a52eb302f249,"Sprint Review e Retrospective 3
+
+
+
+
+
+
+
+
+30/05/2025 - 10:00h",,,
+Semana 06,6,3,19,50acc89c67d14fe6860f1ede4cfb7dea,Questão de Negócios Parte 2,"Nota: 10.0
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi
+
+Atividade ponderada",Atividade,,,,Rafael Ricardo Jacomossi,False,False,True,807493c04b5d44d9b5f32e9b631c7613,Gerenciamento de funil de leads,"professor,sim=0.12,prev_prox=0.20",high,,,,0,0,0,ce45b86a43065d8fadf5cd8c0fe5eb4f42d47747,"Questão de Negócios Parte 2
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi
+
+Atividade ponderada",,,
+Semana 06,6,3,20,89dcf6a204714369ac8e352131d46e93,Testando a aplicação,"Nota: 0.0
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão
+
+Atividade ponderada",Atividade,,,,Afonso Cesar Lelis Brandão,False,False,True,d4e81aa1110b49dab94d1ba8195be012,Testes de Integração,"professor,sim=0.00,prev_prox=0.90",high,,,,0,0,0,c4879424c7c802852441e4bd2172c14d709ac03f,"Testando a aplicação
+
+Nota: 0.0
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão
+
+Atividade ponderada",,,
+Semana 06,6,3,21,417c216c07f44d2eb180bf4b5cfa9aab,IMPLEMENTAÇÃO DO BANCO DE DADOS,"Nota: 7.8
+
+Atividade ponderada",Atividade,,,,IMPLEMENTAÇÃO DO BANCO DE DADOS,False,False,True,0761aff0347c477e8f4afe09c1b4d4c8,Sprint Review e Retrospective 3,"sim=0.00,prev_prox=1.20",medium,,,,0,0,0,36782e574f341559725dc32251ea2d5cb49addac,"IMPLEMENTAÇÃO DO BANCO DE DADOS
+
+Nota: 7.8
+
+Atividade ponderada",,,
+Semana 06,6,3,22,29c9b3c0645e4e19ba606f4161e65c8f,DESENVOLVIMENTO DO PROJETO,"Nota: 7.7
+
+Atividade ponderada",Atividade,,,,DESENVOLVIMENTO DO PROJETO,False,False,True,0761aff0347c477e8f4afe09c1b4d4c8,Sprint Review e Retrospective 3,"sim=0.00,prev_prox=1.10",medium,,,,0,0,0,fbdd6a3924ecd0eb99bd8e36cdc703015080aaad,"DESENVOLVIMENTO DO PROJETO
+
+Nota: 7.7
+
+Atividade ponderada",,,
+Semana 06,6,3,23,e9d01bc2f1e24580a8d8bd126d704089,PLANEJAMENTO DE TESTES,"Nota: 7.5
+
+Atividade ponderada",Atividade,,,,PLANEJAMENTO DE TESTES,False,False,True,d4e81aa1110b49dab94d1ba8195be012,Testes de Integração,"sim=0.50,prev_prox=0.60",medium,,,,0,0,0,82b5618ed0cec846e326f10ee058c88fb4873bf7,"PLANEJAMENTO DE TESTES
+
+Nota: 7.5
+
+Atividade ponderada",,,
+Semana 06,6,3,24,39731f5a606c412db5e340eb38fd4d2b,GESTÃO DE PROJETOS EVOLUTIVA,"Nota: 7.2
+
+Atividade ponderada",Atividade,,,,GESTÃO DE PROJETOS EVOLUTIVA,False,False,True,0761aff0347c477e8f4afe09c1b4d4c8,Sprint Review e Retrospective 3,"sim=0.00,prev_prox=0.90",medium,,,,0,0,0,f52d05bdbb8fc6bd9245e1be14eb286f0ce9b38c,"GESTÃO DE PROJETOS EVOLUTIVA
+
+Nota: 7.2
+
+Atividade ponderada",,,
+Semana 07,7,4,1,e093a9a49e2f469a85144bd2aa57a0c0,Sprint Planning 4  e Demonstração de Aprendizagem,02/06/2025 - 14:00h,Outros,02/06/2025,14:00,2025-06-02T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,3839559690b147694a95bea49e937a39a58b9987,"Sprint Planning 4  e Demonstração de Aprendizagem
+
+
+
+
+
+
+
+
+02/06/2025 - 14:00h",,,
+Semana 07,7,4,2,8b4d7dc0724f449aab0af36c712983b6,"Análise de Componentes Principais (PCA): Entendendo através das matrizes de covarância, autovalores e autovetores.","03/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",Outros,03/06/2025,14:00,2025-06-03T14:00:00-03:00,Luciano Galdino,True,False,False,,,,,,,,0,0,0,dd0fca5f486ab6b6a6f4583abb5c25bcd29567a0,"Análise de Componentes Principais (PCA): Entendendo através das matrizes de covarância, autovalores e autovetores.
+
+
+
+
+
+
+
+
+03/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 07,7,4,3,20aa87f34aae409682cab2f5b26fb330,Vídeo 3: Covariance - Clearly Explained (by StatQuest),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,6fddb85cba75d1ded3fe046663cfd508b6875b9e,"Vídeo 3: Covariance - Clearly Explained (by StatQuest)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 07,7,4,4,989c293324524afba96886579f54c65a,Vídeo 4: Principal Component Analysis (by Visually Explained),Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,fb647cf68a933e86c91ef38f933da0c2a6bfebfc,"Vídeo 4: Principal Component Analysis (by Visually Explained)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 07,7,4,5,e8709ad23ecc4188883f3aea729c73f8,"Vídeo 5: Análise de Componentes Principais (PCA), Passo a Passo (by StatQuest)",Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,55a68287a020d51bf8bed7bc4f54aa2d248be87f,"Vídeo 5: Análise de Componentes Principais (PCA), Passo a Passo (by StatQuest)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 07,7,4,6,6576fb3828ff4e0fb2a6fa02c074c027,Compilação dos resultados para aplicação em storytelling de dados,"04/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",Outros,04/06/2025,14:00,2025-06-04T14:00:00-03:00,Bruna Mayer Costa,True,False,False,,,,,,,,0,0,0,9f85899086fa5aa4113847053fb04d62be9a44ac,"Compilação dos resultados para aplicação em storytelling de dados
+
+
+
+
+
+
+
+
+04/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 07,7,4,7,340e01f844774785b1b728ef7e37286c,Guia do Data Storytelling: como cativar sua audiência com histórias baseadas em dados valiosos,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,6897361208ce61aedfce0de1db8786a155bcbffe,"Guia do Data Storytelling: como cativar sua audiência com histórias baseadas em dados valiosos
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 07,7,4,8,44f43558e94a4c2e98ccd03c9263d5c4,Data Storytelling: Como apresentar dados e gráficos de forma criativa,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,6c3b8277d0151ed66e809fe37b1ee29eb3ec03fd,"Data Storytelling: Como apresentar dados e gráficos de forma criativa
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 07,7,4,9,a53c28a9e37e49be933a69aed91ff437,O que é storytelling com dados e como aplicar?,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,70c1e6ebf966ea6deabc0f55452113cf86b97abb,"O que é storytelling com dados e como aplicar?
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 07,7,4,10,d5d8ac08101143f6a0aeb64ba473442f,Making data mean more through storytelling,Bruna Mayer Costa,Outros,,,,Bruna Mayer Costa,False,False,False,,,,,,,,0,0,0,4baaa3053ede87fd2e7c95a23d6083dea786e904,"Making data mean more through storytelling
+
+
+
+
+
+
+
+
+Bruna Mayer Costa",,,
+Semana 07,7,4,11,5f04ffea7cda4b72aa3c86120822a3b4,Monitoramento e logging: Técnicas de monitoramento de desempenho e logging em tempo real para serviços em nuvem,"05/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",Outros,05/06/2025,14:00,2025-06-05T14:00:00-03:00,Afonso Cesar Lelis Brandão,True,False,False,,,,,,,,0,0,0,b9b4b71751a08d06c9dc13f0b192430ab67849c1,"Monitoramento e logging: Técnicas de monitoramento de desempenho e logging em tempo real para serviços em nuvem
+
+
+
+
+
+
+
+
+05/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 07,7,4,12,5f1eb251adb74bc5bf0a955366153b4b,Otimize o desempenho do aplicativo com tracing e registro em log eficazes,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,8ea4d96d0efe44d1788c4716ffc5af9cb2f2911c,"Otimize o desempenho do aplicativo com tracing e registro em log eficazes
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 07,7,4,13,c39af0d81d5040e38bce91ccd8cb37a6,Distributed Logging & Metrics Framework | Systems Design Interview Questions With Ex-Google SWE,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,fb3a629a0089ed3b6b284d41ca62856f7463217e,"Distributed Logging & Metrics Framework | Systems Design Interview Questions With Ex-Google SWE
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 07,7,4,14,454a61664ae6454799692346d87dec6c,Tópicos extras em paradigmas de programação - Padrões AutoML em dotnet,"06/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,06/06/2025,14:00,2025-06-06T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,0548a93615df3261cd8617e4ddfa25305b3dc6b7,"Tópicos extras em paradigmas de programação - Padrões AutoML em dotnet
+
+
+
+
+
+
+
+
+06/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 07,7,4,15,c46f16f0c6ab47f68c5485ebbb7f67d0,Como usar a API de AutoML (machine learning automatizado) do ML.NET,Ovidio Lopes da Cruz Netto,Outros,,,,,False,False,False,,,,,,,,0,0,0,a6fa294250b53be18e7c616c574d45ce84cc3621,"Como usar a API de AutoML (machine learning automatizado) do ML.NET
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",,,
+Semana 07,7,4,16,5b89ef425afe4f69930a3c1591b33a52,Treinar um modelo de recomendação usando o Model Builder,,Outros,,,,,False,False,False,,,,,,,,0,0,0,e37262897008d5a7773e750b2ea526a28e8be2a1,Treinar um modelo de recomendação usando o Model Builder,,,
+Semana 07,7,4,17,9db90257dc054f3d9801378a42a21f5c,Faça a questão ponderada referente à análise de componentes principais.,"Nota: 0.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",Atividade,,,,Luciano Galdino,False,False,True,8b4d7dc0724f449aab0af36c712983b6,"Análise de Componentes Principais (PCA): Entendendo através das matrizes de covarância, autovalores e autovetores.","professor,sim=0.21,prev_prox=0.00",high,,,,0,0,0,6d6d9353edbccf35eea3f41ccee9bbda018aa714,"Faça a questão ponderada referente à análise de componentes principais.
+
+Nota: 0.0
+
+
+
+
+
+
+
+
+Luciano Galdino
+
+Atividade ponderada",,,
+Semana 07,7,4,18,29d146a5b92b4c2c9b52948c01e4230a,Teoria: Teoria de Matrizes e Autovalores,Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,354b10d2412e7151d810e60eb772e56be2eaa88f,"Teoria: Teoria de Matrizes e Autovalores
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 07,7,4,19,d103009e1ce64f9ea7d3a1862780e9dd,"Vídeo 1: Vetores, o que são eles afinal? (por 3Blue1Brown)",Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,23fe93acf4ff04806c99ece7aaa410fb97a3cea2,"Vídeo 1: Vetores, o que são eles afinal? (por 3Blue1Brown)
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 07,7,4,20,400eb22aa8b34c51959b0fff452e31f5,Vídeo 2: Autovetores e autovalores - A essência da Álgebra Linear (por 3Blue1Brown,Luciano Galdino,Outros,,,,Luciano Galdino,False,False,False,,,,,,,,0,0,0,77ba4f8f3a33f8feef9b85dbb93ccd88bbd09e79,"Vídeo 2: Autovetores e autovalores - A essência da Álgebra Linear (por 3Blue1Brown
+
+
+
+
+
+
+
+
+Luciano Galdino",,,
+Semana 08,8,4,1,cea8115fc9054aa48e98d7685fc15348,Boas práticas para arquiteturas orientadas a serviço na nuvem,"09/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",Outros,09/06/2025,14:00,2025-06-09T14:00:00-03:00,Afonso Cesar Lelis Brandão,True,False,False,,,,,,,,0,0,0,88aefa14f1dfce0593d08bb2028606eeddf8efe9,"Boas práticas para arquiteturas orientadas a serviço na nuvem
+
+
+
+
+
+
+
+
+09/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 08,8,4,2,ae71150942654ef49223aca3b40c2a6e,Práticas recomendadas para desenvolver arquiteturas orientadas por eventos em sua organização,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,2de06ec77bb69345dfd9aad2666b93cc8a92303d,"Práticas recomendadas para desenvolver arquiteturas orientadas por eventos em sua organização
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 08,8,4,3,27381662b24b409788a3e60a743acfbc,Implemente Estratégias Multi-Cloud,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,0ea63ebaa4b34d12b0743ef1cd5743d09a516f1e,"Implemente Estratégias Multi-Cloud
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 08,8,4,4,f46de116ea7e4da7a84bc330ac434b60,Garanta Segurança e Conformidade,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,084be075359bc180625c1296aaad57ca46df1705,"Garanta Segurança e Conformidade
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 08,8,4,5,4028f78a04aa47cbacc28d16afca3d5c,Gestão de Relacionamento e Customer Experience,"10/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",Outros,10/06/2025,14:00,2025-06-10T14:00:00-03:00,Rafael Ricardo Jacomossi,True,False,False,,,,,,,,0,0,0,1937de99cc4b1be59f2a9d841407a67e307278c3,"Gestão de Relacionamento e Customer Experience
+
+
+
+
+
+
+
+
+10/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 08,8,4,6,9ff4eb8fb89d45dabef01d7640c9fefa,O que é CRM ?,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,e38e0a8e67dd8607305378b49d6c172b974b73e6,"O que é CRM ?
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 08,8,4,7,42cc37f247a54195a1a21f42df51c650,Como aproximar o cliente das empresas,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,bd89062453df520848e79d73b150bb13dc730967,"Como aproximar o cliente das empresas
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 08,8,4,8,cbd835afda8641fc9994a3ceb4917dc6,"Inteligência artificial, CRM e a nova experiência do consumidor",Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,34d06aa5f48038680bd37e4598b65259a985ea86,"Inteligência artificial, CRM e a nova experiência do consumidor
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 08,8,4,9,611b24dffae34f7e8dd064b6179a6415,Como gerenciar o relacionamento com o cliente?,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,0dc74dda9f22b028a0c8c1964f4c9a6fb61ed770,"Como gerenciar o relacionamento com o cliente?
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 08,8,4,10,6b97b5cb06dd4a81a04972d61d693f92,Negociação: eu e o outro,"11/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",Outros,11/06/2025,14:00,2025-06-11T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,67c412ad3738740fac864e860bf55b874471ddc2,"Negociação: eu e o outro
+
+
+
+
+
+
+
+
+11/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 08,8,4,11,cbcea489b30742a4bad5177d11f2ef52,Encontro de orientação,12/06/2025 - 14:00h,Outros,12/06/2025,14:00,2025-06-12T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,70b0137996186a428745377a6ed117ca30a90393,"Encontro de orientação
+
+
+
+
+
+
+
+
+12/06/2025 - 14:00h",,,
+Semana 08,8,4,12,c28490e6b129473e94f1afc4cc3d61b9,Sprint Review e Retrospective 4,13/06/2025 - 14:00h,Outros,13/06/2025,14:00,2025-06-13T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,a10d85998c10f0e48eecaf286c11cb91eeac8e31,"Sprint Review e Retrospective 4
+
+
+
+
+
+
+
+
+13/06/2025 - 14:00h",,,
+Semana 08,8,4,13,a28acb0da24740799e48534ce4576650,Negociação é uma dança,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,60a52348f73d4043c0eecfce7b27026e0112ed7c,"Negociação é uma dança
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 08,8,4,14,a8717966c447419fbdf648c4e41c5582,O caminho entre o não e o sim,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,5d7ee55f3523050aa50e6e21dd4d1e324035605e,"O caminho entre o não e o sim
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 08,8,4,15,b2fb54354bff4289a0bac25db49d129a,Questão de Negócios Parte 3,"Nota: 10.0
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi
+
+Atividade ponderada",Atividade,,,,Rafael Ricardo Jacomossi,False,False,True,4028f78a04aa47cbacc28d16afca3d5c,Gestão de Relacionamento e Customer Experience,"professor,sim=0.10,prev_prox=0.50",high,,,,0,0,0,f6231d8230b304b8b30bb0993fe4c1bbbea495d1,"Questão de Negócios Parte 3
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi
+
+Atividade ponderada",,,
+Semana 08,8,4,16,59d66e48295e4a06b8ce7e3b703693a5,Comunicação e negociação: conceitos e práticas organizacionais,"Nota: 6.5
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva
+
+Atividade ponderada",Atividade,,,,,False,False,True,c28490e6b129473e94f1afc4cc3d61b9,Sprint Review e Retrospective 4,"sim=0.14,prev_prox=1.10",medium,,,,0,0,0,455f84586d054aef2f37128991837a49a878927e,"Comunicação e negociação: conceitos e práticas organizacionais
+
+Nota: 6.5
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva
+
+Atividade ponderada",,,
+Semana 08,8,4,17,21387a9b35d940c49f591efc6235aa29,DESENVOLVIMENTO DO PROJETO,"Nota: 4.9
+
+Atividade ponderada",Atividade,,,,DESENVOLVIMENTO DO PROJETO,False,False,True,c28490e6b129473e94f1afc4cc3d61b9,Sprint Review e Retrospective 4,"sim=0.00,prev_prox=1.00",medium,,,,0,0,0,fbdd6a3924ecd0eb99bd8e36cdc703015080aaad,"DESENVOLVIMENTO DO PROJETO
+
+Nota: 4.9
+
+Atividade ponderada",,,
+Semana 08,8,4,18,6f0224920e2147bd9493f809b11f00cd,EVOLUÇÃO DO BANCO DE DADOS,"Nota: 5.3
+
+Atividade ponderada",Atividade,,,,EVOLUÇÃO DO BANCO DE DADOS,False,False,True,cbcea489b30742a4bad5177d11f2ef52,Encontro de orientação,"sim=0.17,prev_prox=0.80",medium,,,,0,0,0,e72ae525ef0e2b7b312d6cfbf7e6174d0b3ba755,"EVOLUÇÃO DO BANCO DE DADOS
+
+Nota: 5.3
+
+Atividade ponderada",,,
+Semana 08,8,4,19,743eb77b05c0403fab98e3e945bfca3e,EXECUÇÃO DE TESTES,"Nota: 5.4
+
+Atividade ponderada",Atividade,,,,EXECUÇÃO DE TESTES,False,False,True,cbcea489b30742a4bad5177d11f2ef52,Encontro de orientação,"sim=0.25,prev_prox=0.70",medium,,,,0,0,0,1eed329a901cf62e0a5f3f94bf877904b0652283,"EXECUÇÃO DE TESTES
+
+Nota: 5.4
+
+Atividade ponderada",,,
+Semana 08,8,4,20,7560834dbebc4e858fc490f4a033911f,GESTÃO DE PROJETOS EVOLUTIVA,"Nota: 4.2
+
+Atividade ponderada",Atividade,,,,GESTÃO DE PROJETOS EVOLUTIVA,False,False,True,cbcea489b30742a4bad5177d11f2ef52,Encontro de orientação,"sim=0.20,prev_prox=0.60",medium,,,,0,0,0,f52d05bdbb8fc6bd9245e1be14eb286f0ce9b38c,"GESTÃO DE PROJETOS EVOLUTIVA
+
+Nota: 4.2
+
+Atividade ponderada",,,
+Semana 09,9,5,1,7bc70712d1f84d498d6448bf5dbcd0d2,Sprint Planning 5 e Demonstração de Aprendizagem,16/06/2025 - 14:00h,Outros,16/06/2025,14:00,2025-06-16T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,694d2a636d6e2065ae13ac16c83e835642242e57,"Sprint Planning 5 e Demonstração de Aprendizagem
+
+
+
+
+
+
+
+
+16/06/2025 - 14:00h",,,
+Semana 09,9,5,2,4b14779cb55d47e49c6770fef2979f53,Segurança em sistemas distribuídos: Princípios de segurança aplicados a serviços na nuvem e APIs,"17/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",Outros,17/06/2025,14:00,2025-06-17T14:00:00-03:00,Afonso Cesar Lelis Brandão,True,False,False,,,,,,,,0,0,0,90d7274a7739d809f3322fd7d072ffe4e8c6f623,"Segurança em sistemas distribuídos: Princípios de segurança aplicados a serviços na nuvem e APIs
+
+
+
+
+
+
+
+
+17/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 09,9,5,3,8f779a6764cd47ca9dab5925784ad576,Security of Microservice Applications: A Practitioners' Perspective on Challenges and Best Practices,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,40f84d7527c235dbf76b3488f84f8b91992a9539,"Security of Microservice Applications: A Practitioners' Perspective on Challenges and Best Practices
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 09,9,5,4,f4bb8bdd55234fd590cb9643ea8a268f,Categorização dos Desafios de Segurança em Nuvem Relacionados à Virtualização,Afonso Cesar Lelis Brandão,Outros,,,,Afonso Cesar Lelis Brandão,False,False,False,,,,,,,,0,0,0,2954f5e0c366cc25cc463caba562a1b53557550f,"Categorização dos Desafios de Segurança em Nuvem Relacionados à Virtualização
+
+
+
+
+
+
+
+
+Afonso Cesar Lelis Brandão",,,
+Semana 09,9,5,5,e88176e836a249fca880cb6e4d4b1e8e,Autoavaliação,"Nota: 10.0
+
+Atividade ponderada",Atividade,,,,,False,False,True,4b14779cb55d47e49c6770fef2979f53,Segurança em sistemas distribuídos: Princípios de segurança aplicados a serviços na nuvem e APIs,"sim=0.00,prev_prox=1.20",medium,,,,0,0,0,522730bc40af7d4091e718c336e98b224dbbcc63,"Autoavaliação
+
+Nota: 10.0
+
+Atividade ponderada",,,
+Semana 09,9,5,6,141849e1ef6e48108719f8f08af68da0,Autoavaliação do grupo,,Avaliação,,,,,False,False,False,,,,,,,,0,0,0,ab7da9abd88b1ad90fb39356d9149c25651751f7,Autoavaliação do grupo,,,
+Semana 09,9,5,7,5937eb8aaaaf4259ba58c518b6fcd58a,Avaliação em pares,"Nota: 6.8
+
+Atividade ponderada",Atividade,,,,,False,False,True,4b14779cb55d47e49c6770fef2979f53,Segurança em sistemas distribuídos: Princípios de segurança aplicados a serviços na nuvem e APIs,"sim=0.07,prev_prox=1.00",medium,,,,0,0,0,0e1b9bbc67ef8b44813f6a899686e779d940f6cf,"Avaliação em pares
+
+Nota: 6.8
+
+Atividade ponderada",,,
+Semana 09,9,5,8,bebcbb175433443cbefb43fdfd1603ed,Avaliação geral,,Avaliação,,,,,False,False,False,,,,,,,,0,0,0,c1fce12430872354d8209816b16f3970509b6604,Avaliação geral,,,
+Semana 09,9,5,9,b4566217dcd349c2ba2c2fb1712b7cd3,Prova do Módulo,"Nota: 8.2
+
+
+
+
+
+
+
+
+18/06/2025 - 14:00h
+
+Atividade ponderada",Atividade,18/06/2025,14:00,2025-06-18T14:00:00-03:00,,True,False,True,b4566217dcd349c2ba2c2fb1712b7cd3,Prova do Módulo,"same_date,sim=1.00,prev_prox=1.50",high,,,,0,0,0,63945ec0abd21b4118d40e47fae1a67aa72ff4a4,"Prova do Módulo
+
+Nota: 8.2
+
+
+
+
+
+
+
+
+18/06/2025 - 14:00h
+
+Atividade ponderada",,,
+Semana 10,10,5,1,f0fdb690168043ac99bdabd7b0c55e5d,Encontro de Orientação,23/06/2025 - 14:00h,Outros,23/06/2025,14:00,2025-06-23T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,eb042cfdb3550254dbc87626ceaee6a3dd4cbe2e,"Encontro de Orientação
+
+
+
+
+
+
+
+
+23/06/2025 - 14:00h",,,
+Semana 10,10,5,2,b9e900bae05f47a184a770d11c342087,Novos modelos: marketplace e two sided marked,"24/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",Outros,24/06/2025,14:00,2025-06-24T14:00:00-03:00,Rafael Ricardo Jacomossi,True,False,False,,,,,,,,0,0,0,f17d5f1b7433be3bbb8d3822032651c0a425c45e,"Novos modelos: marketplace e two sided marked
+
+
+
+
+
+
+
+
+24/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 10,10,5,3,1d57f8f351a64c08abe65369cf46a77f,Two-Sided Market: Definition and Examples,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,ebb4f7b38e43375e6758965554e11755942bbd53,"Two-Sided Market: Definition and Examples
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 10,10,5,4,9dd37047b644483b9b641b5a7b7a7b15,Prime Day and the broad reach of Amazon's ecosystem,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,62a3fb5e0f11e59b3a7e440039fcddbb65543984,"Prime Day and the broad reach of Amazon's ecosystem
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 10,10,5,5,c33c99a24671437bb94257a8e5ed7e03,O que é omnichannel?,Rafael Ricardo Jacomossi,Outros,,,,Rafael Ricardo Jacomossi,False,False,False,,,,,,,,0,0,0,fc1a3de74c54d96fb9d242d6f356388fbe587ec6,"O que é omnichannel?
+
+
+
+
+
+
+
+
+Rafael Ricardo Jacomossi",,,
+Semana 10,10,5,6,c0aab878ab844a4a8441e041bb35a714,"Argumentação, falácias e correlações espúrias","25/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",Outros,25/06/2025,14:00,2025-06-25T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,12b13fbde02b339d604e29193f63293a7e351193,"Argumentação, falácias e correlações espúrias
+
+
+
+
+
+
+
+
+25/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 10,10,5,7,af4436d625f7471e8da0dd90a42d841c,O que é um argumento?,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,3e6db069a2d80db50affbf6cd6cfb51568086f54,"O que é um argumento?
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 10,10,5,8,c47ab7b844564fe1b64e92fb22e84f22,Como identificar um bom argumento?,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,4395fb2cbf6ad7cc19ee368b1e733e9f8f099709,"Como identificar um bom argumento?
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 10,10,5,9,7626f665c3e24543b00a32770e62b8fd,Você conhece as falácias?,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,2a68e83db70e944a6c31d5d94ee6509bd88a284b,"Você conhece as falácias?
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 10,10,5,10,f17220cfad874f87859c8b13eabf3832,Falácias no ambiente de trabalho,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,6f3969bc8eca6b7692f27f4c19492373900bb094,"Falácias no ambiente de trabalho
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 10,10,5,11,0e498bc1e18e4113b7c3dedb55507dcf,Pensando logicamente,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,False,False,False,,,,,,,,0,0,0,8895cf66b420ba91d6ee125e227654044013bae4,"Pensando logicamente
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",,,
+Semana 10,10,5,12,d3a50b3199ba44a0899c3a87c63d0735,Apresentação Final e Sprint Retrospective 5,26/06/2025 - 14:00h,Outros,26/06/2025,14:00,2025-06-26T14:00:00-03:00,,True,False,False,,,,,,,,0,0,0,444d2db6795e1bb7f0681b7b9a32667675c8f4c7,"Apresentação Final e Sprint Retrospective 5
+
+
+
+
+
+
+
+
+26/06/2025 - 14:00h",,,
+Semana 10,10,5,13,ba36ff824c444f5087c91cdc56bb3d31,DESENVOLVIMENTO DO PROJETO,"Nota: 7.8
+
+Atividade ponderada",Atividade,,,,DESENVOLVIMENTO DO PROJETO,False,False,True,d3a50b3199ba44a0899c3a87c63d0735,Apresentação Final e Sprint Retrospective 5,"sim=0.00,prev_prox=1.40",medium,,,,0,0,0,fbdd6a3924ecd0eb99bd8e36cdc703015080aaad,"DESENVOLVIMENTO DO PROJETO
+
+Nota: 7.8
+
+Atividade ponderada",,,
+Semana 10,10,5,14,ecae9f9dd71a49dabe442e8ac0c38bc7,EXECUÇÃO DE TESTES,"Nota: 8.0
+
+Atividade ponderada",Atividade,,,,EXECUÇÃO DE TESTES,False,False,True,d3a50b3199ba44a0899c3a87c63d0735,Apresentação Final e Sprint Retrospective 5,"sim=0.00,prev_prox=1.30",medium,,,,0,0,0,1eed329a901cf62e0a5f3f94bf877904b0652283,"EXECUÇÃO DE TESTES
+
+Nota: 8.0
+
+Atividade ponderada",,,
+Semana 10,10,5,15,b78f58f29c0b4ae1b239c01566778274,GESTÃO DE PROJETOS EVOLUTIVA,"Nota: 5.9
+
+Atividade ponderada",Atividade,,,,GESTÃO DE PROJETOS EVOLUTIVA,False,False,True,d3a50b3199ba44a0899c3a87c63d0735,Apresentação Final e Sprint Retrospective 5,"sim=0.00,prev_prox=1.20",medium,,,,0,0,0,f52d05bdbb8fc6bd9245e1be14eb286f0ce9b38c,"GESTÃO DE PROJETOS EVOLUTIVA
+
+Nota: 5.9
+
+Atividade ponderada",,,
+Semana 10,10,5,16,f2c1cb9a5fb14231bbd2bfa771050f93,VERSÃO FINAL DO PROJETO,"Nota: 7.7
+
+Atividade ponderada",Atividade,,,,VERSÃO FINAL DO PROJETO,False,False,True,d3a50b3199ba44a0899c3a87c63d0735,Apresentação Final e Sprint Retrospective 5,"sim=0.14,prev_prox=1.10",medium,,,,0,0,0,3fea2367ca89d2e4942f8e5ebc6219c261d860b3,"VERSÃO FINAL DO PROJETO
+
+Nota: 7.7
+
+Atividade ponderada",,,

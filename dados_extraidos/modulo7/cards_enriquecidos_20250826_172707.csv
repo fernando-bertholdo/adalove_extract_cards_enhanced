@@ -1,0 +1,2621 @@
+semana,semana_num,sprint,indice,id,titulo,descricao,tipo_orig,data_ddmmaaaa,hora_hhmm,data_hora_iso,professor,is_instrucao,is_autoestudo,is_atividade_ponderada,parent_instruction_id,parent_instruction_title,anchor_method,anchor_confidence,links_urls,materiais_urls,arquivos_urls,num_links,num_materiais,num_arquivos,record_hash,texto_completo
+Semana 01,1,1,1,cce22e534d6647668ec29dcb3907743e,"Onboarding, Sprint planning 1",04/08/2025 - 14:00h,Outros,04/08/2025,14:00,2025-08-04T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,18c68b283cdbe7e38bd8e679afe7ba1538cf14dc,"Onboarding, Sprint planning 1
+
+
+
+
+
+
+
+
+04/08/2025 - 14:00h"
+Semana 01,1,1,2,24ad9dd5d40241bfa5f66aab0275d46b,"Introdução a Arquitetura de Sistemas de Software segundo ISO/IEC 42010, Pressman, ISO/IEC 10746","05/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,05/08/2025,14:00,2025-08-05T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,ff269f0e9ff79090b83ce0ab3a9f22005e5acac4,"Introdução a Arquitetura de Sistemas de Software segundo ISO/IEC 42010, Pressman, ISO/IEC 10746 
+
+
+
+
+
+
+
+
+05/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,3,e841882e8f39444db065f4c8384f2cfa,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Qual a diferença básica dos  perfis de um Técnico de Programação em relação a de um Engenheiro de Software: É a visão e conhecimento da Arquitetura do Sistema de Software.",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,e8fc9483ee3f26580f835255d158297095817d88,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Qual a diferença básica dos  perfis de um Técnico de Programação em relação a de um Engenheiro de Software: É a visão e conhecimento da Arquitetura do Sistema de Software.
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,4,dd5b87487a344f0b9e3f967be1a64d87,Autoestudo 1 (Instrução Arquitetura de Sistemas de Software) - Ciclo de Vida de Sistema de Software (Segundo Pressman),Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,e841882e8f39444db065f4c8384f2cfa,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Qual a diferença básica dos  perfis de um Técnico de Programação em relação a de um Engenheiro de Software: É a visão e conhecimento da Arquitetura do Sistema de Software.",preserved_previous,locked,,,,0,0,0,9312d13d647b4cd202deb3ee7cd133e7bba41277,"Autoestudo 1 (Instrução Arquitetura de Sistemas de Software) - Ciclo de Vida de Sistema de Software (Segundo Pressman)
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,5,0290f18edf044badb95b573c4d7043d0,Autoestudo 2 (Instrução Arquitetura de Sistemas de Software) - Visão geral da Norma ISO 12207,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,e841882e8f39444db065f4c8384f2cfa,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Qual a diferença básica dos  perfis de um Técnico de Programação em relação a de um Engenheiro de Software: É a visão e conhecimento da Arquitetura do Sistema de Software.",preserved_previous,locked,,,,0,0,0,a5983770e50f8b3109edaabe7349a5b405f37ab6,"Autoestudo 2 (Instrução Arquitetura de Sistemas de Software) - Visão geral da Norma ISO 12207
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,6,4277c4bb61634ee187e90b3f245eb399,Autoestudo 3 (Instrução Arquitetura de Sistemas de Software) - Visões arquiteturais (Pontos de vistas e stakeholders),Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,e841882e8f39444db065f4c8384f2cfa,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Qual a diferença básica dos  perfis de um Técnico de Programação em relação a de um Engenheiro de Software: É a visão e conhecimento da Arquitetura do Sistema de Software.",preserved_previous,locked,,,,0,0,0,e60790c7c1fe006885f518a854abef693eef64b5,"Autoestudo 3 (Instrução Arquitetura de Sistemas de Software) - Visões arquiteturais (Pontos de vistas e stakeholders)
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,7,a90e2f22491a44e998fae38820f748e7,Especificação de Requisitos de Sistemas de Software (Requisitos derivados do domínio da aplicação e dos Business Drivers),"06/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,06/08/2025,14:00,2025-08-06T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,5820dc033bc42648f8d63ce584622eaf8f419e19,"Especificação de Requisitos de Sistemas de Software (Requisitos derivados do domínio da aplicação e dos Business Drivers)
+
+
+
+
+
+
+
+
+06/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,8,c16e1651d4bb436c83302eaea948935f,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Especificação de sistemas - ""Especificar é perda de tempo ... Quero codar""",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,83ad1ae91d3d0d90e6001d36b875cf3aaa90b3d7,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Especificação de sistemas - ""Especificar é perda de tempo ... Quero codar""
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,9,7932963ca51441cd9ee3b12a6827e7af,Autoestudo 1 (Instrução Especificação de Requisitos de Software) - Um exemplo de modelagem como especificação de requisito.,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,c16e1651d4bb436c83302eaea948935f,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Especificação de sistemas - ""Especificar é perda de tempo ... Quero codar""",preserved_previous,locked,,,,0,0,0,1154a8fc5d6588dfba583fbba020bde6a9735c5f,"Autoestudo 1 (Instrução Especificação de Requisitos de Software) - Um exemplo de modelagem como especificação de requisito.
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,10,dc3be6b0f38a415e81849ae44e742fb8,Autoestudo 2 (Instrução Especificação de Requisitos de Software) - Tática da disponibilidade e de segurança (comparar com os módulos anteriores),Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,c16e1651d4bb436c83302eaea948935f,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Especificação de sistemas - ""Especificar é perda de tempo ... Quero codar""",preserved_previous,locked,,,,0,0,0,e9ed82ab73e8febde777e8dedbc6628e9fdac36d,"Autoestudo 2 (Instrução Especificação de Requisitos de Software) - Tática da disponibilidade e de segurança (comparar com os módulos anteriores)
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,11,1d6deb85dd774009a537eba8480dc42d,Autoestudo 3 (Instrução Especificação de Requisitos de Software) - Sistema de automação e controle de malha aberta e malha fechada,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,c16e1651d4bb436c83302eaea948935f,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Especificação de sistemas - ""Especificar é perda de tempo ... Quero codar""",preserved_previous,locked,,,,0,0,0,e743a48905e860457d9f8d6c9b97d05e93da667d,"Autoestudo 3 (Instrução Especificação de Requisitos de Software) - Sistema de automação e controle de malha aberta e malha fechada
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,12,274acc4e119e4eda8d50cbff9583086e,Workshop com parceiro,07/08/2025 - 14:00h,Outros,07/08/2025,14:00,2025-08-07T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,028169181024ba0f12e96a28f26436ca6611ab25,"Workshop com parceiro
+
+
+
+
+
+
+
+
+07/08/2025 - 14:00h"
+Semana 01,1,1,13,8affc658a0014b23827f19084ab1642d,"Engenharia de Requisitos (Negócios, Funcionalidades e Não Funcionalidades e os Impactos nos Negócios Digitais)","08/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,08/08/2025,14:00,2025-08-08T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,fdaac2842ea845751c74f925739f2372c6cb45a1,"Engenharia de Requisitos (Negócios, Funcionalidades e Não Funcionalidades e os Impactos nos Negócios Digitais)
+
+
+
+
+
+
+
+
+08/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,14,99b5308a3a4d43edac4c72aeb233c9c9,"PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO (Instrução Engenharia de Requisitos) - Modelagem do Projeto",Reginaldo Arakaki,Projeto,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,b6924af35fee64d7c5845ad97d9a367e3e883a0c,"PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO (Instrução Engenharia de Requisitos) - Modelagem do Projeto
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,15,1c46daf94c0b49bebe94f3b4fde2982a,Autoestudo 2 (Instrução de Engenharia de Requisitos) - Usabilidade de sistemas usando linguagem natural,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,99b5308a3a4d43edac4c72aeb233c9c9,"PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO (Instrução Engenharia de Requisitos) - Modelagem do Projeto",preserved_previous,locked,,,,0,0,0,72ece86278da1dcfefed9e0b1b8f4fe913d4c50f,"Autoestudo 2 (Instrução de Engenharia de Requisitos) - Usabilidade de sistemas usando linguagem natural
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 01,1,1,16,cff8ddcaf4914877863ff55515b77179,Autoestudo ponderado sobre ciclo de viva de um aplicativo digital bancário.,"Nota: 9.0
+
+
+
+
+
+
+
+
+Reginaldo Arakaki
+
+Atividade ponderada",Atividade,,,,Reginaldo Arakaki,0,1,1,99b5308a3a4d43edac4c72aeb233c9c9,"PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO (Instrução Engenharia de Requisitos) - Modelagem do Projeto",preserved_previous,locked,,,,0,0,0,cf1bbda3c01c80a13fa38b9ba3553560bf08ec34,"Autoestudo ponderado sobre ciclo de viva de um aplicativo digital bancário.
+
+Nota: 9.0
+
+
+
+
+
+
+
+
+Reginaldo Arakaki
+
+Atividade ponderada"
+Semana 01,1,1,17,28f91439f6f246cb8258304785d194aa,"Autoestudo 1 (Instrução Engenharia de Requisitos) - Ampliar o exemplo da casa com iluminação automatizada, para uma plataforma digital com 10.000 casas.","Nota: 10.0
+
+
+
+
+
+
+
+
+Reginaldo Arakaki
+
+Atividade ponderada",Atividade,,,,Reginaldo Arakaki,0,1,1,99b5308a3a4d43edac4c72aeb233c9c9,"PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO (Instrução Engenharia de Requisitos) - Modelagem do Projeto",preserved_previous,locked,,,,0,0,0,8e1da8d8419e2e8fe16c400fff1f84184a53efd6,"Autoestudo 1 (Instrução Engenharia de Requisitos) - Ampliar o exemplo da casa com iluminação automatizada, para uma plataforma digital com 10.000 casas.
+
+Nota: 10.0
+
+
+
+
+
+
+
+
+Reginaldo Arakaki
+
+Atividade ponderada"
+Semana 02,2,1,1,b8a117cd2e9f491bb7d6590913d8ec5b,Fundamentos e Aplicações de Processamento de Audio para Texto e Texto para Áudio,"11/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,11/08/2025,14:00,2025-08-11T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,83c70d00e2a97d1cec5460e3f566c9b655ca76a4,"Fundamentos e Aplicações de Processamento de Audio para Texto e Texto para Áudio
+
+
+
+
+
+
+
+
+11/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 02,2,1,2,8fe7a2ffe4304fe29598ef2cadd7acf8,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Conversão de A/D e D/A para áudio e texto em sistemas com interação por linguagem natural?",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,60057e42f8cb9bab602503259175655124012821,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Conversão de A/D e D/A para áudio e texto em sistemas com interação por linguagem natural?
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 02,2,1,3,00393d3dc41f4e07ba64bef64d4b24be,Speech to text and text to speech recognition systems - A review,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,fca20d1b692fc252f92d010187f69609fa4c692b,"Speech to text and text to speech recognition systems - A review
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 02,2,1,4,121c083a7b2b472eb8f8b9daa7546e0e,Conjunto de Links da IBM Cloud,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,0,0,,,,,,,,0,0,0,1b785a5b71612541cca333196f78262c66cb279a,"Conjunto de Links da IBM Cloud
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 02,2,1,5,835f675097654a789fb98b0ba68d8da9,Análise de custo-benefício da automação com reconhecimento de voz,"12/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo",Outros,12/08/2025,14:00,2025-08-12T14:00:00-03:00,Lisane Valdo,1,0,0,,,,,,,,0,0,0,b7150510b799567209710319f39affed84273ff6,"Análise de custo-benefício da automação com reconhecimento de voz
+
+
+
+
+
+
+
+
+12/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 02,2,1,6,53efaea3e5bc4cc9a2eba5fcb2b73f07,"Experts Weigh In On Voice Control Technology's Pros, Cons And Future",Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,805c7397703d82ad96b4db1bea9f90237ae68a23,"Experts Weigh In On Voice Control Technology's Pros, Cons And Future
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 02,2,1,7,c2bee4838bcd49e495ce71c4991421e7,How Voice Recognition Works,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,2b0537717ab130e18866a6f3b88f24457eb3e4c1,"How Voice Recognition Works
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 02,2,1,8,941ad2c796ad4d709edfe5b354287135,15 Uses of Voice Recognition Software Today,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,64e4d48601c47679d18561acd1baee59aac78f58,"15 Uses of Voice Recognition Software Today
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 02,2,1,9,ef5d1e276f48477e9b8b7bb77dddf1a8,Aprendizagem colaborativa,"13/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",Outros,13/08/2025,14:00,2025-08-13T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,9e87833f279736a28df62d84523e5dc29d89bea2,"Aprendizagem colaborativa
+
+
+
+
+
+
+
+
+13/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 02,2,1,10,60aafd25235e4b0091925d517fb952c5,Aprendizagem em equipes,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,f763f267f07c47081b0173c32f6040d0b3338fb8,"Aprendizagem em equipes
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 02,2,1,11,457f8afe18104c01b05458abf362c921,Processos de aprendizagem em equipe de projeto que utiliza a metodologia ágil,Filipe Gonçalves de Souza Nogueira da Silva,Projeto,,,,,0,0,0,,,,,,,,0,0,0,c0c60bdb5f97f66403386e8d3370fa8756d5d27e,"Processos de aprendizagem em equipe de projeto que utiliza a metodologia ágil
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 02,2,1,12,11bf28e924ab4b8fb881dbec2b6120a0,Os 17 Objetivos de Desenvolvimento Sustentável,,Outros,,,,,0,0,0,,,,,,,,0,0,0,e78e2843c2a11a17375f4cfacbb1a2e6096865a1,Os 17 Objetivos de Desenvolvimento Sustentável
+Semana 02,2,1,13,19c178072ac14a7abdb8801360d74759,Interação por Voz: Desenvolvendo Interfaces com TTS e STT,"14/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar",Outros,14/08/2025,14:00,2025-08-14T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,d470be83c41a2d8cf86e23a23a05e89819c0cef3,"Interação por Voz: Desenvolvendo Interfaces com TTS e STT
+
+
+
+
+
+
+
+
+14/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 02,2,1,14,71d35561e5404bb99d4fe6d57dd6730f,Sprint review  e  retrospective 1,15/08/2025 - 14:00h,Outros,15/08/2025,14:00,2025-08-15T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,165b2f4bff1f5d5abaf3b5f36fd2335d6531b4b1,"Sprint review  e  retrospective 1
+
+
+
+
+
+
+
+
+15/08/2025 - 14:00h"
+Semana 02,2,1,15,c76177f06da74050b2af14329faa7ccd,How to Design Voice User Interfaces,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,459c24ee4f18b58b65ce690c18a9ff110bfabec0,"How to Design Voice User Interfaces
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 02,2,1,16,f83507b961a04158b1f510e215d710fa,Voice Interface e UX Design: Como anda essa relação?,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,884207c8c41806169aaed31979e338eb6cc27d98,"Voice Interface e UX Design: Como anda essa relação?
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 02,2,1,17,94abe021d0404923b5c98b5100a44f9f,VUIs: interfaces por voz e a experiência do usuário,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,31a5636ce4f723e9053d1c7bcd77447f328682e3,"VUIs: interfaces por voz e a experiência do usuário
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 02,2,1,18,e76e3351818f4efa919e0350bf2efede,"Interface, Interação e Affordance",Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,b388488464cf8415dede5b288c72671b3b326a96,"Interface, Interação e Affordance
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 02,2,1,19,db3f3b29faa34c00b20553a58940ba25,Atividade ponderada de UX.,"Francisco de Souza Escobar
+
+Atividade ponderada",Atividade,,,,,0,0,1,71d35561e5404bb99d4fe6d57dd6730f,Sprint review  e  retrospective 1,preserved_previous,locked,,,,0,0,0,382b5a1baa34845d990c5158aafa8dd621667ccd,"Atividade ponderada de UX.
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar
+
+Atividade ponderada"
+Semana 02,2,1,20,ea09721246fa490db978fc50a092e366,ENTENDIMENTO DO NEGÓCIO,"Nota: 8.2
+
+Atividade ponderada",Atividade,,,,ENTENDIMENTO DO NEGÓCIO,0,0,1,71d35561e5404bb99d4fe6d57dd6730f,Sprint review  e  retrospective 1,preserved_previous,locked,,,,0,0,0,1f8c36c2233c0a4026deefa99f6a13ab5bf6fa95,"ENTENDIMENTO DO NEGÓCIO 
+
+Nota: 8.2
+
+Atividade ponderada"
+Semana 02,2,1,21,59c1a269e2be444e8c02aca3efb56a1c,ESPECIFICAÇÃO DE REQUISITOS FUNCIONAIS E NÃO FUNCIONAIS,"Nota: 7.8
+
+Atividade ponderada",Atividade,,,,,0,0,1,71d35561e5404bb99d4fe6d57dd6730f,Sprint review  e  retrospective 1,preserved_previous,locked,,,,0,0,0,fbcc2d7c7f051d5229af472d5573c85f6afce58a,"ESPECIFICAÇÃO DE REQUISITOS FUNCIONAIS E NÃO FUNCIONAIS
+
+Nota: 7.8
+
+Atividade ponderada"
+Semana 02,2,1,22,4dbdf8ad06b54cd5b10951d34bcf815c,GESTÃO DE PROJETO E CONFIGURAÇÃO,"Nota: 7.6
+
+Atividade ponderada",Atividade,,,,,0,0,1,71d35561e5404bb99d4fe6d57dd6730f,Sprint review  e  retrospective 1,preserved_previous,locked,,,,0,0,0,92c4d969332614fb75fecc72ab43c3db77ff4863,"GESTÃO DE PROJETO E CONFIGURAÇÃO
+
+Nota: 7.6
+
+Atividade ponderada"
+Semana 03,3,2,1,03dcb670b64443a6a861ec53269ccb6f,Sprint Planning 2 e Demonstração de Aprendizagem,18/08/2025 - 14:00h,Outros,18/08/2025,14:00,2025-08-18T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,ecb9900a6a95935dd93b1e4ab5f975beb38928a3,"Sprint Planning 2 e Demonstração de Aprendizagem
+
+
+
+
+
+
+
+
+18/08/2025 - 14:00h"
+Semana 03,3,2,2,1d4f3b097d9848c08129b8eaff89a71b,Fundamentos de PLN,"19/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira",Outros,19/08/2025,14:00,2025-08-19T14:00:00-03:00,Bryan Kano Ferreira,1,0,0,,,,,,,,0,0,0,6d56b76e29ef6be2c5d9e58c47b043ff0407e6ce,"Fundamentos de PLN 
+
+
+
+
+
+
+
+
+19/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,3,d0a32a3110de486e8efd36821cf0a787,O que é PLN?,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,50616ce15fbc11539edaa35252984f5705d5e04b,"O que é PLN?
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,4,e6897e6e0627487aa06ad9ae3b2d0e2f,A base do processamento de textos,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,be668fc58d32f0eebae8773a549194746b52d92b,"A base do processamento de textos
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,5,f47e81f9e732462d95a0022bd2898f25,Natural Language Processing In 5 Minutes | What Is NLP And How Does It Work? | Simplilearn,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,efe162395c9de23bed7269959499a3fbf97c6bdb,"Natural Language Processing In 5 Minutes | What Is NLP And How Does It Work? | Simplilearn
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,6,391610fda60c49a881f90cc6f9c02860,"RegexOne - Learn Regular Expressions with simple, interactive exercises.",Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,51642e7a37e15eff0ab5e87b65e50f0d8eb4d128,"RegexOne - Learn Regular Expressions with simple, interactive exercises.
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,7,41962f34e2974f978ee14108db1f05ca,Princípios do Design Inclusivo,"20/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar",Outros,20/08/2025,14:00,2025-08-20T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,d1e3946ae67c8ffece992303f245a70a5380c401,"Princípios do Design Inclusivo 
+
+
+
+
+
+
+
+
+20/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 03,3,2,8,dbcd3d6241e642e7b580ca47c73dc518,Design universal: um conceito que traz acessibilidade aos espaços,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,89af3672fd114f50acfa91797ba7c4fcd7c186f3,"Design universal: um conceito que traz acessibilidade aos espaços
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 03,3,2,9,ad8ebb78959243e9be9f43a4f48662a9,Acessibilidade na Web,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,980ab93e74c04df658575e2ecd592c791205c611,"Acessibilidade na Web
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 03,3,2,10,ea9f06655a1243ef9c575178af08b7ca,"Design Universal, Design Inclusivo e Design com foco na equidade",Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,749e403add289e91ed0fd9cea87f1fa95c542b24,"Design Universal, Design Inclusivo e Design com foco na equidade
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 03,3,2,11,abec2ef784ee41749e57e57d37ff8c6a,Pré-processamento de Texto,"21/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira",Outros,21/08/2025,14:00,2025-08-21T14:00:00-03:00,Bryan Kano Ferreira,1,0,0,,,,,,,,0,0,0,d9c2fbdcca4faebd490b9e67e22df817c7ed4944,"Pré-processamento de Texto
+
+
+
+
+
+
+
+
+21/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,12,cf4f3d984663468e93efd59cc4955434,Básico de Pré-processamento de Texto com NLTK,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,0b0a82f5e808beeba620c75a706adc847e9fdda1,"Básico de Pré-processamento de Texto com NLTK
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,13,e4116b392c4348608304637811772399,Pipeline Completo de Pré-processamento com NLTK,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,58cb64a7e31ec90358a91932b2e7c3a8b4e0dba6,"Pipeline Completo de Pré-processamento com NLTK
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,14,74d64308172f4c359b51e0c738ad4de7,Notebook Python de Pré-processamento em NLP,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,a6070b276ce7a5de7c286435f8b822210437ed7d,"Notebook Python de Pré-processamento em NLP
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,15,8c877b7b94e64953aeffb2dbc60abf72,"Representação de Texto e Vetorização - Representações básicas: Bag-of-Words, TF-IDF","22/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira",Outros,22/08/2025,14:00,2025-08-22T14:00:00-03:00,Bryan Kano Ferreira,1,0,0,,,,,,,,0,0,0,38db95efc6b574878f2886272b3d6485ce8a713d,"Representação de Texto e Vetorização - Representações básicas: Bag-of-Words, TF-IDF
+
+
+
+
+
+
+
+
+22/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,16,a47a564224a94b8ca50952b7e45bed33,Getting started with Natural Language Processing: Bag of Words,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,7aef28bfecbaefaa26cb5bc121f941ec29aa2fe1,"Getting started with Natural Language Processing: Bag of Words
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,17,63aac2ca01c74d7098902f9953c55675,Representação vetorial de textos - bag of words,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,066619f5261a4184b3764a4c58b635a9b04658ab,"Representação vetorial de textos - bag of words
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 03,3,2,18,8eea5badb398495dbda8596215f64626,An introduction to Bag of Words and how to code it in Python for NLP,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,779a2755a3e6bb45a235489d556ccaa86531933e,"An introduction to Bag of Words and how to code it in Python for NLP
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,1,f97ce08e7cb045799faa3d12465f036c,Representação de Texto e Vetorização – Da Frequência ao Significado,"25/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,25/08/2025,14:00,2025-08-25T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,d88eb7f230cc1d4a0c97acd2b0380a73ac293bf1,"Representação de Texto e Vetorização – Da Frequência ao Significado
+
+
+
+
+
+
+
+
+25/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 04,4,2,2,32dbb220ca22459aa519802f5c85a529,Introdução aos Word Embeddings com Word2Vec,Ovidio Lopes da Cruz Netto,Outros,,,,,1,0,0,,,,,,,,0,0,0,33c410284e93df9410f8c0c85ee10045398cac45,"Introdução aos Word Embeddings com Word2Vec
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 04,4,2,3,2435ed685082471aa4d9f81909a0f1d9,Embeddings Contextuais com BERT,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,aaeddc1fbcb88e48cbd96ffbf7608d8e662791b1,"Embeddings Contextuais com BERT
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 04,4,2,4,6a630127155e4012a896f28ab452854b,Visualizando Embeddings com t-SNE e UMAP,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,4e1d5b8a40284888b1951ed5baa9f9eb09b84b93,"Visualizando Embeddings com t-SNE e UMAP
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 04,4,2,5,5d121296f1754c4a85accebb12e43dfa,Atividade: Bag of Words e Comparação de Representações,"Ovidio Lopes da Cruz Netto
+
+Atividade ponderada",Atividade,,,,,0,0,1,32dbb220ca22459aa519802f5c85a529,Introdução aos Word Embeddings com Word2Vec,preserved_previous,locked,,,,0,0,0,66083b308144580687cfd33b52e50c38ad070940,"Atividade: Bag of Words e Comparação de Representações
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto
+
+Atividade ponderada"
+Semana 04,4,2,6,12e6f2fdeb6a47108c77cd7dd9b29954,Análise de Agrupamento - Medidas de Proximidade.,"26/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani",Outros,26/08/2025,14:00,2025-08-26T14:00:00-03:00,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,e6c42c4a0ae1165642e39e9486d6551a2c5b8757,"Análise de Agrupamento - Medidas de Proximidade.
+
+
+
+
+
+
+
+
+26/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 04,4,2,7,731fba764f8e4a14a219a9cabe73c692,Teoria: Análise de Agrupamento - Medidas de Proximidade.,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,0,0,0,,,,,,,,0,0,0,abf201cca8e22d0ae37c52c8329ff6dfc3c6d578,"Teoria: Análise de Agrupamento - Medidas de Proximidade.
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 04,4,2,8,23f76a1369bf4362aba77d7a4d9c0453,Videoaula 1: Similaridade de cosseno.,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,9e265f0bfb4dcc7c4088c6c418e49c0a60e90fee,"Videoaula 1: Similaridade de cosseno.
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 04,4,2,9,68f473dff01d4d84a7794ae5ba90602c,"Videoaula 2: Pearson""s Correlation.",Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,b262d68bf9fe281ccd0fabf521d4075f2f05d357,"Videoaula 2: Pearson""s Correlation.
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 04,4,2,10,ed265b35cee5450f9d6137f1084718ad,"Videoaula 3: Principal Component Analysis (PCA), Step-by-Step.",Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,687b5a02c1e5d324b9e7793b8020180802442567,"Videoaula 3: Principal Component Analysis (PCA), Step-by-Step.
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 04,4,2,11,9e306471714b4033a61322a1b03a687b,Questão Ponderada: Aplicando Similaridade de Cosseno em Acessibilidade Digital,"Maria Cristina Nogueira Gramani
+
+Atividade ponderada",Atividade,,,,Maria Cristina Nogueira Gramani,0,0,1,ed265b35cee5450f9d6137f1084718ad,"Videoaula 3: Principal Component Analysis (PCA), Step-by-Step.",preserved_previous,locked,,,,0,0,0,eb5fc5826e618d9cac9490b02d5fb230d64cf18d,"Questão Ponderada: Aplicando Similaridade de Cosseno em Acessibilidade Digital
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani
+
+Atividade ponderada"
+Semana 04,4,2,12,843f98f4f7cf4687877b8c07283b7397,Introdução a Modelos de Linguagem com Transformers,"27/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira",Outros,27/08/2025,14:00,2025-08-27T14:00:00-03:00,Bryan Kano Ferreira,1,0,0,,,,,,,,0,0,0,b3d02e5f349cb0a2cbf619853d77a2ab512fe378,"Introdução a Modelos de Linguagem com Transformers
+
+
+
+
+
+
+
+
+27/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,13,38b7049c17b249d6903e19bc6bb33e62,Como Funcionam os Transformers - Hugging Face,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,bfc6dde6a538aa6fd05f54065172829ded14f9b1,"Como Funcionam os Transformers - Hugging Face
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,14,9b0f9eeaba2544b890c716921c9706ce,Arquitetura Transformer e Mecanismos de Atenção,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,426eced1f7922e672271b4042049bc591d3d1d03,"Arquitetura Transformer e Mecanismos de Atenção
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,15,5f4e6bacf13c46f3a31072106a98cb79,"Benchmark de Arquiteturas: CNN, RNN, LSTM e Transformers",Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,82264062e7b4ea690838db4a13107d7e4bdd1684,"Benchmark de Arquiteturas: CNN, RNN, LSTM e Transformers
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,16,4a261b878093478da9fae6c498b3bb99,Construção de Modelos de Classificação de Sentimentos com Naive-Bayes e a representação Bag of Words,"28/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira",Outros,28/08/2025,14:00,2025-08-28T14:00:00-03:00,Bryan Kano Ferreira,1,0,0,,,,,,,,0,0,0,55dc57a0bbf1b085e201b93212e2bb7728593019,"Construção de Modelos de Classificação de Sentimentos com Naive-Bayes e a representação Bag of Words
+
+
+
+
+
+
+
+
+28/08/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,17,5fb7b00a8c1e48eabfef0a81de3c8eff,A Hitchhiker's Guide to Sentiment Analysis using Naive-Bayes Classifier,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,fbeb19f41e31f621be349eb4698904ad9f9ff4fa,"A Hitchhiker's Guide to Sentiment Analysis using Naive-Bayes Classifier
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,18,eefb3e23fa8f436f87e62f820b7d216e,Como Fazer Análise de Sentimentos com Dados Textuais,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,a0ca4b54853b0dfa44b0a2e97a68d658c7f8c51b,"Como Fazer Análise de Sentimentos com Dados Textuais
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,19,d7673149ef7242328531919f5ac657b6,Naive Bayes Algorithms: A Complete Guide for Beginners,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,8dedbd923e57ca04658a8be11c6ff306818ce067,"Naive Bayes Algorithms: A Complete Guide for Beginners
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,20,f7c15febd2db463c8182cbc888468066,Bibliotecas Python para Data Science,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,ae549905a6e116359e3213b38ca31493ac4b618a,"Bibliotecas Python para Data Science
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,21,2460c71d938a43b1a041010f2a35fd11,How to implement Naive Bayes from scratch with Python,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,44ccef17b0af3120dc0a509b41eda5937cc9f4d5,"How to implement Naive Bayes from scratch with Python
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 04,4,2,22,581e74c786cd4af0875d833d04b92127,Sprint Review e Retrospective 2,29/08/2025 - 14:00h,Outros,29/08/2025,14:00,2025-08-29T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,bbdc2fe2b52887bf54f428247fea3bc6d6996b0c,"Sprint Review e Retrospective 2
+
+
+
+
+
+
+
+
+29/08/2025 - 14:00h"
+Semana 04,4,2,23,4cba24b889f94222881980c17570442f,DESIGN COMPREENSIVO E PROJETO VISUAL,Atividade ponderada,Atividade,,,,,0,0,1,581e74c786cd4af0875d833d04b92127,Sprint Review e Retrospective 2,preserved_previous,locked,,,,0,0,0,9b72cc5651fc36f1b2de300bed764a44aced4a45,"DESIGN COMPREENSIVO E PROJETO VISUAL
+
+Atividade ponderada"
+Semana 04,4,2,24,6892ffedd5e4455c964975103a0e226d,ESTRATÉGIA TÉCNICA  DA SOLUÇÃO,Atividade ponderada,Atividade,,,,ESTRATÉGIA TÉCNICA  DA SOLUÇÃO,0,0,1,581e74c786cd4af0875d833d04b92127,Sprint Review e Retrospective 2,preserved_previous,locked,,,,0,0,0,80f683b3084fd8b226c07918d79652d354170ab5,"ESTRATÉGIA TÉCNICA  DA SOLUÇÃO
+
+Atividade ponderada"
+Semana 04,4,2,25,352b3b4ce40a45f4b1205b5de41ecb87,GESTÃO DE PROJETOS EVOLUTIVA,Atividade ponderada,Atividade,,,,GESTÃO DE PROJETOS EVOLUTIVA,0,0,1,581e74c786cd4af0875d833d04b92127,Sprint Review e Retrospective 2,preserved_previous,locked,,,,0,0,0,f52d05bdbb8fc6bd9245e1be14eb286f0ce9b38c,"GESTÃO DE PROJETOS EVOLUTIVA
+
+Atividade ponderada"
+Semana 05,5,3,1,9be5e1dc06b4440885f9a8031bd1f6ed,"Sprint planning 3, demonstração de aprendizagem",01/09/2025 - 14:00h,Outros,01/09/2025,14:00,2025-09-01T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,6c92e84bd2daaf068c8cd2727d2b743c1865d5ba,"Sprint planning 3, demonstração de aprendizagem
+
+
+
+
+
+
+
+
+01/09/2025 - 14:00h"
+Semana 05,5,3,2,84a2e19f91cb4e90a5ae6f2a238f4512,Geração de Texto,"02/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,02/09/2025,14:00,2025-09-02T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,111c77442a863e0ea8afef678ee0a0c886978df4,"Geração de Texto
+
+
+
+
+
+
+
+
+02/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 05,5,3,3,3f3d8714011b4eb5a73baced9415d11e,Geração de Texto com GPT-2,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,ce050bf5b0c87cdb73af265c86848968ebb8999a,"Geração de Texto com GPT-2
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 05,5,3,4,bb77ba4c550f4f8b985197f174ad8f90,Rodando Modelos de LLM com Hugging Face e Python,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,a9496b0a39e2521c8eedb95e184fd3e86209c9c5,"Rodando Modelos de LLM com Hugging Face e Python
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 05,5,3,5,d772660913194b6b8c55b508d984bca8,Introdução ao Retrieval-Augmented Generation (RAG),Ovidio Lopes da Cruz Netto,Outros,,,,,1,0,0,,,,,,,,0,0,0,8962be6289859f070fddaa379f6a2313159b477e,"Introdução ao Retrieval-Augmented Generation (RAG)
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 05,5,3,6,194c912d79b64b829af6a49ba6dd1dbd,Construindo aplicações personalizadas com LLM através de RAG,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,3529f5a304c50318526ab5f79023da5fa2af3fd3,"Construindo aplicações personalizadas com LLM através de RAG
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 05,5,3,7,4e1df00ad3504f7ca6797e2406a8f7a5,Acessibilidade no Design de Interfaces,"03/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar",Outros,03/09/2025,14:00,2025-09-03T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,2d77d9bb04497b22777f7f4f63a5877873d47027,"Acessibilidade no Design de Interfaces
+
+
+
+
+
+
+
+
+03/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 05,5,3,8,db94f43b03864df48d4f3ef7c4d5bef3,Guia WCAG,Francisco de Souza Escobar,Outros,,,,Guia WCAG,0,0,0,,,,,,,,0,0,0,b51ac56c0965c04c535c9ce843ab7232b7765b6c,"Guia WCAG
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 05,5,3,9,1e94600c889447ae878a8c62575bf7fe,Color accessibility: tools and resources to help you design inclusive products,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,7d43b953bdfc00cc5c66619bb4c12b70bdc07551,"Color accessibility: tools and resources to help you design inclusive products
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 05,5,3,10,7a949fc1b046449d9a12bd2d043d0930,Accessibility Cheat Sheets,Francisco de Souza Escobar,Outros,,,,Accessibility Cheat Sheets,0,0,0,,,,,,,,0,0,0,e747318ec4a39ea6264971f5e95582eff59fa444,"Accessibility Cheat Sheets
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 05,5,3,11,fca2611e143942acb56aedfec73b91f6,Atividade ponderada de UX.,"Francisco de Souza Escobar
+
+Atividade ponderada",Atividade,,,,,0,0,1,4e1df00ad3504f7ca6797e2406a8f7a5,Acessibilidade no Design de Interfaces,preserved_previous,locked,,,,0,0,0,382b5a1baa34845d990c5158aafa8dd621667ccd,"Atividade ponderada de UX.
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar
+
+Atividade ponderada"
+Semana 05,5,3,12,289cb397a4d243f395d44213627792f7,Chatbots e outras ferramentas comerciais,"04/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira",Outros,04/09/2025,14:00,2025-09-04T14:00:00-03:00,Bryan Kano Ferreira,1,0,0,,,,,,,,0,0,0,f874cc7d10b54ebc6a252794399d0914fd6579bb,"Chatbots e outras ferramentas comerciais
+
+
+
+
+
+
+
+
+04/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 05,5,3,13,4c6926f3ee7748c097db2b471c24019e,"Chatbot: o que é, como funciona, benefícios e cases",Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,a335db9f0770a5e6bb1eb576e669981be2a04506,"Chatbot: o que é, como funciona, benefícios e cases
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 05,5,3,14,4524a63b5f7545709f7ceaeb071ccee7,O que é um chatbot?,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,01a0e7a1a483789db492e6cc5ada88b7c10018ea,"O que é um chatbot?
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 05,5,3,15,2d4c1c06411a4140972aeabde1fd9e5d,Telegram Bot Tutorial,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,01cec973990059518bf6e5445fd117241db32211,"Telegram Bot Tutorial
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 05,5,3,16,91b79772832e490fab9ada1a3f381d0d,Referência de webhook do Telegram,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,5abf6dc53604a0326675b0e35db65adf9ea7a522,"Referência de webhook do Telegram
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 05,5,3,17,740f125fcd6845e9a19ea9140cf67eba,Atividade: Construção de um bot de mensagens no Telegram,"Bryan Kano Ferreira
+
+Atividade ponderada",Atividade,,,,Bryan Kano Ferreira,0,0,1,289cb397a4d243f395d44213627792f7,Chatbots e outras ferramentas comerciais,preserved_previous,locked,,,,0,0,0,e6891af3a494776dc9f9cf33bc5d84aa0a89a8f9,"Atividade: Construção de um bot de mensagens no Telegram
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira
+
+Atividade ponderada"
+Semana 05,5,3,18,ba17800cc4da467b87c361277ef2650c,ChatGPT for good? On opportunities and challenges of large language models for education,Bryan Kano Ferreira,Outros,,,,Bryan Kano Ferreira,0,0,0,,,,,,,,0,0,0,c41796016f804a061e59a2826dbee0af91fcb6ba,"ChatGPT for good? On opportunities and challenges of large language models for education
+
+
+
+
+
+
+
+
+Bryan Kano Ferreira"
+Semana 05,5,3,19,7e92d03c0fb945ec9f65e09f335e77d5,Webhooks e integrações entre serviços,"05/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior",Outros,05/09/2025,14:00,2025-09-05T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,b001695ee3d400462da6377cc46d3676873fde67,"Webhooks e integrações entre serviços
+
+
+
+
+
+
+
+
+05/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior"
+Semana 05,5,3,20,3c3dbb0ff34b4a029f987cb18a24ac09,O que é um webhook?,Hermano Peixoto de Oliveira Junior,Outros,,,,,0,0,0,,,,,,,,0,0,0,7f2f838a6f176dd7bc8b547a59c36ee6a8b57a0e,"O que é um webhook?
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior"
+Semana 05,5,3,21,30240959690248239a5eee8692b8c8b4,Entenda o que é um webhook e como ele funciona,Hermano Peixoto de Oliveira Junior,Outros,,,,,0,0,0,,,,,,,,0,0,0,198bf633f884c63fb6a015b3cf09b86a01beaeaf,"Entenda o que é um webhook e como ele funciona
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior"
+Semana 05,5,3,22,b1ab48a3684e4fe9b0e5c5d4b4290f65,"Webhook: o que é, importância, como criar e implementar",Hermano Peixoto de Oliveira Junior,Outros,,,,,0,0,0,,,,,,,,0,0,0,8ca0ed0f46a4c03cf5786ba941ff6f923c572726,"Webhook: o que é, importância, como criar e implementar
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior"
+Semana 05,5,3,23,d0da06d7f67642199db5f6bd17316e98,Criar webhooks,Hermano Peixoto de Oliveira Junior,Outros,,,,,0,0,0,,,,,,,,0,0,0,65c1a13f6561dae860f47b4808b028285bc8ecf9,"Criar webhooks
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior"
+Semana 05,5,3,24,d54ace84ae4144c2a1d82b2d37f03e44,RabbitMQ in 100 Seconds,Hermano Peixoto de Oliveira Junior,Outros,,,,,0,0,0,,,,,,,,0,0,0,be8a74741eaf42074c9fb8a855d8f803584e2860,"RabbitMQ in 100 Seconds
+
+
+
+
+
+
+
+
+Hermano Peixoto de Oliveira Junior"
+Semana 06,6,3,1,664ee214714d4b60b2b4382c874b8a89,Uso de ferramentas comerciais para o desenvolvimento de aplicações com PLN,"08/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,08/09/2025,14:00,2025-09-08T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,442cc7dcebef4f7b9a0b0a2b673fcb7dd3dd2537,"Uso de ferramentas comerciais para o desenvolvimento de aplicações com PLN
+
+
+
+
+
+
+
+
+08/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,2,6a538a661777499db0dc837696e3b582,Criação de Chatbot com IBM Watson,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,8edc48953aa195a5843420d15913f16612386a29,"Criação de Chatbot com IBM Watson
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,3,31f5346aa67b4c52b91c72a93c6ef092,Amazon S3 Introduction,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,fd99d7c6928e3a4324cc2c9282f402fa5cdfd849,"Amazon S3 Introduction
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,4,bd0b86b9573f4720966349adf36acc1c,Audio to text conversion using AWS Transcribe and Sentiment Analysis using Comprehend API,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,1bc07bcf8b0a9226ad815345456a9de677d84aef,"Audio to text conversion using AWS Transcribe and Sentiment Analysis using Comprehend API
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,5,40dd0a90376846f98393cb4b72a84e7a,Audio-Analysis using AWS Transcribe,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,cd1088287489b35aaf15d2f6d5b40a0a3521a076,"Audio-Analysis using AWS Transcribe
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,6,5a002c5fa66e42e3b35bf09491ac3054,O que é o Amazon Comprehend?,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,f74d8dc31a1b13f35be4e4b728904641a953471a,"O que é o Amazon Comprehend?
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,7,1d710c7aa85941fda0e8b02183d28f57,Como a automação com reconhecimento de voz pode melhorar a eficiência de uma empresa,"09/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo",Outros,09/09/2025,14:00,2025-09-09T14:00:00-03:00,Lisane Valdo,1,0,0,,,,,,,,0,0,0,1d74751dee3b524ec79ecba2605ddf72c8eff6a7,"Como a automação com reconhecimento de voz pode melhorar a eficiência de uma empresa
+
+
+
+
+
+
+
+
+09/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 06,6,3,8,9270745d4398488fb2b7cc5a281a0714,8 Things Every User Should Know About Voice-Activated Tech,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,09b15ebd345a4cad12ee7a4dd8adf6906db0e6f8,"8 Things Every User Should Know About Voice-Activated Tech
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 06,6,3,9,a1db2702c92b45a08112d9dda243efbf,10 Key Predictions for the Future Of Voice Assistants,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,15c3fa5f8cd31bb6a65121c41070631b56e0f72d,"10 Key Predictions for the Future Of Voice Assistants
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 06,6,3,10,3c7e4228ca06429dadf56513938c6b5a,How Voice Recognition Software Assistive Technology Improves Efficiency and Safety,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,0864e4a01783de00544c3abf0f875247a224d949,"How Voice Recognition Software Assistive Technology Improves Efficiency and Safety
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 06,6,3,11,bcc03038ca474030a4d74bdb6970444d,Banco de dados vetorais,"10/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto",Outros,10/09/2025,14:00,2025-09-10T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,55113f6abdf741b33c80923daed3096920ce4456,"Banco de dados vetorais
+
+
+
+
+
+
+
+
+10/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,12,145f86dfeeb24d5f8d52107fc46ec84a,O que é uma ferramenta de Base de Dados Vetorial,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,e27b70e0074698970e177755b86e6c7ca0d0e308,"O que é uma ferramenta de Base de Dados Vetorial
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,13,3c9c6df7c2ae49c1b83991f95c496be8,Alguns banco de dados vetoriais,Ovidio Lopes da Cruz Netto,Outros,,,,,0,0,0,,,,,,,,0,0,0,18a5e4cba2f8cd6560161b1f2eae484f8ae12579,"Alguns banco de dados vetoriais 
+
+
+
+
+
+
+
+
+Ovidio Lopes da Cruz Netto"
+Semana 06,6,3,14,7ebff7c087a245958bc27557e1e2fecf,Modelos Preditivos - Regressão e Classificação (modelos supervisionados).,"11/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani",Outros,11/09/2025,14:00,2025-09-11T14:00:00-03:00,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,b3a762028353845889f0e894c80790ecfae107ee,"Modelos Preditivos - Regressão e Classificação (modelos supervisionados).
+
+
+
+
+
+
+
+
+11/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 06,6,3,15,e177dc08e0314419bec05799375c2ef6,Teoria: Modelos Preditivos: Métodos baseados em distâncias,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,0,0,0,,,,,,,,0,0,0,4f987636b0c61f4896bcc2384f9e0d823cc5f575,"Teoria: Modelos Preditivos: Métodos baseados em distâncias
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 06,6,3,16,ff175ae1c44c4d8792b4fc450b591429,Videoaula 1: Top 6 Machine Learning Algorithms for Beginners - Classification.,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,2936548a5ff6c1c43b8b3e7423e22f607d552090,"Videoaula 1: Top 6 Machine Learning Algorithms for Beginners - Classification.
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 06,6,3,17,8f435f645f8843d09f3f3b4569f5b32b,Videoaula 2: Top 4 Linear Regression Algorithms in Machine Learning.,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,cc0872949fb6b4dbe924182aad64f9cc9e1e4801,"Videoaula 2: Top 4 Linear Regression Algorithms in Machine Learning.
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 06,6,3,18,97db4b24eb2e4acb8f45491ec1261385,Sprint Review e Retrospective 3,12/09/2025 - 14:00h,Outros,12/09/2025,14:00,2025-09-12T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,c111c18e2d7a8ae1e4aacdd710d2325578387f74,"Sprint Review e Retrospective 3
+
+
+
+
+
+
+
+
+12/09/2025 - 14:00h"
+Semana 06,6,3,19,1f8e3119bed34e7b8318580f04dd884c,DESENVOLVIMENTO  E DOCUMENTAÇÃO TÉCNICA DO PROJETO,Atividade ponderada,Atividade,,,,,0,0,1,97db4b24eb2e4acb8f45491ec1261385,Sprint Review e Retrospective 3,preserved_previous,locked,,,,0,0,0,61aef8004f837608475224507d79907e7a59d9e1,"DESENVOLVIMENTO  E DOCUMENTAÇÃO TÉCNICA DO PROJETO
+
+Atividade ponderada"
+Semana 06,6,3,20,4a388bdf5795492ba28c5a6826644965,PLANEJAMENTO DE TESTES SISTÊMICOS,Atividade ponderada,Atividade,,,,PLANEJAMENTO DE TESTES SISTÊMICOS,0,0,1,97db4b24eb2e4acb8f45491ec1261385,Sprint Review e Retrospective 3,preserved_previous,locked,,,,0,0,0,1daabf4bbb8b1c58c6fca0c25cfce7f5ab99396b,"PLANEJAMENTO DE TESTES SISTÊMICOS
+
+Atividade ponderada"
+Semana 06,6,3,21,3a35203d2c1847dfa217879cd870b2d5,GESTÃO DE PROJETOS EVOLUTIVA,Atividade ponderada,Atividade,,,,GESTÃO DE PROJETOS EVOLUTIVA,0,0,1,97db4b24eb2e4acb8f45491ec1261385,Sprint Review e Retrospective 3,preserved_previous,locked,,,,0,0,0,f52d05bdbb8fc6bd9245e1be14eb286f0ce9b38c,"GESTÃO DE PROJETOS EVOLUTIVA
+
+Atividade ponderada"
+Semana 07,7,4,1,18c20e1beae543129d48739f27db1336,"Sprint Planning 4, demonstração de aprendizagem",15/09/2025 - 14:00h,Outros,15/09/2025,14:00,2025-09-15T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,2a1407cb6e410165fdb09517dc99a24bfb4c5e43,"Sprint Planning 4, demonstração de aprendizagem
+
+
+
+
+
+
+
+
+15/09/2025 - 14:00h"
+Semana 07,7,4,2,7084b86ad9fb40089cfde254abbad7dc,Contabilidade Gerencial: Planejamento e Orçamento,"16/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo",Outros,16/09/2025,14:00,2025-09-16T14:00:00-03:00,Lisane Valdo,1,0,0,,,,,,,,0,0,0,0bb116bc265c1a581f7bcf5f13fd4a176371b6d4,"Contabilidade Gerencial: Planejamento e Orçamento
+
+
+
+
+
+
+
+
+16/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 07,7,4,3,f08d6dad117e4753b7ebd6d0ec195110,"Formação do preço de venda: rentabilidade, giro e margem de lucro.",Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,7de272aa6acdaacc3742e0fd7ff572777c206032,"Formação do preço de venda: rentabilidade, giro e margem de lucro.
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 07,7,4,4,ca5abec23f2c4dfdab5350c3dcf27cf5,Planejamento e orçamento; Planejamento de lucros; Etapas de planejamento e controle orçamentário,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,17c66f59b9d5f8f763ae5d4c7b508a170d9627c6,"Planejamento e orçamento; Planejamento de lucros; Etapas de planejamento e controle orçamentário
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 07,7,4,5,3c35eea6c3a249d68bd9c85144b37b10,Determinar o nível de vendas necessário para alcançar um lucro-alvo desejado,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,708a7cff2740aef0ca165744d2bef2ce60d7f4b4,"Determinar o nível de vendas necessário para alcançar um lucro-alvo desejado
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 07,7,4,6,12c498080a8d48339d493a2779cee401,Questão de Negócios 1,"Lisane Valdo
+
+Atividade ponderada",Atividade,,,,Lisane Valdo,0,0,1,7084b86ad9fb40089cfde254abbad7dc,Contabilidade Gerencial: Planejamento e Orçamento,preserved_previous,locked,,,,0,0,0,09e7cc36a56e15882db40d5171819a650f527039,"Questão de Negócios 1
+
+
+
+
+
+
+
+
+Lisane Valdo
+
+Atividade ponderada"
+Semana 07,7,4,7,b3b32de59aed41b8ab2b856b4945e875,Engenharia de testes (testes unitários e testes de integração - interno e terceiros),"17/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,17/06/2025,14:00,2025-06-17T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,979eb72f5c2bb7c89fdf0ad9580b6d2a21349cd0,"Engenharia de testes (testes unitários e testes de integração - interno e terceiros)
+
+
+
+
+
+
+
+
+17/06/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,8,74984ae10185461f9d4cc34f680000d8,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O que testar e como testar uma aplicação cuja interação é em linguagem natural?",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,7382156c1b477dbff62152dd0cbc4c9b99c71ef4,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O que testar e como testar uma aplicação cuja interação é em linguagem natural?
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,9,6b6eb23b383f4bb0b05de7ef0c55cd00,"Autoestudo 1 - Estudar um benchmarking baseado em testes publicado num texto científico de (Hayahi, Arakaki, Ruggiero, 2020)",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,74984ae10185461f9d4cc34f680000d8,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O que testar e como testar uma aplicação cuja interação é em linguagem natural?",preserved_previous,locked,,,,0,0,0,793d025f3e6fd84d77e2e86d3d975a6bdb1ccf01,"Autoestudo 1 - Estudar um benchmarking baseado em testes publicado num texto científico de (Hayahi, Arakaki, Ruggiero, 2020)
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,10,0f31d2039cd045c98a3c0337bada71b1,Auto estudo 2 - Testes de Software a nível de componentes (Conceitos e Técnicas Avançadas),Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,74984ae10185461f9d4cc34f680000d8,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O que testar e como testar uma aplicação cuja interação é em linguagem natural?",preserved_previous,locked,,,,0,0,0,83ce1a620833a3d93dbfdcb1ed9c37f2f20d5cbc,"Auto estudo 2 - Testes de Software a nível de componentes (Conceitos e Técnicas Avançadas)
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,11,46d77e91e5a8470e9512a89b68789a35,Autoestudo 3 (Opcional) Avaliar o TDD aplicado no módulo PLN: Especificação Aferição Rastreabilidade de processos,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,74984ae10185461f9d4cc34f680000d8,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O que testar e como testar uma aplicação cuja interação é em linguagem natural?",preserved_previous,locked,,,,0,0,0,549da7fd41112ca54f686edcc9c3910672782334,"Autoestudo 3 (Opcional) Avaliar o TDD aplicado no módulo PLN: Especificação Aferição Rastreabilidade de processos
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,12,a8146bf6ef9546d2988b695f71928764,Funções de Ativação,"18/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani",Outros,18/09/2025,14:00,2025-09-18T14:00:00-03:00,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,8bdfd5ac945388aed1f859d23cbf74062d6a1f0a,"Funções de Ativação
+
+
+
+
+
+
+
+
+18/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 07,7,4,13,c0d2cbf9a2b647dca3d9af6afa03272e,Videoaula 1: Redes Neurais #01 - Conceitos,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,da09789e6b1730f6c15ab898f43b16ae48518c6f,"Videoaula 1: Redes Neurais #01 - Conceitos
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 07,7,4,14,6ae792ce401b46bb876f7d07199f86f7,Videoaula 2: Redes Neurais Artificiais #02: Perceptron - Part I,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,ef040446f5d4f5c43871584029cda96e908c6769,"Videoaula 2: Redes Neurais Artificiais #02: Perceptron - Part I
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 07,7,4,15,689d08a863624cbe836989cb19a449aa,Videoaula 3: Redes Neurais Artificiais #03: Perceptron - Parte II,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,d67456ed9a74edfeee13a7a441a9145beb9b4e99,"Videoaula 3: Redes Neurais Artificiais #03: Perceptron - Parte II
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 07,7,4,16,bbad136b3ebc435e8288d4a347524ddc,Videoaula 4: Redes Neurais Artificiais #04: Funções de ativação - Parte 1,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,1ee9b768ad4af1e7148285153e421a9b21a902bb,"Videoaula 4: Redes Neurais Artificiais #04: Funções de ativação - Parte 1
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 07,7,4,17,4f0a31fe57604e0e8c49c05a82408fd6,Videoaula 5: Redes Neurais Artificiais #05: Funções de ativação - Parte 2,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,2e87dd7c1e9d502daa7b7e462cf3561110cf005d,"Videoaula 5: Redes Neurais Artificiais #05: Funções de ativação - Parte 2
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 07,7,4,18,c0902cc299964dafbe811ac62c69c005,Questão Ponderada:  Feedforward de Rede Neural – Acessibilidade no Itaú,"Maria Cristina Nogueira Gramani
+
+Atividade ponderada",Atividade,,,,Maria Cristina Nogueira Gramani,0,0,1,4f0a31fe57604e0e8c49c05a82408fd6,Videoaula 5: Redes Neurais Artificiais #05: Funções de ativação - Parte 2,preserved_previous,locked,,,,0,0,0,841468802fd40e39bdc6474d678f69d5bd0a2ab9,"Questão Ponderada:  Feedforward de Rede Neural – Acessibilidade no Itaú
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani
+
+Atividade ponderada"
+Semana 07,7,4,19,e17c920982924620a7a47e59e26c8c51,Modelos Avançados e Aplicações de PLN,"19/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,19/09/2025,14:00,2025-09-19T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,dec702325de0d29affa14f5534fcc5c52fca0e69,"Modelos Avançados e Aplicações de PLN
+
+
+
+
+
+
+
+
+19/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,20,8d52a4b3fd4c4b9b80aefeac7a70e440,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Interação por linguagem natural, combinado com computação pervasiva trazem aplicações complexas.",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,2955106b0ff4f295a8d1aa3cfbacdbb5b17eea88,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Interação por linguagem natural, combinado com computação pervasiva trazem aplicações complexas.
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,21,104b61e37a794713b296e9a821028b88,Auto estudo 1 - Desenhar em alto nível os serviços PLNs de comandos e de respostas para os 5 Cenários,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,8d52a4b3fd4c4b9b80aefeac7a70e440,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Interação por linguagem natural, combinado com computação pervasiva trazem aplicações complexas.",preserved_previous,locked,,,,0,0,0,c1b95ec428248c583536b789e4790bddedf166a2,"Auto estudo 1 - Desenhar em alto nível os serviços PLNs de comandos e de respostas para os 5 Cenários
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,22,cd608d8eec2540ff86bf4239181b0adc,Autoestudo 2 - Vídeo de carro autonomo.,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,8d52a4b3fd4c4b9b80aefeac7a70e440,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Interação por linguagem natural, combinado com computação pervasiva trazem aplicações complexas.",preserved_previous,locked,,,,0,0,0,b8b20e277db75ad2f0b22a3d203df5bb9a994e7e,"Autoestudo 2 - Vídeo de carro autonomo.
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 07,7,4,23,fa005a9f438049ec9c234c8fc5cd3dcf,Auto estudo 3 - Refletir sobre o ambiente pervasivo do projeto - como a interação por PLN poderia ser ampliada?,Reginaldo Arakaki,Projeto,,,,Reginaldo Arakaki,0,1,0,8d52a4b3fd4c4b9b80aefeac7a70e440,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: Interação por linguagem natural, combinado com computação pervasiva trazem aplicações complexas.",preserved_previous,locked,,,,0,0,0,60d03d530503bf6c9228af9d22aeb54f860bdb7c,"Auto estudo 3 - Refletir sobre o ambiente pervasivo do projeto - como a interação por PLN poderia ser ampliada?
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 08,8,4,1,bd9efd6bacbe4f9dbf5a106ffc2d584b,Experimentos além do laboratório: a importância de experimentar para inovar,"22/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",Outros,22/09/2025,14:00,2025-09-22T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,2f71b68ab25a35d39b13fb6e5a9dc3c20899d0bf,"Experimentos além do laboratório: a importância de experimentar para inovar
+
+
+
+
+
+
+
+
+22/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 08,8,4,2,671428fce188407099b6ded0d7f09fa6,Não há inovação sem experimentação,"Filipe Gonçalves de Souza Nogueira da Silva
+
+Atividade ponderada",Atividade,,,,,0,0,1,bd9efd6bacbe4f9dbf5a106ffc2d584b,Experimentos além do laboratório: a importância de experimentar para inovar,preserved_previous,locked,,,,0,0,0,a9fecfa8765b586e47732b481aa6911eb12469ee,"Não há inovação sem experimentação
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva
+
+Atividade ponderada"
+Semana 08,8,4,3,ddd73fb91bb64571969e5d114a62586d,O que falamos quando falamos sobre experimentação?,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,25c11b1da6cd3da0ce67ce4492084bf69601fc5e,"O que falamos quando falamos sobre experimentação?
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 08,8,4,4,40e979e2659c464f97eccab93629c92d,Avaliação da Arquitetura do Projeto,"23/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Projeto,23/09/2025,14:00,2025-09-23T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,0ee9c34ee781efe8b8a8a8131a4aca7eadde543c,"Avaliação da Arquitetura do Projeto
+
+
+
+
+
+
+
+
+23/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 08,8,4,5,66aa8a0449df491ea0e3d65f1743d4c9,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: A arquitetura resultante - Como avaliar?",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,6f66e91fd9e434cd31b9c2402b6aea7ea88ccd93,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: A arquitetura resultante - Como avaliar?
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 08,8,4,6,785c8c56ecfd43769e4379ed16cf4386,Autoestudo 1 - Identificar 2 cenários de testes para cada visão arquitetural,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,66aa8a0449df491ea0e3d65f1743d4c9,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: A arquitetura resultante - Como avaliar?",preserved_previous,locked,,,,0,0,0,637c384cbf8ed1e1d111db3d4a2b19163109868d,"Autoestudo 1 - Identificar 2 cenários de testes para cada visão arquitetural
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 08,8,4,7,b27c5f9f6c864dcea8fd9c76ecba5ae2,Autoestudo 2 - Existe método para avaliar um sistema de software?,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,66aa8a0449df491ea0e3d65f1743d4c9,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: A arquitetura resultante - Como avaliar?",preserved_previous,locked,,,,0,0,0,3f7aa0f2c7b35f2220975a11370ff972c1c73548,"Autoestudo 2 - Existe método para avaliar um sistema de software?
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 08,8,4,8,555bfee5295a4cdfb66dc8275aafd31b,DRE,"24/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo",Outros,24/09/2025,14:00,2025-09-24T14:00:00-03:00,Lisane Valdo,1,0,0,,,,,,,,0,0,0,b70de9329c73d861e7d251ca20593a06d1598e9e,"DRE
+
+
+
+
+
+
+
+
+24/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 08,8,4,9,a9983cd7e0f045c79ca1a27d496c49d8,Análise do fluxo de caixa,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,24364d17e2fb05638cf963e22e9d9eb07109c1cc,"Análise do fluxo de caixa
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 08,8,4,10,a3a5642d9eda40b585839c4681d133bb,Análise dos resultados das decisões de investimento e de financiamento com base na DRE,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,fe1a587cecaae60a7dafd8793205c221ebc09008,"Análise dos resultados das decisões de investimento e de financiamento com base na DRE
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 08,8,4,11,0aa157c9266d49f581e45d3d0ab9ae38,Demonstração de resultado do exercício (DRE),Lisane Valdo,Atividade,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,fb612fcfe3f71bf3be3ccd107ee8cbb072ad9eaf,"Demonstração de resultado do exercício (DRE)
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 08,8,4,12,70dd7b7c2b834fa88e9a0168a559a67e,Questão Negócios 2 - DRE,"Lisane Valdo
+
+Atividade ponderada",Atividade,,,,Lisane Valdo,0,0,1,555bfee5295a4cdfb66dc8275aafd31b,DRE,preserved_previous,locked,,,,0,0,0,6fef13842908711bc38045590811349f6e590284,"Questão Negócios 2 - DRE
+
+
+
+
+
+
+
+
+Lisane Valdo
+
+Atividade ponderada"
+Semana 08,8,4,13,40adcd426f034a818320c6aca25760b7,Método do Gradiente Descendente: Algoritmo Back-propagation,"25/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani",Outros,25/09/2025,14:00,2025-09-25T14:00:00-03:00,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,394ea58218407c9230669f2e394bf27e4257d975,"Método do Gradiente Descendente: Algoritmo Back-propagation
+
+
+
+
+
+
+
+
+25/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 08,8,4,14,9268a732121a49d3a3a755f81f149e5d,Teoria: Método do Gradiente Descendente: Algoritmo Back-propagation,Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,0,0,0,,,,,,,,0,0,0,1e7dc4ce5cc4feb55ec258be0b46f1af85b49572,"Teoria: Método do Gradiente Descendente: Algoritmo Back-propagation
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 08,8,4,15,e523c8e156a0445282d2ea37a3781f04,"Videoaula 1: Mas o que *é* uma Rede Neural? | Deep learning, capítulo 1",Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,59d622ee699c5235c266a2f44c43e001050868cd,"Videoaula 1: Mas o que *é* uma Rede Neural? | Deep learning, capítulo 1
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 08,8,4,16,43241dfb8640422bb20abd69fc8cdd30,"Videoaula 2: Descida de gradiente, como as redes neurais aprendem | Capítulo 2, aprendizado profundo",Maria Cristina Nogueira Gramani,Outros,,,,Maria Cristina Nogueira Gramani,1,0,0,,,,,,,,0,0,0,2342bc9d9974e9b188e9ad83ffd8e3e5e2408921,"Videoaula 2: Descida de gradiente, como as redes neurais aprendem | Capítulo 2, aprendizado profundo
+
+
+
+
+
+
+
+
+Maria Cristina Nogueira Gramani"
+Semana 08,8,4,17,638e80dbbf864fb5b2709ff5f94e6624,Sprint Review e Retrospective 4,26/09/2025 - 14:00h,Outros,26/09/2025,14:00,2025-09-26T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,3366d015daefe6741b584c6843624ebf379dfd0d,"Sprint Review e Retrospective 4
+
+
+
+
+
+
+
+
+26/09/2025 - 14:00h"
+Semana 08,8,4,18,981bda9f818c494e97216ee5944e6f40,DESENVOLVIMENTO  E DOCUMENTAÇÃO TÉCNICA DO PROJETO,Atividade ponderada,Atividade,,,,,0,0,1,638e80dbbf864fb5b2709ff5f94e6624,Sprint Review e Retrospective 4,preserved_previous,locked,,,,0,0,0,61aef8004f837608475224507d79907e7a59d9e1,"DESENVOLVIMENTO  E DOCUMENTAÇÃO TÉCNICA DO PROJETO
+
+Atividade ponderada"
+Semana 08,8,4,19,dfca92c5687b45e19cbb58cf7e3ba5ff,EXECUÇÃO DE TESTES SISTÊMICOS,Atividade ponderada,Atividade,,,,EXECUÇÃO DE TESTES SISTÊMICOS,0,0,1,638e80dbbf864fb5b2709ff5f94e6624,Sprint Review e Retrospective 4,preserved_previous,locked,,,,0,0,0,0f310d3922aceb7e89930d7eb1df0d8edd0e49ab,"EXECUÇÃO DE TESTES SISTÊMICOS
+
+Atividade ponderada"
+Semana 08,8,4,20,22cc20b80ef94618b1e6d29e0ceedd44,GESTÃO DE PROJETOS EVOLUTIVA E ANÁLISE DE VIABILIDADE FINANCEIRA,Atividade ponderada,Atividade,,,,,0,0,1,638e80dbbf864fb5b2709ff5f94e6624,Sprint Review e Retrospective 4,preserved_previous,locked,,,,0,0,0,d36c8b93ad66bdadeebf2d52b2a42584003af18f,"GESTÃO DE PROJETOS EVOLUTIVA E ANÁLISE DE VIABILIDADE FINANCEIRA
+
+Atividade ponderada"
+Semana 09,9,5,1,3b7af09e3ed24e96a82de8314d3f754e,Autoavaliação,Atividade ponderada,Atividade,,,,,0,0,1,d1ef40f3ef444ee9a5d2c2244341c08e,Prova do Módulo,"sim=0.36,after=-0.2",low,,,,0,0,0,522730bc40af7d4091e718c336e98b224dbbcc63,"Autoavaliação
+
+Atividade ponderada"
+Semana 09,9,5,2,5b0f064b0fb8427594b557410bc9f586,Autoavaliação do grupo,,Avaliação,,,,,0,0,0,,,,,,,,0,0,0,ab7da9abd88b1ad90fb39356d9149c25651751f7,Autoavaliação do grupo
+Semana 09,9,5,3,cb91f4d72a3441dcaecf997e80e25631,Avaliação em pares,Atividade ponderada,Atividade,,,,,0,0,1,bea2190e3b204c35840cc9927ce8ab66,Testes de Usabilidade com Foco em Acessibilidade,"sim=0.36,after=-0.2",low,,,,0,0,0,0e1b9bbc67ef8b44813f6a899686e779d940f6cf,"Avaliação em pares
+
+Atividade ponderada"
+Semana 09,9,5,4,24cb8296340b434fa3c8c4a56fd5e70c,Avaliação geral,,Avaliação,,,,,0,0,0,,,,,,,,0,0,0,c1fce12430872354d8209816b16f3970509b6604,Avaliação geral
+Semana 09,9,5,5,3c49ed09e24d4693811824584688adeb,Sprint Planning 5 e demonstração de aprendizagem,29/09/2025 - 14:00h,Outros,29/09/2025,14:00,2025-09-29T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,32ae49447b7da43391b5e5630c7d317ad341a9b6,"Sprint Planning 5 e demonstração de aprendizagem
+
+
+
+
+
+
+
+
+29/09/2025 - 14:00h"
+Semana 09,9,5,6,afca8f07dbd142ba80fdfa255d4fb002,Tópicos Avançados em Processamento de Linguagem Natural,"30/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki",Outros,30/09/2025,14:00,2025-09-30T14:00:00-03:00,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,07b3798042e886bb392fdcd53a8a8936cc92e430,"Tópicos Avançados em Processamento de Linguagem Natural
+
+
+
+
+
+
+
+
+30/09/2025 - 14:00h
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 09,9,5,7,d29c5dc27ecc4d01937b59a6faa139c4,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O uso de IA impacta a segurança? O PLN impacta a segurança?",Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,1,0,0,,,,,,,,0,0,0,0dc35405cf540923b326877e0bf95b69e742c7d5,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O uso de IA impacta a segurança? O PLN impacta a segurança?
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 09,9,5,8,e66b8a68d1d341a8a6e8bb7e73c0e767,Autoestudo 1 - Ataques em LLM,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,d29c5dc27ecc4d01937b59a6faa139c4,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O uso de IA impacta a segurança? O PLN impacta a segurança?",preserved_previous,locked,,,,0,0,0,983fd50966e73261f2457fdee16eb7ba358f0916,"Autoestudo 1 - Ataques em LLM
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 09,9,5,9,e14f6d5b25964ec79ca36df5205e73e1,Autoestudo 2 - TOWARDS CONTINUAL KNOWLEDGE LEARNING OF LANGUAGE MODELS,Reginaldo Arakaki,Outros,,,,Reginaldo Arakaki,0,1,0,d29c5dc27ecc4d01937b59a6faa139c4,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O uso de IA impacta a segurança? O PLN impacta a segurança?",preserved_previous,locked,,,,0,0,0,9d6839a4684dac1cae45e6072744354ce1997ecb,"Autoestudo 2 - TOWARDS CONTINUAL KNOWLEDGE LEARNING OF LANGUAGE MODELS
+
+
+
+
+
+
+
+
+Reginaldo Arakaki"
+Semana 09,9,5,10,55ff260293e54c1b94b7432c919726a1,Autoestudo 3 - Atividade: Tópicos Avançados (Segurança OU MLOps),"Reginaldo Arakaki
+
+Atividade ponderada",Atividade,,,,Reginaldo Arakaki,0,1,1,d29c5dc27ecc4d01937b59a6faa139c4,"O PROBLEMA CENTRAL, FOCO DESTA INSTRUÇÃO: O uso de IA impacta a segurança? O PLN impacta a segurança?",preserved_previous,locked,,,,0,0,0,8c232aa887df93f4fd3fe4b132bc75b0460b989e,"Autoestudo 3 - Atividade: Tópicos Avançados (Segurança OU MLOps)
+
+
+
+
+
+
+
+
+Reginaldo Arakaki
+
+Atividade ponderada"
+Semana 09,9,5,11,bea2190e3b204c35840cc9927ce8ab66,Testes de Usabilidade com Foco em Acessibilidade,"01/10/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar",Outros,01/10/2025,14:00,2025-10-01T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,cdaac6b48cbbe5885c5f668a0a2599d0bed5492d,"Testes de Usabilidade com Foco em Acessibilidade
+
+
+
+
+
+
+
+
+01/10/2025 - 14:00h
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 09,9,5,12,84e6966b51a94bafb7e7f6aeaa8f4bbc,Comparação de metodologias de testes para interfaces de voz,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,3af97aaea9cd881ed837c7bd925a1f89c70b312e,"Comparação de metodologias de testes para interfaces de voz
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 09,9,5,13,e3daea8eac7143a19778a5d08847c4d2,Tips for Usability Testing with People with Disabilities,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,bf879580ebb61d127d7af5f8e70777e7f59e3c7e,"Tips for Usability Testing with People with Disabilities
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 09,9,5,14,6d459f87d44b4ce98023494f294a901e,How to Conduct Usability Studies for Accessibility,Francisco de Souza Escobar,Outros,,,,,0,0,0,,,,,,,,0,0,0,a259c65e1238f4711061207e21a98efac92882a7,"How to Conduct Usability Studies for Accessibility 
+
+
+
+
+
+
+
+
+Francisco de Souza Escobar"
+Semana 09,9,5,15,a289940c1ed240e9b226909e1681d08f,Encontro de orientação - IoT e Dispositivos Inteligentes comerciais,02/10/2025 - 14:00h,Outros,02/10/2025,14:00,2025-10-02T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,c393c9b215c73d759343742b8843cc4ea3e6afbf,"Encontro de orientação - IoT e Dispositivos Inteligentes comerciais
+
+
+
+
+
+
+
+
+02/10/2025 - 14:00h"
+Semana 09,9,5,16,02d527bc79fa4ccab3964c0796e599ce,AWS IoT - Device data to dashboard in 10 minutes,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,0,0,0,,,,,,,,0,0,0,d1be24458840117aba1fbd1dbb9014ff60f38d8e,"AWS IoT - Device data to dashboard in 10 minutes
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes"
+Semana 09,9,5,17,30f983e4268b40718225d7b567c8290e,Voice Bootcamp - Amazon AWS Connect - How to Build Cloud Call Center,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,0,0,0,,,,,,,,0,0,0,0917833a111b4a1145ad00cccaa54a85d19ae1e0,"Voice Bootcamp - Amazon AWS Connect - How to Build Cloud Call Center
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes"
+Semana 09,9,5,18,8a88d1ad60bc4682885f2a23e1d95dc9,What is edge computing?,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,0,0,0,,,,,,,,0,0,0,cc5a16f3758bedae3335f028ee6dee9cd49b82f9,"What is edge computing?
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes"
+Semana 09,9,5,19,25b75af295f746f49f16fb68bf015c39,Alexa Python Development: Build and Deploy an Alexa Skill,Vanessa Tavares Nunes,Outros,,,,Vanessa Tavares Nunes,0,0,0,,,,,,,,0,0,0,cc1627fa4c2958ef9b287c40f14eafac5e9398ee,"Alexa Python Development: Build and Deploy an Alexa Skill
+
+
+
+
+
+
+
+
+Vanessa Tavares Nunes"
+Semana 09,9,5,20,d1ef40f3ef444ee9a5d2c2244341c08e,Prova do Módulo,"03/10/2025 - 14:00h
+
+Atividade ponderadaProva",Atividade,03/10/2025,14:00,2025-10-03T14:00:00-03:00,,1,0,1,d1ef40f3ef444ee9a5d2c2244341c08e,Prova do Módulo,"same_date,sim=1.00,prev_prox=1.50",high,,,,0,0,0,6ea85977af414ee00b064bb247b05fc0cab17915,"Prova do Módulo
+
+
+
+
+
+
+
+
+03/10/2025 - 14:00h
+
+Atividade ponderadaProva"
+Semana 10,10,5,1,b87e7f98b43c439289c794211dc43924,Cultura de feedback: como a segurança psicológica aumenta a produtividade (comunicação e autoconhecimento),"06/10/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva",Outros,06/10/2025,14:00,2025-10-06T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,525aaa4189606790793802235f913a5b99a7d303,"Cultura de feedback: como a segurança psicológica aumenta a produtividade (comunicação e autoconhecimento) 
+
+
+
+
+
+
+
+
+06/10/2025 - 14:00h
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 10,10,5,2,27df830ed3194b63af01b2acd3c8a16b,O que torna um time incrível?,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,d08c9765cd35cd4f544105d50e85b487b6a6c3d6,"O que torna um time incrível? 
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 10,10,5,3,b9337e3deaea4e03b6e021a92363c4b4,Segurança psicológica: o que é importante saber a respeito,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,3ca242c9de1031b8f8c0f5aca3e41eb7f3a40d29,"Segurança psicológica: o que é importante saber a respeito 
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 10,10,5,4,0a23be13df274c3cb2c2d2c7c773f51a,O papel do feedback no autoconhecimento,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,464af809c9c135256d974cb84f857eb86b67de8a,"O papel do feedback no autoconhecimento
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 10,10,5,5,ae79ca5d35ec475c80178d66f30ed841,"Se é tão bom, por que não se pratica?",Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,55bb54aa3cfd98fc62b1f0c9bad687dde23f2339,"Se é tão bom, por que não se pratica?
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 10,10,5,6,cec2b6d83e8547cea8154b90fae43bd7,O Alicerce,Filipe Gonçalves de Souza Nogueira da Silva,Outros,,,,,0,0,0,,,,,,,,0,0,0,b8be6532040f2038adfdf5c8fdf638cbd9cb11c3,"O Alicerce
+
+
+
+
+
+
+
+
+Filipe Gonçalves de Souza Nogueira da Silva"
+Semana 10,10,5,7,703e09e57a5e442888f397c9ec9e0ea6,Encontro de orientação,07/10/2025 - 14:00h,Outros,07/10/2025,14:00,2025-10-07T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,874d628586eaef23cc64d3f81d93feaca5e24749,"Encontro de orientação
+
+
+
+
+
+
+
+
+07/10/2025 - 14:00h"
+Semana 10,10,5,8,593b7f47c77a448d827a1c27b108612a,Balanço Patrimonial,"08/10/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo",Outros,08/10/2025,14:00,2025-10-08T14:00:00-03:00,Lisane Valdo,1,0,0,,,,,,,,0,0,0,4b4af93905a6632254c7511e5a59dd9da4994fc0,"Balanço Patrimonial
+
+
+
+
+
+
+
+
+08/10/2025 - 14:00h
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 10,10,5,9,6a64d7ee79be4c5eb01b5603ce041ce6,Balanço patrimonial e decisões de investimento e de financiamento das empresas,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,ef8f1d0a5ce3fddf4bea4140814a466f17677e5b,"Balanço patrimonial e decisões de investimento e de financiamento das empresas
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 10,10,5,10,e8af26b0b40e4eec816499f4ce4ed6b8,Fundamente-se: como fazer uma análise de balanço?,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,96ba1d77b092a631bdd2ff4efcc77726aa477707,"Fundamente-se: como fazer uma análise de balanço?
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 10,10,5,11,b545172ad5894304acda8129434b5279,O equilíbrio entre as decisões de investimento e de financiamento e o conceito de capital de giro líquido,Lisane Valdo,Outros,,,,Lisane Valdo,0,0,0,,,,,,,,0,0,0,98ac8d57466b523f405e3e04a69397235c56d97d,"O equilíbrio entre as decisões de investimento e de financiamento e o conceito de capital de giro líquido
+
+
+
+
+
+
+
+
+Lisane Valdo"
+Semana 10,10,5,12,63c55a5cded54833b53eb7878b6cdc12,Apresentação final: Sprint Review e Retrospective 5,09/10/2025 - 14:00h,Outros,09/10/2025,14:00,2025-10-09T14:00:00-03:00,,1,0,0,,,,,,,,0,0,0,74b9573148ab3c0e1e5b8d62916b12c9ca84e5cf,"Apresentação final: Sprint Review e Retrospective 5
+
+
+
+
+
+
+
+
+09/10/2025 - 14:00h"
+Semana 10,10,5,13,a4283fdcecf143c0bf9b545d329f5fda,DESENVOLVIMENTO  E DOCUMENTAÇÃO TÉCNICA DO PROJETO,Atividade ponderada,Atividade,,,,,0,0,1,63c55a5cded54833b53eb7878b6cdc12,Apresentação final: Sprint Review e Retrospective 5,preserved_previous,locked,,,,0,0,0,61aef8004f837608475224507d79907e7a59d9e1,"DESENVOLVIMENTO  E DOCUMENTAÇÃO TÉCNICA DO PROJETO
+
+Atividade ponderada"
+Semana 10,10,5,14,09abc6e0d9c34d8a81995ac72df9541d,DOCUMENTAÇÃO TÉCNICA FINAL,Atividade ponderada,Atividade,,,,DOCUMENTAÇÃO TÉCNICA FINAL,0,0,1,63c55a5cded54833b53eb7878b6cdc12,Apresentação final: Sprint Review e Retrospective 5,preserved_previous,locked,,,,0,0,0,7a0db4e96713f2df3545ec16c988a60c66a0a34d,"DOCUMENTAÇÃO TÉCNICA FINAL
+
+Atividade ponderada"
+Semana 10,10,5,15,7a7f754dafd64d0fa9f57c8d5e9e6364,GESTÃO DE PROJETOS EVOLUTIVA E APRESENTAÇÃO FINAL,Atividade ponderada,Atividade,,,,,0,0,1,63c55a5cded54833b53eb7878b6cdc12,Apresentação final: Sprint Review e Retrospective 5,preserved_previous,locked,,,,0,0,0,b36e95d166398c8f399ac09ddea0714493c03f43,"GESTÃO DE PROJETOS EVOLUTIVA E APRESENTAÇÃO FINAL
+
+Atividade ponderada"
