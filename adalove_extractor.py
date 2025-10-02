@@ -1,3 +1,31 @@
+"""
+Extrator AdaLove (comentado em PT-BR)
+
+Objetivo geral
+----------------
+Automatizar a extração de cards do Kanban da plataforma AdaLove, abrindo cada
+semana, varrendo todos os cards, capturando título/descrição/texto completo e
+linkando materiais/arquivos associados (abrindo o modal do card quando
+necessário). Ao final, os dados são enriquecidos (normalização de data/hora,
+professor, flags de tipo, e ancoragem de autoestudo à instrução correta) e
+salvos em CSV e JSONL prontos para integrações (ex.: cruzar com transcrições).
+
+Como ler este arquivo
+---------------------
+- As primeiras seções trazem utilitários de normalização e detecção (regex,
+  heurísticas, funções de enriquecimento).
+- Em seguida, ficam funções de navegação/extração com Playwright
+  (login, navegar, descobrir semanas, extrair cards, abrir e fechar modais).
+- Por fim, a função main orquestra o fluxo completo de ponta a ponta.
+
+Boas práticas e garantias
+-------------------------
+- Tenta fechar modais de forma robusta antes de passar para o próximo card.
+- Não depende da ordem dinâmica do Kanban para relacionar autoestudo à
+  instrução: usa professor, similaridade de títulos e proximidade posicional.
+- Exporta CSV e JSONL enriquecidos, preservando texto bruto para auditoria.
+"""
+
 import asyncio
 import csv
 import time
@@ -11,6 +39,11 @@ from playwright.async_api import async_playwright, expect
 from dotenv import load_dotenv
 
 # === Normalization/Enrichment helpers ===
+# Expressões regulares/constantes:
+# - DATE_RE: detecta data/hora no formato dd/mm/aaaa - HH:MM[h]
+# - WEEK_RE: extrai o número da semana do texto "Semana NN"
+# - HTTP_RE: identifica URLs http(s) válidas (filtrando ícones/caminhos relativos)
+# - NAME_CAND_RE: heurística para "parece um nome completo" (2+ tokens, iniciais maiúsculas)
 DATE_RE = re.compile(r"(\d{2}/\d{2}/\d{4})\s*-\s*(\d{2}:\d{2})h?", re.IGNORECASE)
 WEEK_RE = re.compile(r"Semana\s*(\d+)", re.IGNORECASE)
 HTTP_RE = re.compile(r"^https?://", re.IGNORECASE)
@@ -18,6 +51,15 @@ NAME_CAND_RE = re.compile(r"^[A-ZÁÂÃÀÉÊÍÓÔÕÚÇ][A-Za-zÁÂÃÀÉÊÍ�
 
 
 def _extract_date_time(text: str, tz_offset: str = "-03:00"):
+    """Extrai (data/hora) de um texto e retorna ISO, dd/mm/aaaa e HH:MM.
+
+    Parâmetros
+    - text: texto onde procurar (ex.: título, descrição, corpo do card/modal)
+    - tz_offset: fuso horário a concatenar no ISO (ex.: "-03:00")
+
+    Retorna
+    - (iso, data_str, hora_str) ou (None, None, None) se não encontrar.
+    """
     if not text:
         return None, None, None
     m = DATE_RE.search(text)
@@ -34,15 +76,24 @@ def _extract_date_time(text: str, tz_offset: str = "-03:00"):
 
 
 def _parse_week(semana: str):
+    """Converte "Semana NN" em inteiro NN; retorna None se não casar."""
     m = WEEK_RE.search(semana or "")
     return int(m.group(1)) if m else None
 
 
 def _ceil_div(a: int, b: int) -> int:
+    """Divisão inteira para cima (ex.: ceil(a/b))."""
     return -(-a // b)
 
 
 def _guess_professor(text: str, known_names):
+    """Tenta inferir o nome do professor a partir do texto do card/modal.
+
+    Estratégia
+    - Se houver uma lista de nomes recorrentes (known_names), prioriza casamentos
+      exatos com as últimas linhas do texto (onde normalmente aparece a assinatura).
+    - Caso contrário, pega a última linha que "pareça um nome completo" pela regex.
+    """
     if not text:
         return None
     lines = [ln.strip() for ln in text.splitlines() if ln and ln.strip()]
@@ -58,6 +109,8 @@ def _guess_professor(text: str, known_names):
 
 
 def _detect_known_names(records):
+    """Percorre os registros e monta uma lista de nomes que aparecem com
+    frequência (≥2). Ajuda a reduzir falsos positivos de professor."""
     counter = {}
     for r in records:
         text = (r.get("texto_completo") or "")
@@ -69,6 +122,7 @@ def _detect_known_names(records):
 
 
 def _is_autoestudo(title: str, text: str):
+    """Retorna True se o card aparenta ser de autoestudo (título/corpo)."""
     t = (title or "").lower()
     if any(k in t for k in ["autoestudo", "auto estudo"]):
         return True
@@ -76,11 +130,17 @@ def _is_autoestudo(title: str, text: str):
 
 
 def _is_atividade_ponderada(text: str):
+    """Marca se o texto sugere atividade com nota (atividade ponderada/prova)."""
     t = (text or "").lower()
     return "atividade ponderada" in t or "nota:" in t or "prova" in t
 
 
 def _is_instrucao(title: str, text: str, is_auto: bool):
+    """Detecta se o card é de instrução/encontro (não-autoestudo).
+
+    Usa palavras-chave (encontro, workshop, sprint, aula...) e a presença de
+    data/hora no conteúdo quando não é autoestudo.
+    """
     if is_auto:
         return False
     t = (title or "").lower()
@@ -92,6 +152,7 @@ def _is_instrucao(title: str, text: str, is_auto: bool):
 
 
 def _normalize_urls_pipe(raw: str):
+    """Normaliza listas pipe-separated ("A: url | B: url") em URLs http(s) únicas."""
     if not raw:
         return []
     urls = []
@@ -111,6 +172,7 @@ def _normalize_urls_pipe(raw: str):
 
 
 def _title_norm(s: str):
+    """Normaliza títulos para comparação (remove ruído, baixa caixa, tokens)."""
     if not s:
         return ""
     s = s.lower()
@@ -122,6 +184,7 @@ def _title_norm(s: str):
 
 
 def _title_sim(a: str, b: str) -> float:
+    """Similaridade simples entre títulos via Jaccard de tokens (0..1)."""
     na, nb = _title_norm(a), _title_norm(b)
     if not na or not nb:
         return 0.0
@@ -135,10 +198,22 @@ def _title_sim(a: str, b: str) -> float:
 
 
 def _compute_hash(*fields):
+    """Gera um hash estável (sha1) a partir de campos-chave do registro."""
     return hashlib.sha1("|".join([f or "" for f in fields]).encode("utf-8")).hexdigest()
 
 
 def enrich_records(dados, logger, previous_map=None):
+    """Enriquece os registros brutos com colunas normalizadas e ancoragem.
+
+    O que faz
+    - Extrai semana_num/sprint
+    - Converte datas (ISO/dd/mm/aaaa/HH:MM)
+    - Detecta professor por heurística de nomes recorrentes
+    - Classifica flags: is_instrucao, is_autoestudo, is_atividade_ponderada
+    - Normaliza listas de URLs (links/materiais/arquivos)
+    - Gera record_hash
+    - Ancora autoestudos às instruções com score (professor+data+similaridade+proximidade)
+    """
     previous_map = previous_map or {}
     # Pre-pass known names
     known_names = _detect_known_names(dados)
@@ -228,6 +303,11 @@ def enrich_records(dados, logger, previous_map=None):
 
 
 def write_enriched_outputs(dados, pasta_turma, timestamp, logger):
+    """Escreve CSV e JSONL enriquecidos na pasta da turma.
+
+    - CSV: colunas planas para BI/planilhas
+    - JSONL: um JSON por linha (arrays para *_urls), melhor para pipelines
+    """
     suffix = f"{timestamp}.csv"
     enriched_csv = os.path.join(pasta_turma, f"cards_enriquecidos_{suffix}")
     enriched_jsonl = os.path.join(pasta_turma, f"cards_enriquecidos_{timestamp}.jsonl")
@@ -255,7 +335,10 @@ def write_enriched_outputs(dados, pasta_turma, timestamp, logger):
 
 
 def configurar_logging(nome_turma):
-    """Configura logging com nome da turma"""
+    """Configura logging (arquivo + console) com prefixo da turma.
+
+    Ajuda a auditar todo o fluxo e depurar issues (ex.: modais não fechando).
+    """
     os.makedirs("logs", exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -279,7 +362,14 @@ LOGIN = os.environ.get("LOGIN")
 SENHA = os.environ.get("SENHA")
 
 async def fazer_login_inteligente(page, logger):
-    """Login automático com fallback manual"""
+    """Realiza o login no AdaLove com tentativa automática e fallback manual.
+
+    Fluxo
+    1) Clica em "Entrar com o Google"
+    2) Preenche e-mail/senha (se os campos estiverem visíveis)
+    3) Aguarda redirecionar para o domínio AdaLove
+    4) Se falhar, pede confirmação manual do login e continua
+    """
     logger.info("🔑 Fazendo login...")
     
     try:
@@ -329,7 +419,7 @@ async def fazer_login_inteligente(page, logger):
         return False
 
 async def navegar_academic_life(page, logger):
-    """Navega para academic-life e fecha popups"""
+    """Vai para a página principal (academic-life) e fecha popups transitórios."""
     logger.info("🏠 Navegando para academic-life...")
     
     await page.goto("https://adalove.inteli.edu.br/academic-life")
@@ -348,7 +438,11 @@ async def navegar_academic_life(page, logger):
     logger.info("✅ Página academic-life carregada")
 
 async def selecionar_turma_e_obter_nome(page, logger):
-    """Seleção manual de turma + input do nome para organização"""
+    """(Opcional) Guia o usuário a selecionar a turma e informa nome de pasta.
+
+    Observação: o nome informado é usado para criar uma subpasta em
+    dados_extraidos/ e organizar todos os arquivos desta execução.
+    """
     print("\n" + "="*60)
     print("🎯 SELEÇÃO DE TURMA E ORGANIZAÇÃO")
     print("="*60)
@@ -381,7 +475,7 @@ async def selecionar_turma_e_obter_nome(page, logger):
     return nome_turma
 
 async def descobrir_semanas(page, logger):
-    """Descobre semanas disponíveis automaticamente"""
+    """Descobre automaticamente todas as semanas visíveis para a turma atual."""
     logger.info("🔍 Descobrindo semanas disponíveis...")
     
     try:
@@ -424,7 +518,15 @@ async def descobrir_semanas(page, logger):
         return [f"Semana {i:02d}" for i in range(1, 11)]
 
 async def close_modal_if_open(page, logger):
-    """Try multiple strategies to close an open modal and wait until it's gone."""
+    """Fecha o modal do card, se estiver aberto (estratégias em cascata).
+
+    Tenta, na ordem:
+    - Clicar em botões de fechar (aria-label close/fechar, ícone MUI)
+    - Clicar no backdrop (fundo escurecido)
+    - Clicar fora do diálogo (usando bounding box)
+    - Clicar no body no canto (2,2), pressionar ESC, clique neutro
+    - Aguarda sumir/ocultar o diálogo (best-effort)
+    """
     try:
         modal = page.locator("[role='dialog']").first
         modal_exists = False
@@ -505,7 +607,14 @@ async def close_modal_if_open(page, logger):
         pass
 
 async def extrair_dados_card_completo(card, indice, semana, page, logger):
-    """Extrai dados completos do card incluindo links e materiais (abre modal)"""
+    """Extrai dados de um card (lista + modal) e retorna um dicionário completo.
+
+    Passos
+    1) Lê informação visível no card da lista (id, título, descrição parcial)
+    2) Abre o modal do card, captura o texto completo e todos os links reais
+    3) Classifica tipo (atividade/projeto/avaliação/material/outros)
+    4) Fecha o modal de forma robusta antes de seguir
+    """
     try:
         card_data = {
             "semana": semana,
@@ -688,7 +797,7 @@ async def extrair_dados_card_completo(card, indice, semana, page, logger):
         return None
 
 async def extrair_cards_semana(page, nome_semana, logger):
-    """Extrai todos os cards de uma semana"""
+    """Extrai e processa todos os cards de uma semana específica."""
     logger.info(f"📋 Extraindo: {nome_semana}")
     
     try:
@@ -733,7 +842,10 @@ async def extrair_cards_semana(page, nome_semana, logger):
         return []
 
 async def salvar_dados_organizados(dados, nome_turma, logger):
-    """Salva dados na pasta da turma e gera arquivos enriquecidos"""
+    """Salva o CSV bruto e gera imediatamente as versões enriquecidas.
+
+    Também registra estatísticas por semana (contagem de cards/links/materiais).
+    """
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
     # Cria pasta da turma
@@ -786,7 +898,7 @@ async def salvar_dados_organizados(dados, nome_turma, logger):
         return None, None
 
 async def main():
-    """Função principal - Extração completa organizada"""
+    """Orquestra a extração completa (login → navegação → scraping → enriquecimento)."""
     print("\n" + "="*60)
     print("🚀 ADALOVE CARDS EXTRACTOR - VERSÃO FINAL")
     print("="*60)
