@@ -313,7 +313,10 @@ Ver [LICENSE](./LICENSE) para texto completo.
 
 ### Versões Disponíveis
 
-Este projeto segue [Semantic Versioning](https://semver.org/). Consulte as [Releases](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases) para detalhes completos de cada versão.
+Este projeto segue [Semantic Versioning](https://semver.org/). 
+
+📋 **Histórico completo**: [`CHANGELOG.md`](./CHANGELOG.md)  
+🏷️ **Releases**: [GitHub Releases](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases)
 
 #### [v2.0.0 - Sistema de Enriquecimento Inteligente](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases/tag/v2.0.0) **(Atual)**
 - Sistema de enriquecimento automático de dados (30 campos)
