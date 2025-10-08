@@ -1,0 +1,113 @@
+# GitHub Labels Configuration
+# Para criar automaticamente: gh label create --repo usuario/repo -f .github/labels.yml
+
+- name: "enhancement"
+  description: "Nova funcionalidade ou feature"
+  color: "0E8A16"
+
+- name: "bug"
+  description: "Algo não está funcionando"
+  color: "D73A4A"
+
+- name: "refactor"
+  description: "Refatoração de código existente"
+  color: "8B4789"
+
+- name: "documentation"
+  description: "Melhorias ou adições à documentação"
+  color: "0075CA"
+
+- name: "technical-debt"
+  description: "Débito técnico a ser resolvido"
+  color: "795548"
+
+- name: "testing"
+  description: "Relacionado a testes automatizados"
+  color: "FBCA04"
+
+- name: "performance"
+  description: "Melhorias de performance"
+  color: "FF6D00"
+
+- name: "security"
+  description: "Questões de segurança"
+  color: "B60205"
+
+- name: "dependencies"
+  description: "Atualização de dependências"
+  color: "0366D6"
+
+# Prioridades
+- name: "priority:high"
+  description: "Alta prioridade"
+  color: "D93F0B"
+
+- name: "priority:medium"
+  description: "Média prioridade"
+  color: "FBCA04"
+
+- name: "priority:low"
+  description: "Baixa prioridade"
+  color: "0E8A16"
+
+# Versões
+- name: "v3.0.0"
+  description: "Arquitetura Modular"
+  color: "C5DEF5"
+
+- name: "v3.1.0"
+  description: "Pipeline Resiliente"
+  color: "C5DEF5"
+
+- name: "v3.2.0"
+  description: "Configuração e CLI"
+  color: "C5DEF5"
+
+- name: "v3.3.0"
+  description: "Extração Seletiva"
+  color: "C5DEF5"
+
+- name: "v4.0.0"
+  description: "Qualidade e Garantias"
+  color: "C5DEF5"
+
+# Status
+- name: "status:blocked"
+  description: "Bloqueado por outra issue ou decisão"
+  color: "000000"
+
+- name: "status:in-progress"
+  description: "Em desenvolvimento"
+  color: "FBCA04"
+
+- name: "status:needs-review"
+  description: "Precisa de revisão"
+  color: "0075CA"
+
+# Experiência
+- name: "good first issue"
+  description: "Boa para iniciantes"
+  color: "7057FF"
+
+- name: "help wanted"
+  description: "Ajuda externa é bem-vinda"
+  color: "008672"
+
+# Outros
+- name: "question"
+  description: "Dúvida ou pedido de informação"
+  color: "D876E3"
+
+- name: "wontfix"
+  description: "Não será trabalhado"
+  color: "FFFFFF"
+
+- name: "duplicate"
+  description: "Issue ou PR duplicada"
+  color: "CFD3D7"
+
+- name: "breaking-change"
+  description: "Mudança que quebra compatibilidade"
+  color: "D93F0B"
+
+

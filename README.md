@@ -21,6 +21,7 @@
 - [Arquivos Gerados](#-arquivos-gerados)
 - [Documentação Completa](#-documentação-completa)
 - [Troubleshooting](#-troubleshooting)
+- [Roadmap e Planejamento](#️-roadmap-e-planejamento)
 - [Releases e Changelog](#-releases-e-changelog)
 - [Licença](#-licença)
 
@@ -301,11 +302,34 @@ Ver [LICENSE](./LICENSE) para texto completo.
 - **Projeto original**: [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards)
 - **Esta versão**: Desenvolvida e expandida por Fernando Bertholdo
 
+**Quer contribuir?** Ver [CONTRIBUTING.md](./CONTRIBUTING.md) para diretrizes completas.
+
 ### ⚖️ Responsabilidade
 - Este software é fornecido "como está", sem garantias
 - O uso é por **conta e risco** do usuário
 - **Fins acadêmicos e educacionais** recomendados
 - Respeite os **termos de uso** da plataforma AdaLove
+
+---
+
+## 🗺️ Roadmap e Planejamento
+
+### Visão de Futuro
+
+Este projeto está em desenvolvimento ativo com um roadmap estruturado de features planejadas.
+
+🗺️ **Roadmap completo**: [`ROADMAP.md`](./ROADMAP.md)  
+✅ **Tarefas técnicas**: [`TODO.md`](./TODO.md)  
+📖 **Como contribuir**: [COMO_USAR_ROADMAP.md](./documents/COMO_USAR_ROADMAP.md)
+
+**Próximas versões planejadas**:
+- **v3.0.0** - Arquitetura Modular (pacote Python profissional)
+- **v3.1.0** - Pipeline Resiliente (checkpoints, retomada de execução)
+- **v3.2.0** - CLI Completa (modos headless, não-interativo)
+- **v3.3.0** - Extração Seletiva (semanas e frentes específicas)
+- **v3.4.0** - Interface Gráfica (GUI para usuários não-técnicos)
+
+Ver [ROADMAP.md](./ROADMAP.md) para detalhes completos.
 
 ---
 
