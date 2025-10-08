@@ -54,12 +54,19 @@ source venv/bin/activate
 # Windows:
 .\venv\Scripts\activate
 
-# 4. Instale as dependências
+# 4. Instale as dependências MÍNIMAS (recomendado)
 pip install -r requirements.txt
+
+# 4b. (OPCIONAL) Instale dependências de desenvolvimento para análise de dados
+pip install -r requirements-dev.txt
 
 # 5. Instale o navegador Chromium
 playwright install chromium
 ```
+
+**Sobre as dependências:**
+- `requirements.txt` - Contém apenas o essencial: `playwright` e `python-dotenv`
+- `requirements-dev.txt` - Contém bibliotecas para análise: `pandas`, `numpy`, etc.
 
 ### **Passo 2: Configuração de Credenciais**
 

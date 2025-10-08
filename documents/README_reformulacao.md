@@ -22,11 +22,13 @@ Transformar um projeto de múltiplos scripts confusos em uma solução única, p
 
 ### **Fase 2: Expansão Inicial**
 
-#### Múltiplos Scripts Criados:
-1. `main_completo.py` - Teste/validação (não extraía)
-2. `extrator_completo.py` - Extração completa + JSON + Relatório
-3. `extrator_simples.py` - Extração básica rápida
-4. Diversos `main_*.py` em testes
+#### Múltiplos Scripts Criados (OBSOLETOS):
+1. ~~`main_completo.py`~~ - Teste/validação (não extraía)
+2. ~~`extrator_completo.py`~~ - Extração completa + JSON + Relatório
+3. ~~`extrator_simples.py`~~ - Extração básica rápida
+4. Diversos ~~`main_*.py`~~ em testes
+
+**⚠️ Todos obsoletos - substituídos por `adalove_extractor.py`**
 
 **Problemas Identificados:**
 - ❌ Confusão sobre qual script usar
@@ -91,17 +93,19 @@ Transformar um projeto de múltiplos scripts confusos em uma solução única, p
 
 ## 🔄 Comparação: Antes vs Agora
 
-### **Antes (Desenvolvimento)**
+### **Antes (Desenvolvimento) - OBSOLETO**
 
-#### Estrutura:
+#### Estrutura (Histórica - NÃO USAR):
 ```
 adalove_extract_cards/
-├── main_completo.py              # ❓ Testa ou extrai?
-├── main_*.py (6 arquivos)        # ❓ Qual usar?
-├── extrator_completo.py          # ❓ Melhor opção?
-├── extrator_simples.py           # ❓ Ou este?
+├── main_completo.py              # ❌ OBSOLETO - Testa ou extrai?
+├── main_*.py (6 arquivos)        # ❌ OBSOLETO - Qual usar?
+├── extrator_completo.py          # ❌ OBSOLETO - Melhor opção?
+├── extrator_simples.py           # ❌ OBSOLETO - Ou este?
 └── readme.md                     # ⚠️ Docs desatualizadas
 ```
+
+**⚠️ Esta estrutura é apenas histórica. Use `adalove_extractor.py`**
 
 #### Saída de Dados:
 ```
