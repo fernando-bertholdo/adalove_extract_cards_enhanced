@@ -1,46 +1,13 @@
 # Ambiente virtual
 venv/
 .venv/
+env/
+extract_cards_venv/
 
 # Python
 __pycache__/
 *.py[cod]
 *.pyc
-
-# Env files
-.env
-.env.*
-
-# macOS
-.DS_Store
-
-# Logs and output data
-logs/
-# dados_extraidos/
-data/
-*.log
-
-# VSCode
-.vscode/
-# Arquivos de credenciais (IMPORTANTE - nunca commitar)
-.env
-
-# Ambientes virtuais Python
-venv/
-extract_cards_venv/
-env/
-.venv/
-
-# Arquivos de dados extraídos (podem conter informações sensíveis)
-# dados_extraidos/
-# *.csv
-
-# Logs (podem conter informações sensíveis)
-logs/
-
-# Cache Python
-__pycache__/
-*.py[cod]
 *$py.class
 *.so
 .Python
@@ -61,6 +28,21 @@ wheels/
 *.egg
 MANIFEST
 
+# Arquivos de credenciais (IMPORTANTE - nunca commitar)
+.env
+.env.*
+
+# Logs (podem conter informações sensíveis)
+logs/
+*.log
+
+# Dados extraídos (outputs gerados pelo script - manter apenas README)
+dados_extraidos/
+!dados_extraidos/README.md
+
+# Arquivos antigos (histórico local de desenvolvimento)
+arquivos_antigos/
+
 # IDEs
 .vscode/
 .idea/
@@ -68,12 +50,14 @@ MANIFEST
 *.swo
 *~
 
-# Sistema
+# macOS
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+
+# Windows
 ehthumbs.db
 Thumbs.db
 
