@@ -127,6 +127,8 @@ dados_extraidos/
     └── cards_enriquecidos_TIMESTAMP.jsonl    # Formato JSON Lines
 ```
 
+> **📌 Nota**: As pastas `dados_extraidos/` e `logs/` são **criadas automaticamente** pelo script na primeira execução. Não é necessário criá-las manualmente.
+
 ### Resumo dos Formatos
 
 | Formato | Campos | Uso Recomendado |
