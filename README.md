@@ -1,8 +1,11 @@
 # 🚀 Adalove Extract Cards - *Enhanced*
 
+![Release](https://img.shields.io/github/v/release/fernando-bertholdo/adalove_extract_cards_enhanced?label=vers%C3%A3o)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Playwright](https://img.shields.io/badge/playwright-1.49.1-orange.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/fernando-bertholdo/adalove_extract_cards_enhanced)
+![GitHub repo size](https://img.shields.io/github/repo-size/fernando-bertholdo/adalove_extract_cards_enhanced)
 
 > **📋 DISCLAIMER**: Este projeto tem **fins puramente acadêmicos e educacionais**, visando otimizar o aprendizado e organização de materiais de estudo. O autor não se responsabiliza pelo uso inadequado da ferramenta. Use por sua conta e risco, respeitando os termos de uso da plataforma AdaLove e políticas institucionais.
 
@@ -18,6 +21,7 @@
 - [Arquivos Gerados](#-arquivos-gerados)
 - [Documentação Completa](#-documentação-completa)
 - [Troubleshooting](#-troubleshooting)
+- [Releases e Changelog](#-releases-e-changelog)
 - [Licença](#-licença)
 
 ---
@@ -302,6 +306,26 @@ Ver [LICENSE](./LICENSE) para texto completo.
 - O uso é por **conta e risco** do usuário
 - **Fins acadêmicos e educacionais** recomendados
 - Respeite os **termos de uso** da plataforma AdaLove
+
+---
+
+## 📦 Releases e Changelog
+
+### Versões Disponíveis
+
+Este projeto segue [Semantic Versioning](https://semver.org/). Consulte as [Releases](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases) para detalhes completos de cada versão.
+
+#### [v2.0.0 - Sistema de Enriquecimento Inteligente](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases/tag/v2.0.0) **(Atual)**
+- Sistema de enriquecimento automático de dados (30 campos)
+- Ancoragem inteligente de autoestudos
+- Múltiplos formatos de saída (CSV básico, CSV enriquecido, JSONL)
+- Documentação profissional completa
+
+#### [v1.0.0 - Consolidação](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases/tag/v1.0.0)
+- Primeira versão consolidada e funcional
+- Script único unificado
+- Extração automatizada completa
+- Estrutura organizacional básica
 
 ---
 
