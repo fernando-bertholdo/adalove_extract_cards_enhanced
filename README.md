@@ -1,15 +1,30 @@
 # 🚀 Adalove Extract Cards - *Enhanced*
 
-![Release](https://img.shields.io/github/v/release/fernando-bertholdo/adalove_extract_cards_enhanced?label=vers%C3%A3o)
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Release](https://img.shields.io/badge/version-3.0.0-blue)
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Playwright](https://img.shields.io/badge/playwright-1.49.1-orange.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/fernando-bertholdo/adalove_extract_cards_enhanced)
-![GitHub repo size](https://img.shields.io/github/repo-size/fernando-bertholdo/adalove_extract_cards_enhanced)
+![Pydantic](https://img.shields.io/badge/pydantic-2.12-red)
+![Architecture](https://img.shields.io/badge/architecture-modular-brightgreen)
 
 > **📋 DISCLAIMER**: Este projeto tem **fins puramente acadêmicos e educacionais**, visando otimizar o aprendizado e organização de materiais de estudo. O autor não se responsabiliza pelo uso inadequado da ferramenta. Use por sua conta e risco, respeitando os termos de uso da plataforma AdaLove e políticas institucionais.
 
-**Extração completa e automatizada de cards do AdaLove com organização inteligente por turma e enriquecimento avançado de dados**
+**Sistema modular de extração automatizada de cards do AdaLove com enriquecimento inteligente de dados**
+
+---
+
+## 🎉 Novidade - v3.0.0: Arquitetura Modular
+
+A versão 3.0.0 introduz uma **refatoração completa** em arquitetura modular:
+
+- 📦 **Pacote Python profissional** com separação clara de responsabilidades
+- 🧩 **15+ módulos especializados** (browser, extractors, enrichment, io, models, utils, config, cli)
+- ✅ **100% compatível** com v2.0.0 (mesmos outputs e comportamento)
+- 🔒 **Type safety** com Pydantic e type hints completos
+- 🧪 **Testável** com arquitetura preparada para pytest
+- 📝 **Documentação completa** com docstrings em todas funções
+
+👉 **[Guia de Migração v3.0.0](./MIGRATION_v3.md)** para detalhes completos
 
 ---
 
@@ -43,11 +58,19 @@ Este projeto foi **inspirado e desenvolvido a partir** do trabalho original de [
 ✅ **Múltiplos formatos** de saída (CSV básico, CSV enriquecido, JSONL) - [detalhes](./documents/ARQUIVOS_GERADOS.md)  
 ✅ **Logs detalhados** para acompanhamento e debug  
 
-### 🎯 Script Principal
+### 🎯 Scripts Disponíveis
 
-**USE APENAS**: `adalove_extractor.py` 
+**v3.0.0 Modular** (Recomendado):
+```bash
+python main_v3.py
+```
 
-Este é o script final e definitivo que combina todas as funcionalidades necessárias.
+**v2.0.0 Legacy** (Compatibilidade):
+```bash
+python adalove_extractor.py
+```
+
+Ambos produzem resultados idênticos, mas o v3.0.0 usa arquitetura modular moderna.
 
 ---
 

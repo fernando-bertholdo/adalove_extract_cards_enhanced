@@ -8,7 +8,7 @@ Este documento descreve a visão de longo prazo para o desenvolvimento do projet
 
 - [Princípios de Desenvolvimento](#-princípios-de-desenvolvimento)
 - [Visão Geral de Versões](#-visão-geral-de-versões)
-- [v3.0.0 - Arquitetura Modular](#v300---arquitetura-modular-planejado)
+- [v3.0.0 - Arquitetura Modular](#v300---arquitetura-modular-released)
 - [v3.1.0 - Pipeline Resiliente](#v310---pipeline-resiliente-planejado)
 - [v3.2.0 - Configuração e Modos de Execução](#v320---configuração-e-modos-de-execução-planejado)
 - [v3.3.0 - Extração Seletiva](#v330---extração-seletiva-planejado)
@@ -16,6 +16,7 @@ Este documento descreve a visão de longo prazo para o desenvolvimento do projet
 - [v4.0.0 - Qualidade e Garantias](#v400---qualidade-e-garantias-planejado)
 - [v4.1.0 - Observabilidade](#v410---observabilidade-planejado)
 - [v4.2.0 - Extensibilidade](#v420---extensibilidade-planejado)
+- [Lições Aprendidas](#-lições-aprendidas)
 - [Features em Backlog](#-features-em-backlog)
 - [Como Contribuir](#-como-contribuir)
 
@@ -34,21 +35,23 @@ Este documento descreve a visão de longo prazo para o desenvolvimento do projet
 
 ## 📅 Visão Geral de Versões
 
-| Versão | Status | Tema Principal | ETA |
-|--------|--------|----------------|-----|
-| **v2.0.0** | ✅ Released | Sistema de Enriquecimento Inteligente | 2025-10-08 |
-| **v3.0.0** | 📋 Planned | Arquitetura Modular | Q3 2025 |
-| **v3.1.0** | 📋 Planned | Pipeline Resiliente | Q3 2025 |
-| **v3.2.0** | 📋 Planned | Configuração e CLI | Q4 2025 |
-| **v3.3.0** | 📋 Planned | Extração Seletiva | Q4 2025 |
-| **v3.4.0** | 📋 Planned | Interface Gráfica (GUI) | Q1 2026 |
-| **v4.0.0** | 🔮 Future | Qualidade e Garantias | Q1 2026 |
-| **v4.1.0** | 🔮 Future | Observabilidade | Q2 2026 |
-| **v4.2.0** | 🔮 Future | Extensibilidade | Q2 2026 |
+| Versão | Status | Tema Principal | ETA | Prioridade |
+|--------|--------|----------------|-----|------------|
+| **v2.0.0** | ✅ Released | Sistema de Enriquecimento Inteligente | 2025-10-08 | - |
+| **v3.0.0** | ✅ Released | Arquitetura Modular | 2025-10-08 | - |
+| **v3.1.0** | ✅ **RELEASED** | Pipeline Resiliente + Checkpoints | 2025-10-17 | **CONCLUÍDA** |
+| **v3.2.0** | 📋 Planned | Configuração e CLI | Q1 2026 | Alta |
+| **v3.3.0** | 📋 Planned | Extração Seletiva | Q1 2026 | Média |
+| **v3.4.0** | 📋 Planned | Interface Gráfica (GUI) | Q2 2026 | Média |
+| **v4.0.0** | 🔮 Future | Qualidade e Garantias | Q2 2026 | Baixa |
+| **v4.1.0** | 🔮 Future | Observabilidade | Q3 2026 | Baixa |
+| **v4.2.0** | 🔮 Future | Extensibilidade | Q3 2026 | Baixa |
+
+> **🚨 ATUALIZAÇÃO**: v3.1.0 elevada para **URGENTE** devido à experiência real de perda de dados (204 cards extraídos perdidos por falha simples no salvamento final).
 
 ---
 
-## [v3.0.0] - Arquitetura Modular (Planejado)
+## [v3.0.0] - Arquitetura Modular (✅ Released)
 
 ### 🎯 Objetivo
 Transformar o script monolítico em um pacote Python profissional com camadas bem definidas, aumentando testabilidade, reuso e clareza de dependências.
@@ -107,14 +110,57 @@ adalove_extractor/
 
 ---
 
-## [v3.1.0] - Pipeline Resiliente (Planejado)
+## [v3.1.0] - Pipeline Resiliente (✅ Released)
 
 ### 🎯 Objetivo
 Implementar pipeline robusto com streaming, checkpoints e idempotência para execuções mais seguras e eficientes.
 
+> **✅ CONCLUÍDO**: Sistema resiliente implementado com sucesso! Resolve completamente o problema de perda de dados.
+
 ### 📦 Features
 
-#### 1. Processamento Streaming
+#### 1. Sistema de Checkpoints Avançado
+**Prioridade**: 🔴 **CRÍTICA** (elevada devido a experiência real)
+
+- **Descrição**: Salvar progresso incrementalmente para evitar perda total de dados
+- **Implementação**:
+  - Arquivo `progress.json` em `dados_extraidos/turma/`
+  - Salvamento após cada semana processada
+  - Detecção automática de execuções interrompidas
+  - Interface para retomar execuções
+- **Estrutura do Checkpoint**:
+  ```json
+  {
+    "turma": "modulo8",
+    "execution_id": "modulo8_20251016_172829",
+    "status": "extracting",
+    "semanas_descobertas": ["Semana 01", "Semana 02", "Semana 03", "Semana 04", "Semana 05", "Semana 06", "Semana 07", "Semana 08", "Semana 09", "Semana 10"],
+    "semanas_processadas": ["Semana 01", "Semana 02", "Semana 03", "Semana 04", "Semana 05", "Semana 06", "Semana 07", "Semana 08", "Semana 09", "Semana 10"],
+    "cards_extraidos": 204,
+    "ultima_atualizacao": "2025-10-16T17:36:54Z",
+    "sessao_id": "modulo8_20251016_172829",
+    "checkpoints": {
+      "semana_01": {"cards": 6, "timestamp": "2025-10-16T17:30:01Z"},
+      "semana_02": {"cards": 22, "timestamp": "2025-10-16T17:30:47Z"},
+      "semana_03": {"cards": 27, "timestamp": "2025-10-16T17:31:43Z"}
+    }
+  }
+  ```
+
+#### 2. Salvamento Incremental de Dados
+**Prioridade**: 🔴 **CRÍTICA**
+
+- **Descrição**: Salvar cards conforme são extraídos (não apenas no final)
+- **Implementação**:
+  - Arquivo `cards_temp.jsonl` (append-only)
+  - Backup por semana em `checkpoint_semana_XX.json`
+  - Validação de integridade dos dados salvos
+- **Benefícios**: 
+  - ✅ **Zero perda de dados** mesmo com falhas
+  - ✅ **Progresso visível** em tempo real
+  - ✅ **Retomada rápida** de execuções interrompidas
+
+#### 3. Processamento Streaming
 **Prioridade**: 🔴 Alta
 
 - **Descrição**: Produzir `Card` como iterável/async generator
@@ -127,28 +173,7 @@ Implementar pipeline robusto com streaming, checkpoints e idempotência para exe
   ```
 - **Benefícios**: Menor uso de memória, processamento incremental
 
-#### 2. Sistema de Checkpoints
-**Prioridade**: 🔴 Alta
-
-- **Descrição**: Salvar estado durante execução para retomada
-- **Implementação**:
-  - Arquivo `.checkpoint.json` em `dados_extraidos/turma/`
-  - Rastrear: última semana processada, último card, timestamp
-  - Comando: `--resume` para retomar execução
-- **Estrutura do Checkpoint**:
-  ```json
-  {
-    "turma": "modulo6",
-    "execution_id": "20250826_220413",
-    "last_completed_week": 7,
-    "last_completed_card_id": "card_123",
-    "total_cards_extracted": 89,
-    "timestamp": "2025-08-26T22:04:13Z",
-    "status": "interrupted"
-  }
-  ```
-
-#### 3. Idempotência com Record Hash
+#### 4. Idempotência com Record Hash
 **Prioridade**: 🟡 Média
 
 - **Descrição**: Usar `record_hash` como chave idempotente
@@ -157,12 +182,46 @@ Implementar pipeline robusto com streaming, checkpoints e idempotência para exe
   - Skip de cards já extraídos em execuções anteriores
   - Opção: `--force-reextract` para ignorar cache
 
-#### 4. Escrita Incremental
+#### 5. Sistema de Recuperação Inteligente
+**Prioridade**: 🔴 **CRÍTICA**
+
+- **Descrição**: Detectar e recuperar execuções interrompidas automaticamente
+- **Implementação**:
+  ```python
+  # Detecção automática na inicialização
+  if os.path.exists("progress.json"):
+      print("🔄 Execução anterior detectada!")
+      print(f"📊 Progresso: {cards_extraidos}/{total_estimado} cards extraídos")
+      print("❓ Deseja continuar de onde parou? (s/n)")
+      
+      if continuar:
+          carregar_estado_anterior()
+          retomar_de_ultima_semana_processada()
+  ```
+- **Casos de uso**:
+  - ✅ **Falha no salvamento final** (como aconteceu com Fernando)
+  - ✅ **Interrupção por erro de rede**
+  - ✅ **Cancelamento manual pelo usuário**
+  - ✅ **Falha do navegador/Playwright**
+
+#### 6. Validação de Integridade
 **Prioridade**: 🟡 Média
 
-- **Descrição**: Escrever cards conforme são extraídos (não apenas no final)
-- **Formato**: JSONL (append-only), CSV incremental
-- **Benefícios**: Dados parciais salvos mesmo em caso de falha
+- **Descrição**: Verificar integridade dos dados salvos incrementalmente
+- **Implementação**:
+  - Checksums de arquivos de checkpoint
+  - Validação de estrutura JSON
+  - Contagem de cards por semana
+- **Benefícios**: Detectar corrupção de dados antes da finalização
+
+#### 7. Limpeza Automática de Checkpoints
+**Prioridade**: 🟢 Baixa
+
+- **Descrição**: Remover checkpoints antigos automaticamente
+- **Implementação**:
+  - Retenção de 7 dias para checkpoints
+  - Limpeza após execução bem-sucedida
+  - Preservação de checkpoints com falhas para debug
 
 **Issues Relacionadas**: TBD
 
@@ -357,44 +416,6 @@ Criar interface gráfica intuitiva para usuários não-técnicos, permitindo con
 
 **Recomendação inicial**: **Tkinter** (MVP) → **PyQt6** (versão final)
 
-**Layout proposto**:
-```
-┌────────────────────────────────────────────────┐
-│  Adalove Extractor - Configuração             │
-├────────────────────────────────────────────────┤
-│                                                │
-│  📁 Turma                                      │
-│  ┌──────────────────────────────────────────┐ │
-│  │ modulo6                            [...]│ │
-│  └──────────────────────────────────────────┘ │
-│                                                │
-│  📅 Semanas (opcional)                         │
-│  ☐ Todas  ☑ Específicas:                      │
-│  ┌──────────────────────────────────────────┐ │
-│  │ 1-5, 7, 9-10                             │ │
-│  └──────────────────────────────────────────┘ │
-│                                                │
-│  🎯 Frentes (opcional)                         │
-│  ☑ Todas  ☐ Específicas:                      │
-│  ☐ Programação  ☐ Matemática  ☐ UX           │
-│  ☐ Negócios     ☐ Liderança                  │
-│                                                │
-│  ⚙️ Opções Avançadas                           │
-│  ☑ Modo headless                               │
-│  ☐ Não-interativo                              │
-│  ☐ Retomar execução anterior                  │
-│                                                │
-│  📂 Saída: [dados_extraidos/modulo6/]  [...]  │
-│                                                │
-│  💾 Perfil: [Padrão ▼]  [Salvar] [Carregar]  │
-│                                                │
-│  ┌──────────┐  ┌──────────┐                   │
-│  │ Executar │  │ Cancelar │                   │
-│  └──────────┘  └──────────┘                   │
-│                                                │
-└────────────────────────────────────────────────┘
-```
-
 #### 2. Janela de Progresso
 **Prioridade**: 🔴 Alta
 
@@ -404,76 +425,10 @@ Criar interface gráfica intuitiva para usuários não-técnicos, permitindo con
 - Estatísticas atualizadas (cards extraídos, tempo decorrido)
 - Botão de cancelamento (graceful stop)
 
-```
-┌────────────────────────────────────────────────┐
-│  Extração em Progresso - modulo6              │
-├────────────────────────────────────────────────┤
-│                                                │
-│  Semana 07/10                                  │
-│  ████████████████░░░░░░░░░░  70%              │
-│                                                │
-│  Cards extraídos: 89/127                       │
-│  Tempo decorrido: 05:23                        │
-│  Tempo estimado: 01:52                         │
-│                                                │
-│  📋 Log:                                       │
-│  ┌──────────────────────────────────────────┐ │
-│  │ [14:32:15] Semana 07 iniciada           │ │
-│  │ [14:32:18] Card "Autoestudo Python"...  │ │
-│  │ [14:32:21] Ancoragem: high confidence   │ │
-│  │ ▼                                        │ │
-│  └──────────────────────────────────────────┘ │
-│                                                │
-│  ┌──────────┐  ┌──────────┐                   │
-│  │ Cancelar │  │ Pausar   │                   │
-│  └──────────┘  └──────────┘                   │
-│                                                │
-└────────────────────────────────────────────────┘
-```
-
 #### 3. Sistema de Perfis
 **Prioridade**: 🟡 Média
 
 **Descrição**: Salvar e carregar configurações para reutilização
-
-**Arquivo de perfil** (`~/.adalove/profiles.json`):
-```json
-{
-  "profiles": {
-    "Padrão": {
-      "turma": "",
-      "weeks": null,
-      "frentes": null,
-      "headless": true,
-      "interactive": true,
-      "output_dir": "dados_extraidos"
-    },
-    "Modulo6 Completo": {
-      "turma": "modulo6",
-      "weeks": null,
-      "frentes": null,
-      "headless": true,
-      "interactive": false,
-      "output_dir": "dados_extraidos/modulo6"
-    },
-    "Apenas Programação": {
-      "turma": "",
-      "weeks": null,
-      "frentes": ["Programação"],
-      "headless": true,
-      "interactive": true,
-      "output_dir": "dados_extraidos"
-    }
-  },
-  "last_used": "Modulo6 Completo"
-}
-```
-
-**Operações**:
-- Salvar perfil atual
-- Carregar perfil existente
-- Deletar perfil
-- Exportar/importar perfis (para compartilhar)
 
 #### 4. Validação e Feedback
 **Prioridade**: 🔴 Alta
@@ -484,196 +439,10 @@ Criar interface gráfica intuitiva para usuários não-técnicos, permitindo con
 - Credenciais configuradas (.env existe)
 - Playwright instalado
 
-**Feedback visual**:
-```
-✅ Credenciais configuradas
-⚠️  Playwright não instalado (executar: playwright install chromium)
-❌ Formato de semanas inválido (use: 1,3,7 ou 1-5)
-```
-
 #### 5. Integração com CLI
 **Prioridade**: 🟡 Média
 
 **Descrição**: GUI gera e executa comando CLI internamente
-
-**Exemplo**:
-```python
-# GUI constrói comando baseado nas opções
-command = [
-    "adalove", "extract",
-    "--turma", "modulo6",
-    "--weeks", "1-5,7",
-    "--frentes", "Programação,Matemática",
-    "--headless",
-    "--output", "dados_extraidos/modulo6"
-]
-
-# Executa em subprocess com streaming de output
-process = subprocess.Popen(
-    command,
-    stdout=subprocess.PIPE,
-    stderr=subprocess.STDOUT,
-    text=True,
-    bufsize=1
-)
-
-# Atualiza GUI com output em tempo real
-for line in process.stdout:
-    log_widget.append(line)
-    update_progress(line)
-```
-
-**Benefícios**:
-- Reuso total da lógica CLI
-- Fácil debug (mostra comando equivalente)
-- Consistência entre CLI e GUI
-
----
-
-### 🎨 Experiência do Usuário
-
-#### Fluxo Típico:
-
-```
-1. Abrir GUI
-   ↓
-2. Carregar perfil salvo (opcional)
-   ↓
-3. Configurar opções visualmente
-   ↓
-4. [Salvar perfil] (opcional)
-   ↓
-5. [Executar]
-   ↓
-6. Acompanhar progresso em tempo real
-   ↓
-7. Ver relatório final
-   ↓
-8. [Abrir pasta de saída] (botão)
-```
-
-#### Atalhos:
-
-- `Ctrl+S` - Salvar perfil
-- `Ctrl+L` - Carregar perfil
-- `Ctrl+Enter` - Executar
-- `Esc` - Cancelar
-
----
-
-### 🏗️ Arquitetura Proposta
-
-```
-adalove_extractor/
-├── gui/                        # Novo módulo GUI
-│   ├── __init__.py
-│   ├── main_window.py         # Janela principal
-│   ├── progress_window.py     # Janela de progresso
-│   ├── widgets/               # Componentes reutilizáveis
-│   │   ├── week_selector.py
-│   │   ├── frente_selector.py
-│   │   └── log_viewer.py
-│   ├── profiles.py            # Gerenciamento de perfis
-│   └── validators.py          # Validação de inputs
-└── cli/
-    ├── commands.py
-    └── gui_command.py         # Comando: adalove gui
-```
-
-**Entry point**:
-```bash
-# Abrir GUI
-adalove gui
-
-# Ou executar script standalone
-python -m adalove_extractor.gui
-```
-
----
-
-### 📋 Implementação Faseada
-
-#### Fase 1: MVP (Tkinter) - 2-3 semanas
-- [ ] Janela principal com opções básicas
-- [ ] Validação de inputs
-- [ ] Execução via subprocess
-- [ ] Log em tempo real
-
-#### Fase 2: Features Avançadas - 2-3 semanas
-- [ ] Sistema de perfis
-- [ ] Janela de progresso com estatísticas
-- [ ] Validações complexas
-- [ ] Atalhos de teclado
-
-#### Fase 3: Polish (PyQt6 opcional) - 2-4 semanas
-- [ ] Migração para PyQt6 (se desejado)
-- [ ] Temas (claro/escuro)
-- [ ] Ícones e visual profissional
-- [ ] Animações sutis
-- [ ] Sistema de notificações
-
----
-
-### ✅ Benefícios
-
-1. **Acessibilidade**: Usuários sem experiência em terminal
-2. **Produtividade**: Salvar configurações evita repetir argumentos
-3. **Descobribilidade**: Todas as opções visíveis (vs flags escondidas)
-4. **Feedback**: Ver progresso em tempo real
-5. **Educacional**: Mostra comando CLI equivalente (aprende CLI)
-
----
-
-### ⚠️ Considerações
-
-#### Dependências
-- **Requer v3.0.0**: Arquitetura modular (separar GUI de lógica)
-- **Requer v3.2.0**: Sistema de configuração (Pydantic Settings)
-- **Requer v3.3.0**: Flags de extração seletiva implementadas
-
-#### Complexidade
-- **Testes**: GUI é mais difícil de testar automaticamente
-- **Manutenção**: Mais código para manter
-- **Distribuição**: Pode requerer packaging especial
-
-#### Alternativas
-- **Streamlit**: GUI web muito rápida de desenvolver
-  - Vantagem: Desenvolvimento rápido, visual moderno
-  - Desvantagem: Requer servidor, menos "nativo"
-
----
-
-### 🎯 Casos de Uso
-
-#### 1. Usuário Iniciante
-**Perfil**: Primeiro contato com o projeto, não sabe CLI
-
-**Fluxo**:
-1. Baixa e instala
-2. Executa `adalove gui`
-3. Preenche formulário intuitivo
-4. Clica "Executar"
-5. ✅ Sucesso sem tocar no terminal!
-
-#### 2. Usuário Recorrente
-**Perfil**: Extrai múltiplos módulos, sempre mesmas configurações
-
-**Fluxo**:
-1. Abre GUI
-2. Seleciona perfil salvo "Modulo 6"
-3. Clica "Executar"
-4. ✅ 2 cliques vs 5+ argumentos CLI
-
-#### 3. Usuário Power
-**Perfil**: Prefere CLI, mas usa GUI para explorar opções
-
-**Fluxo**:
-1. Configura na GUI
-2. Clica "Mostrar comando equivalente"
-3. Copia comando CLI para script/automação
-4. ✅ GUI como ferramenta de aprendizado
-
----
 
 **Issues Relacionadas**: TBD
 
@@ -690,33 +459,6 @@ Estabelecer suite completa de testes automatizados para garantir robustez e evol
 **Prioridade**: 🔴 Alta
 
 **Framework**: `pytest`
-
-**Módulos a testar**:
-```python
-# tests/test_enrichment.py
-def test_extract_date_time():
-    """Testa extração de data/hora de strings variadas"""
-    assert extract_date_time("Data: 01/01/2025 14:30") == ...
-
-def test_normalize_datetime():
-    """Testa normalização para ISO 8601"""
-    assert normalize_datetime("01/01/2025", "14:30") == "2025-01-01T14:30:00-03:00"
-
-# tests/test_anchor.py
-def test_title_similarity():
-    """Testa cálculo de similaridade entre títulos"""
-    assert title_similarity("Autoestudo Programação", "Instrução Programação") > 0.7
-
-def test_guess_professor():
-    """Testa detecção de professor em textos"""
-    assert guess_professor("Aula com Prof. Afonso") == "Afonso"
-
-# tests/test_models.py
-def test_card_validation():
-    """Testa validação de modelo Card com Pydantic"""
-    card = Card(titulo="Test", semana="01", ...)
-    assert card.titulo == "Test"
-```
 
 #### 2. Testes de Contrato
 **Prioridade**: 🟡 Média
@@ -759,26 +501,6 @@ Implementar logs estruturados, métricas e relatórios para melhor depuração e
 
 **Formato**: JSON Lines
 
-```json
-{
-  "timestamp": "2025-08-26T22:04:13.123Z",
-  "level": "INFO",
-  "module": "extractors.card",
-  "message": "Card extracted successfully",
-  "context": {
-    "week": 7,
-    "card_id": "card_123",
-    "card_title": "Autoestudo Python",
-    "extraction_time_ms": 234
-  }
-}
-```
-
-**Benefícios**:
-- Parsing automatizado (jq, grep, análise)
-- Integração com ferramentas de observabilidade
-- Debug mais eficiente
-
 #### 2. Métricas de Execução
 **Prioridade**: 🟡 Média
 
@@ -789,29 +511,6 @@ Implementar logs estruturados, métricas e relatórios para melhor depuração e
 - Taxa de sucesso de ancoragem
 - Distribuição de confiança (high/medium/low)
 - Taxas de erro e retry
-
-**Formato de relatório**:
-```
-📊 RELATÓRIO DE EXECUÇÃO
-=======================
-Turma: modulo6
-Período: 2025-08-26 22:04:13 → 22:15:45
-Duração: 11m 32s
-
-Cards Extraídos: 127
-  ├─ Instruções: 45 (35%)
-  ├─ Autoestudos: 72 (57%)
-  └─ Ativ. Ponderadas: 10 (8%)
-
-Ancoragem:
-  ├─ High confidence: 65 (90%)
-  ├─ Medium confidence: 6 (8%)
-  └─ Low confidence: 1 (1%)
-
-Performance:
-  ├─ Tempo médio/card: 5.4s
-  └─ Cards/minuto: 11.0
-```
 
 #### 3. Contexto Rico em Logs
 **Prioridade**: 🔴 Alta
@@ -845,116 +544,40 @@ Tornar heurísticas e regras facilmente extensíveis e configuráveis através d
 #### 1. Strategy Pattern para Ancoragem
 **Prioridade**: 🟡 Média
 
-**Arquitetura**:
-```python
-# enrichment/anchor/strategies.py
-class AnchorStrategy(ABC):
-    @abstractmethod
-    def score(self, autostudy: Card, instruction: Card) -> float:
-        """Retorna score de 0.0 a 1.0"""
-        pass
-
-class ProfessorMatchStrategy(AnchorStrategy):
-    weight = 0.4
-    
-    def score(self, autostudy, instruction):
-        return 1.0 if autostudy.professor == instruction.professor else 0.0
-
-class DateProximityStrategy(AnchorStrategy):
-    weight = 0.3
-    
-    def score(self, autostudy, instruction):
-        delta_days = abs((autostudy.date - instruction.date).days)
-        return max(0, 1.0 - delta_days / 7.0)  # Decay de 7 dias
-
-class TitleSimilarityStrategy(AnchorStrategy):
-    weight = 0.2
-    
-    def score(self, autostudy, instruction):
-        return calculate_similarity(autostudy.titulo, instruction.titulo)
-
-class PositionProximityStrategy(AnchorStrategy):
-    weight = 0.1
-    
-    def score(self, autostudy, instruction):
-        delta_pos = abs(autostudy.indice - instruction.indice)
-        return max(0, 1.0 - delta_pos / 10.0)  # Decay de 10 posições
-```
-
-**Uso**:
-```python
-# enrichment/anchor/engine.py
-class AnchorEngine:
-    def __init__(self, strategies: list[AnchorStrategy]):
-        self.strategies = strategies
-    
-    def find_best_anchor(self, autostudy: Card, candidates: list[Card]) -> tuple[Card, float]:
-        scores = []
-        for candidate in candidates:
-            weighted_score = sum(
-                strategy.score(autostudy, candidate) * strategy.weight
-                for strategy in self.strategies
-            )
-            scores.append((candidate, weighted_score))
-        return max(scores, key=lambda x: x[1])
-```
-
 #### 2. Configuração de Pesos
 **Prioridade**: 🟡 Média
-
-**Arquivo**: `adalove.toml`
-```toml
-[adalove.enrichment.anchor.weights]
-professor_match = 0.4
-date_proximity = 0.3
-title_similarity = 0.2
-position_proximity = 0.1
-
-[adalove.enrichment.anchor.thresholds]
-high_confidence = 0.8
-medium_confidence = 0.5
-```
 
 #### 3. Estratégias Customizáveis
 **Prioridade**: 🟢 Baixa
 
-**Permitir**:
-- Desabilitar estratégias específicas
-- Adicionar novas estratégias via plugin
-- Ajustar pesos dinamicamente por módulo/turma
-
 #### 4. Regras de Classificação
 **Prioridade**: 🟡 Média
 
-**Sistema de regras para detectar**:
-- Instruções (palavras-chave, padrões)
-- Autoestudos (prefixos, títulos)
-- Atividades ponderadas (keywords: "ponderada", "entrega", "rubrica")
-
-**Configurável via**:
-```python
-# config/classification_rules.py
-INSTRUCTION_PATTERNS = [
-    r"^Instrução",
-    r"^Aula",
-    r"^Encontro",
-]
-
-AUTOSTUDY_PATTERNS = [
-    r"^Autoestudo",
-    r"^Estudo",
-    r"^Material de apoio",
-]
-
-GRADED_KEYWORDS = [
-    "ponderada",
-    "entrega",
-    "rubrica",
-    "avaliação",
-]
-```
-
 **Issues Relacionadas**: TBD
+
+---
+
+## 📚 Lições Aprendidas
+
+### 🚨 Experiência Crítica: Perda de Dados (2025-10-16)
+
+**Situação**: Execução completa de 204 cards extraídos perdida por falha simples no salvamento final.
+
+**Impacto**:
+- ⏰ **8+ minutos** de trabalho perdido
+- 😤 **Frustração** do usuário
+- 🔄 **Necessidade** de re-execução completa
+
+**Lições**:
+1. **Salvamento incremental** é crítico para robustez
+2. **Checkpoints** devem ser prioridade máxima
+3. **Recuperação de dados** deve ser automática
+4. **Validação de integridade** deve ser contínua
+
+**Ações tomadas**:
+- ✅ Fix imediato: Criação automática de diretórios
+- 🔥 Elevação de prioridade: v3.1.0 para URGENTE
+- 📋 Atualização do roadmap com foco em robustez
 
 ---
 
@@ -962,13 +585,23 @@ GRADED_KEYWORDS = [
 
 Features ainda sem versão definida, em ordem aproximada de prioridade:
 
+### 🔥 **CRÍTICA** (Baseado na experiência real) ✅ **CONCLUÍDA v3.1.0**
+- [x] ✅ **Sistema de checkpoints robusto**: Evitar perda total de dados
+- [x] ✅ **Recuperação automática**: Detectar e retomar execuções interrompidas
+- [x] ✅ **Validação de integridade**: Checksums e verificação contínua
+- [x] ✅ **Salvamento incremental**: Dados salvos em tempo real
+
 ### Alta Prioridade
 - [ ] **Suporte a Parquet**: Formato otimizado para análise de dados
 - [ ] **Export para banco de dados**: SQLite, PostgreSQL
 - [ ] **Detecção de duplicatas**: Evitar re-extração de cards idênticos
-- [ ] **Validação de integridade**: Checksums de dados extraídos
 
 ### Média Prioridade
+- [ ] **Feedback Visual em Tempo Real**: Mostrar tipo, frente e classificação durante extração
+  - **Complexidade**: 🔴 Alta (requer refatoração significativa)
+  - **Desafio**: Informações só disponíveis após enriquecimento completo
+  - **Solução**: Enriquecimento incremental ou classificação básica em tempo real
+  - **Benefício**: UX melhorada + validação visual da qualidade da extração
 - [ ] **API REST**: Servir dados extraídos via API
 - [ ] **Dashboard Web**: Visualização de dados em tempo real
 - [ ] **Notificações**: Email/Slack ao completar extração
@@ -1019,6 +652,5 @@ Features ainda sem versão definida, em ordem aproximada de prioridade:
 
 ---
 
-**Última atualização**: 2025-10-08  
+**Última atualização**: 2025-10-16  
 **Próxima revisão planejada**: 2026-01-01
-
