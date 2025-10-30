@@ -1,0 +1,2 @@
+# Este arquivo mantém a pasta logs/ na estrutura do repositório
+# Os logs gerados pela aplicação não são commitados (ver .gitignore)

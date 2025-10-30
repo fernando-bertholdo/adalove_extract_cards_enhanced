@@ -72,3 +72,9 @@ Thumbs.db
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# Configurações de assistentes de IA (uso local apenas, não commitar)
+.claude/
+.cursor/
+referencias/
+prompts/
