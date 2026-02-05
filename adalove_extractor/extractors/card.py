@@ -258,9 +258,9 @@ async def extract_card_data(
                         
                         # Atualiza texto_completo com descrição do modal
                         if card_data["descricao"]:
-                        card_data["texto_completo"] = (
+                            card_data["texto_completo"] = (
                                 card_data["titulo"] + "\n\n" + card_data["descricao"]
-                        ).strip()
+                            ).strip()
                             logger.debug(f"   📝 Texto completo atualizado: {len(card_data['texto_completo'])} caracteres")
                         
                         # === Assuntos Relacionados (apenas se esperado para este tipo) ===
