@@ -78,3 +78,13 @@ dmypy.json
 .cursor/
 referencias/
 prompts/
+
+# Output local
+output/
+.token_cache
+
+# Logs locais gerados pela CLI/TUI
+adalove_cli.log
+
+# Dados de exemplo/legado (podem conter informações sensíveis ou arquivos grandes)
+legacy/data/
