@@ -7,6 +7,71 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
+## [2.0.0] - 2026-02-04
+
+### 🚀 Nova Era: Extração via API
+
+Esta release representa uma **mudança de paradigma**: migração completa de automação de browser (Playwright) para **extração via API HTTP direta**.
+
+### Adicionado
+
+#### Extração via API
+- **`AdaLoveAPIClient`**: Cliente HTTP assíncrono com autenticação OAuth
+- **`extrair_turma_completa.py`**: Script principal para extração completa de turmas
+- **Endpoints.py**: Mapeamento completo dos endpoints da API AdaLove
+- **Autenticação Google OAuth**: Login automático via token Bearer
+
+#### Sistema de Ancoragem Multi-fator
+- **`anchor.py`**: Motor de ancoragem com pontuação inteligente
+  - Fator de professor: +3.0 pontos (mesmo docente)
+  - Fator de proximidade: +1.5 - 0.1×delta (posição de sort)
+  - Fator de similaridade: +2.0 × sim (títulos semelhantes)
+- **Níveis de confiança**: high, medium, low
+
+#### Organização Hierárquica
+- **Estrutura por turma**: `output/api_extraction/{turma}/`
+- **Arquivos por semana**: `semanas/semana_01.json`, etc.
+- **JSON com datas como chaves**: Acesso direto por data `encontros["2026-03-23"]`
+- **Autoestudos com títulos como chaves**: Acesso por título
+
+#### Novos Campos
+- **`dia_semana`**: Dia da semana em português (Segunda-feira, Terça-feira, etc.)
+- **`ancora_metodo`**: Detalhamento do método de ancoragem
+- **`ancora_confianca`**: Nível de confiança da ancoragem
+
+### Modificado
+
+#### Formato de Saída
+- **Antes**: CSV e JSONL em `dados_extraidos/`
+- **Agora**: JSON hierárquico em `output/api_extraction/`
+
+#### Velocidade
+- **Antes**: ~5 minutos por turma (Playwright)
+- **Agora**: ~60 segundos por turma (API)
+
+#### Robustez
+- **Antes**: Dependente de UI e seletores CSS
+- **Agora**: Independente de interface, dados estruturados
+
+### Removido
+
+- Scripts de teste experimentais (`test_*.py`)
+- Documentação de versões v3.x (Playwright avançado)
+- Scripts auxiliares de debug (`debug_api_fields.py`)
+
+### Comparação de Versões
+
+| Aspecto | v1.x (Playwright) | v2.0 (API) |
+|---------|-------------------|------------|
+| **Método** | Automação browser | HTTP direto |
+| **Velocidade** | ~5 min/turma | ~60 seg/turma |
+| **Formato** | CSV/JSONL | JSON hierárquico |
+| **Ancoragem** | Índice visual | Multi-fator |
+| **Dependência** | UI AdaLove | API estável |
+
+---
+
+
 ## [3.1.0] - 2025-10-17
 
 ### Contexto

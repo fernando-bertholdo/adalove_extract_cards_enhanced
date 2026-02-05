@@ -1,307 +1,275 @@
-# 🚀 Adalove Extract Cards - *Enhanced*
+# 🚀 Adalove Extract Cards - *Enhanced* v2.0
 
-![Release](https://img.shields.io/badge/version-3.0.0-blue)
+![Release](https://img.shields.io/badge/version-2.0.0-blue)
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Playwright](https://img.shields.io/badge/playwright-1.49.1-orange.svg)
-![Pydantic](https://img.shields.io/badge/pydantic-2.12-red)
-![Architecture](https://img.shields.io/badge/architecture-modular-brightgreen)
+![Architecture](https://img.shields.io/badge/architecture-API--first-brightgreen)
 
 > **📋 DISCLAIMER**: Este projeto tem **fins puramente acadêmicos e educacionais**, visando otimizar o aprendizado e organização de materiais de estudo. O autor não se responsabiliza pelo uso inadequado da ferramenta. Use por sua conta e risco, respeitando os termos de uso da plataforma AdaLove e políticas institucionais.
 
-**Sistema modular de extração automatizada de cards do AdaLove com enriquecimento inteligente de dados**
+**Sistema de extração de dados da plataforma AdaLove via API com organização inteligente e ancoragem de autoestudos**
 
 ---
 
-## 🎉 Novidade - v3.0.0: Arquitetura Modular
+## 🎉 Novidades - v2.0.0: Extração via API
 
-A versão 3.0.0 introduz uma **refatoração completa** em arquitetura modular:
+A versão 2.0.0 introduz um **novo paradigma de extração**:
 
-- 📦 **Pacote Python profissional** com separação clara de responsabilidades
-- 🧩 **15+ módulos especializados** (browser, extractors, enrichment, io, models, utils, config, cli)
-- ✅ **100% compatível** com v2.0.0 (mesmos outputs e comportamento)
-- 🔒 **Type safety** com Pydantic e type hints completos
-- 🧪 **Testável** com arquitetura preparada para pytest
-- 📝 **Documentação completa** com docstrings em todas funções
+### ✨ Principais Mudanças
 
-👉 **[Guia de Migração v3.0.0](./MIGRATION_v3.md)** para detalhes completos
+| Recurso | v1 (Playwright) | v2 (API) |
+|---------|-----------------|----------|
+| **Método** | Automação de browser | Requisições HTTP diretas |
+| **Velocidade** | ~5 min/turma | ~60 seg/turma |
+| **Estabilidade** | Depende de UI | Independente de UI |
+| **Dados** | Scraping HTML | JSON estruturado da API |
+| **Autenticação** | Login visual | Token OAuth |
+| **Formato saída** | CSV/JSONL | JSON hierárquico |
+
+### 🆕 Novos Recursos
+
+- 🔗 **Ancoragem multi-fator** de autoestudos (professor + proximidade + similaridade). É possível extrair cards de autoestudo que estejam fora da sua ordem original e ainda assim eles serão atrelados aos encontros corretos
+- 📅 **Organização por data** com dia da semana em português
+- 📁 **Estrutura por turma** com pastas individuais por semana
+- 🎯 **JSON hierárquico** com datas e títulos como chaves de acesso
 
 ---
 
 ## 📑 Índice
 
-- [O Que Este Script Faz](#-o-que-este-script-faz)
-- [Instalação Rápida](#-instalação-rápida)
-- [Como Usar](#-como-usar)
-- [Arquivos Gerados](#-arquivos-gerados)
-- [Documentação Completa](#-documentação-completa)
-- [Troubleshooting](#-troubleshooting)
-- [Roadmap e Planejamento](#️-roadmap-e-planejamento)
-- [Releases e Changelog](#-releases-e-changelog)
+- [Como Funciona](#-como-funciona)
+- [Instalação](#-instalação)
+- [Configuração](#-configuração)
+- [Uso](#-uso)
+- [Estrutura de Saída](#-estrutura-de-saída)
+- [Arquitetura](#-arquitetura)
+- [Documentação](#-documentação)
 - [Licença](#-licença)
 
 ---
 
-## 🌟 Inspiração e Origem
+## 💡 Como Funciona
 
-Este projeto foi **inspirado e desenvolvido a partir** do trabalho original de [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards). A versão atual representa uma **evolução significativa** com funcionalidades expandidas, organização aprimorada e extração completa de materiais acadêmicos.
+### Fluxo de Extração v2
+
+```
+1. Autenticação via Google OAuth (token capturado do navegador)
+2. Requisição à API para listar turmas
+3. Requisição para atividades de cada semana
+4. Busca detalhes de cada atividade
+5. Ancoragem de autoestudos aos encontros
+6. Organização hierárquica por data
+7. Salvamento em JSON estruturado
+```
+
+### Sistema de Ancoragem
+
+O sistema usa **pontuação multi-fator** para vincular autoestudos aos encontros:
+
+| Fator | Pontos | Descrição |
+|-------|--------|-----------|
+| **Professor** | +3.0 | Mesmo professor no autoestudo e encontro |
+| **Proximidade** | +1.5 - 0.1×delta | Posição de sort próxima |
+| **Similaridade** | +2.0 × sim | Títulos semelhantes |
 
 ---
 
-## 📋 O Que Este Script Faz
+## ⚡ Instalação
 
-✅ **Login automático** na plataforma AdaLove  
-✅ **Extração completa** de todos os cards de todas as semanas  
-✅ **Captura links e materiais** anexados aos cards (Google Drive, PDFs, etc.)  
-✅ **Enriquecimento automático** de dados com ancoragem de autoestudos ([saiba mais](./documents/ENRIQUECIMENTO.md))  
-✅ **Organização automática** por pasta da turma com nome personalizado  
-✅ **Múltiplos formatos** de saída (CSV básico, CSV enriquecido, JSONL) - [detalhes](./documents/ARQUIVOS_GERADOS.md)  
-✅ **Logs detalhados** para acompanhamento e debug  
-
-### 🎯 Scripts Disponíveis
-
-**v3.0.0 Modular** (Recomendado):
-```bash
-python main_v3.py
-```
-
-**v2.0.0 Legacy** (Compatibilidade):
-```bash
-python adalove_extractor.py
-```
-
-Ambos produzem resultados idênticos, mas o v3.0.0 usa arquitetura modular moderna.
-
----
-
-## ⚡ Instalação Rápida
-
-### 1. **Instale Dependências**
+### 1. Clone e Configure Ambiente
 
 ```bash
-# Crie e ative ambiente virtual
+git clone https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced.git
+cd adalove_extract_cards_enhanced
+
+# Ambiente virtual
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
-.\venv\Scripts\activate   # Windows
+# ou: .\venv\Scripts\activate  # Windows
 
-# Instale pacotes
+# Dependências
 pip install -r requirements.txt
-playwright install chromium
 ```
 
-> 📖 **Instalação detalhada**: Ver [INSTALACAO.md](./documents/INSTALACAO.md) para instruções completas por sistema operacional e resolução de problemas.
+### 2. Dependências Principais
 
-### 2. **Configure Credenciais**
+- `httpx` - Cliente HTTP assíncrono
+- `pydantic` - Validação de dados
+- `python-dotenv` - Gerenciamento de credenciais
+
+---
+
+## 🔐 Configuração
+
+### Configure o `.env`
 
 ```bash
-# Copie o arquivo de exemplo
-cp .env.example .env  # Linux/macOS
-copy .env.example .env  # Windows
+cp .env.example .env
+```
 
-# Edite .env com suas credenciais
+Edite `.env` com suas credenciais do AdaLove:
+```env
 LOGIN=seu.email@sou.inteli.edu.br
 SENHA=sua_senha
 ```
 
+> ✅ **Autenticação automática**: O sistema faz login via Google OAuth automaticamente usando essas credenciais. Não é necessário capturar tokens manualmente.
+
 ---
 
-## 🚀 Como Usar
+## 🚀 Uso
 
-### Execução
+### Extração Completa de uma Turma
 
 ```bash
-python adalove_extractor.py
+python extrair_turma_completa.py "2026-1A-T13"
 ```
 
-### Processo Interativo
-
-1. **Digite nome da turma** → Cria pasta organizada
-2. **Login automático** → Usa credenciais do `.env`
-3. **Selecione turma na interface** → Manual (mais confiável)
-4. **Extração automática** → Processa todas as semanas
-5. **Enriquecimento** → Adiciona 20 campos inteligentes
-6. **Salvamento** → 3 arquivos gerados em `dados_extraidos/SEU_INPUT/`
-
-### Exemplo de Execução
+### Saída
 
 ```
-📁 Digite o nome da turma: modulo6
-🔑 Fazendo login...
-✅ Login realizado!
-👆 Agora selecione a turma na interface
-⏸️ Pressione Enter após selecionar: [ENTER]
-📚 Processando 10 semanas...
-🔄 Semana 01 (1/10) - ✅ 14 cards
-🔄 Semana 02 (2/10) - ✅ 23 cards
-...
-🔧 Enriquecendo registros...
-🎉 EXTRAÇÃO CONCLUÍDA!
-📊 127 cards extraídos em 3 formatos
+📊 RESUMO DA EXTRAÇÃO
+======================================================================
+   🏫 Turma: 2026-1A-T13
+   📁 Pasta: output/api_extraction/2026-1A-T13
+   📊 Semanas: 10
+   📚 Total de atividades: 132
+   📝 Ponderadas: 20
+   🔗 Cards ancorados: 86
+======================================================================
 ```
-
-> 📖 **Guia completo de uso**: Ver [GUIA_EXTRACAO.md](./documents/GUIA_EXTRACAO.md)
 
 ---
 
-## 📁 Arquivos Gerados
+## 📁 Estrutura de Saída
 
-Cada execução gera **3 arquivos** na pasta da turma:
+### Hierarquia de Pastas
 
 ```
-dados_extraidos/
-└── nome_turma/
-    ├── cards_completos_TIMESTAMP.csv         # 10 campos básicos
-    ├── cards_enriquecidos_TIMESTAMP.csv      # 30 campos completos
-    └── cards_enriquecidos_TIMESTAMP.jsonl    # Formato JSON Lines
+output/api_extraction/
+└── 2026-1A-T13/
+    ├── extracao_completa.json    # Todas as semanas
+    └── semanas/
+        ├── semana_01.json
+        ├── semana_02.json
+        └── ...
 ```
 
-> **📌 Nota**: As pastas `dados_extraidos/` e `logs/` são **criadas automaticamente** pelo script na primeira execução. Não é necessário criá-las manualmente.
+### Formato JSON
 
-### Resumo dos Formatos
+O JSON usa **datas como chaves** para fácil acesso:
 
-| Formato | Campos | Uso Recomendado |
-|---------|--------|-----------------|
-| **CSV Básico** | 10 | Visualização rápida (Excel) |
-| **CSV Enriquecido** | 30 | Análises avançadas (pandas) |
-| **JSONL** | 30 | Pipelines de dados |
+```json
+{
+  "encontros": {
+    "2026-03-23": {
+      "dia_semana": "Segunda-feira",
+      "titulo": "Suporte ao Projeto - Integração",
+      "tipo": "encontro_instrucao",
+      "professor": "Ovidio Lopes da Cruz Netto",
+      "autoestudos": {
+        "Suporte aos projetos dos grupos": {
+          "descricao": "...",
+          "professor": "Ovidio Lopes da Cruz Netto",
+          "conteudos_relacionados": [...],
+          "is_ponderada": false,
+          "ancora_confianca": "high"
+        }
+      }
+    }
+  }
+}
+```
 
-> 📖 **Especificação completa**: Ver [ARQUIVOS_GERADOS.md](./documents/ARQUIVOS_GERADOS.md)
+### Acesso Programático
 
-### Campos Básicos (10)
-- `semana`, `indice`, `id`, `titulo`, `descricao`, `tipo`
-- `texto_completo`, `links`, `materiais`, `arquivos`
+```python
+import json
 
-### Campos Enriquecidos Adicionais (20)
-- **Temporais**: `semana_num`, `sprint`, `data_hora_iso`, `data_ddmmaaaa`, `hora_hhmm`
-- **Identificação**: `professor` (detectado automaticamente)
-- **Classificação**: `is_instrucao`, `is_autoestudo`, `is_atividade_ponderada`
-- **Ancoragem**: `parent_instruction_id`, `parent_instruction_title`, `anchor_method`, `anchor_confidence`
-- **URLs Normalizadas**: `links_urls`, `materiais_urls`, `arquivos_urls`, `num_links`, `num_materiais`, `num_arquivos`
-- **Integridade**: `record_hash`
+with open("semana_08.json") as f:
+    data = json.load(f)
 
-> 📖 **Como funciona o enriquecimento**: Ver [ENRIQUECIMENTO.md](./documents/ENRIQUECIMENTO.md)
+# Acessar encontro de 23/03
+encontro = data["encontros"]["2026-03-23"]
+print(encontro["titulo"])  # "Suporte ao Projeto - Integração"
+
+# Acessar autoestudo específico
+auto = encontro["autoestudos"]["Suporte aos projetos dos grupos"]
+print(auto["professor"])  # "Ovidio Lopes da Cruz Netto"
+```
 
 ---
 
-## 📚 Documentação Completa
+## 🏗️ Arquitetura
+
+### Estrutura do Projeto
+
+```
+adalove_extract_cards_enhanced/
+├── extrair_turma_completa.py     # 🎯 Script principal v2
+├── adalove_extractor/            # Pacote Python
+│   ├── api/                      # Cliente HTTP
+│   │   ├── client.py
+│   │   └── endpoints.py
+│   ├── extractors/
+│   │   └── api/
+│   │       └── anchor.py         # Sistema de ancoragem
+│   ├── models/
+│   │   └── api_card_types.py     # Mapeamento de tipos
+│   └── config/
+│       └── settings.py           # Configurações
+├── output/                       # Dados extraídos
+│   └── api_extraction/
+└── documents/                    # Documentação
+```
+
+### Módulos Principais
+
+| Módulo | Responsabilidade |
+|--------|------------------|
+| `client.py` | Cliente HTTP com autenticação OAuth |
+| `endpoints.py` | Mapeamento de endpoints da API |
+| `anchor.py` | Sistema de ancoragem multi-fator |
+| `api_card_types.py` | Tradução de tipos de cards |
+
+---
+
+## 📚 Documentação
 
 ### Guias de Uso
-- 📖 [**INSTALACAO.md**](./documents/INSTALACAO.md) - Instalação detalhada por sistema operacional
-- 📖 [**GUIA_EXTRACAO.md**](./documents/GUIA_EXTRACAO.md) - Guia passo a passo de uso
+- 📖 [**GUIA_CAPTURA_REDE.md**](./docs/GUIA_CAPTURA_REDE.md) - Captura de tokens
+- 📖 [**api-extraction-design.md**](./docs/api-extraction-design.md) - Design da extração
+- 📖 [**ESTRUTURA_SAIDA.md**](./docs/ESTRUTURA_SAIDA.md) - Formato JSON de saída
 
-### Especificações Técnicas
-- 📖 [**ARQUIVOS_GERADOS.md**](./documents/ARQUIVOS_GERADOS.md) - Detalhes dos 3 formatos de saída
-- 📖 [**ENRIQUECIMENTO.md**](./documents/ENRIQUECIMENTO.md) - Sistema de enriquecimento e ancoragem
-- 📖 [**DADOS_EXTRAIDOS.md**](./documents/DADOS_EXTRAIDOS.md) - Especificação completa dos 30 campos
+### Referências
+- 📖 [**MAPEAMENTO_TIPOS_CARDS.md**](./referencias/MAPEAMENTO_TIPOS_CARDS.md) - Tipos de cards
 
-### Histórico
-- 📖 [**README_reformulacao.md**](./documents/README_reformulacao.md) - Evolução do projeto
-
----
-
-## 📂 Estrutura do Projeto
-
-```
-adalove_extract_cards/
-├── adalove_extractor.py           # 🎯 SCRIPT PRINCIPAL (USE ESTE)
-├── README.md                      # Este arquivo
-├── .env.example                   # Template de configuração
-├── requirements.txt               # Dependências mínimas (playwright, python-dotenv)
-├── requirements-dev.txt           # Dependências opcionais (pandas, numpy)
-├── LICENSE                        # Licença MIT
-├── documents/                     # 📚 Documentação detalhada
-│   ├── INSTALACAO.md
-│   ├── GUIA_EXTRACAO.md
-│   ├── ARQUIVOS_GERADOS.md
-│   ├── ENRIQUECIMENTO.md
-│   └── DADOS_EXTRAIDOS.md
-├── dados_extraidos/               # 💾 Dados organizados por turma (gerado)
-├── logs/                          # 📝 Logs das execuções (gerado)
-└── arquivos_antigos/              # 🗂️ Scripts históricos (legado)
-```
+### Histórico (v1 - Playwright)
+- 📖 [**GUIA_EXTRACAO.md**](./documents/GUIA_EXTRACAO.md) - Extração v1 (legado)
+- 📖 [**ENRIQUECIMENTO.md**](./documents/ENRIQUECIMENTO.md) - Sistema de enriquecimento v1
 
 ---
 
-## 🔧 Troubleshooting
+## 🔄 Migração v1 → v2
 
-### Erro: "python: command not found"
-**Solução**: Instale Python 3.8+ do [python.org](https://www.python.org/downloads/)
+### Principais Diferenças
 
-### Erro: "playwright install" falha
-**Solução**: 
+| Aspecto | v1 (Playwright) | v2 (API) |
+|---------|-----------------|----------|
+| **Script principal** | `adalove_extractor.py` | `extrair_turma_completa.py` |
+| **Entrada** | Interativo no browser | Argumento de linha de comando |
+| **Saída** | `dados_extraidos/` (CSV) | `output/api_extraction/` (JSON) |
+| **Ancoragem** | Pelo índice visual | Multi-fator (professor, sort, título) |
+
+### Comandos
+
 ```bash
-playwright install --force chromium
+# v1 (Playwright - legado)
+python adalove_extractor.py
+
+# v2 (API - recomendado)
+python extrair_turma_completa.py "NOME-DA-TURMA"
 ```
-
-### Erro: Login falhou
-**Solução**: 
-1. Verifique credenciais no `.env`
-2. Use o modo manual quando solicitado
-3. Complete o login no navegador e pressione Enter
-
-### Erro: "Nenhum card encontrado"
-**Solução**:
-1. Certifique-se de **selecionar a turma** no dropdown
-2. Aguarde a página carregar completamente
-3. Pressione Enter apenas quando ver os cards
-
-### Arquivo .env não encontrado
-**Solução**:
-```bash
-cp .env.example .env  # Linux/macOS
-copy .env.example .env  # Windows
-# Depois edite o arquivo .env com suas credenciais
-```
-
-> 📖 **Mais problemas?** Ver [INSTALACAO.md](./documents/INSTALACAO.md) (seção "Resolução de Problemas")
-
----
-
-## 🎯 Dependências
-
-### Instalação Mínima (Recomendada)
-```bash
-pip install -r requirements.txt
-```
-**Contém:**
-- `playwright==1.49.1` - Automação do navegador
-- `python-dotenv==1.0.1` - Gerenciamento de credenciais
-
-### Instalação Completa (Opcional - Para Análise)
-```bash
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-```
-**Adiciona:**
-- `pandas==2.2.3` - Análise de dados
-- `numpy==2.2.1` - Operações numéricas
-- Outras bibliotecas de análise
-
-> 📖 **Quando usar cada instalação?** Ver [INSTALACAO.md](./documents/INSTALACAO.md)
-
----
-
-## 🎉 Diferenciais desta Versão
-
-### 🌟 Evolução do Projeto Original
-
-#### Do Script Original (Tony Jonas):
-- ✅ Script básico de extração
-- ✅ Login automático
-- ❌ Sem organização por turma
-- ❌ Sem enriquecimento de dados
-
-#### Para Esta Versão:
-- ✅ **Sistema completo** com organização automática
-- ✅ **30 campos enriquecidos** (vs 10 básicos)
-- ✅ **3 formatos de saída** (CSV básico, CSV enriquecido, JSONL)
-- ✅ **Ancoragem inteligente** de autoestudos
-- ✅ **Detecção automática** de professor
-- ✅ **Classificação** de tipos de card
-- ✅ **Logs detalhados** para debug
-- ✅ **Documentação completa** e profissional
-
-> 📖 **História completa**: Ver [README_reformulacao.md](./documents/README_reformulacao.md)
 
 ---
 
@@ -309,23 +277,9 @@ pip install -r requirements-dev.txt
 
 Este projeto está licenciado sob a **MIT License**.
 
-```
-Copyright (c) 2025 Fernando Bertholdo
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software...
-```
-
-Ver [LICENSE](./LICENSE) para texto completo.
-
-### 🌟 Contribuições
+### 🌟 Créditos
 - **Projeto original**: [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards)
 - **Esta versão**: Desenvolvida e expandida por Fernando Bertholdo
-
-**Quer contribuir?** Ver [CONTRIBUTING.md](./CONTRIBUTING.md) para diretrizes completas.
 
 ### ⚖️ Responsabilidade
 - Este software é fornecido "como está", sem garantias
@@ -335,69 +289,4 @@ Ver [LICENSE](./LICENSE) para texto completo.
 
 ---
 
-## 🗺️ Roadmap e Planejamento
-
-### Visão de Futuro
-
-Este projeto está em desenvolvimento ativo com um roadmap estruturado de features planejadas.
-
-🗺️ **Roadmap completo**: [`ROADMAP.md`](./ROADMAP.md)  
-✅ **Tarefas técnicas**: [`TODO.md`](./TODO.md)  
-📖 **Como contribuir**: [COMO_USAR_ROADMAP.md](./documents/COMO_USAR_ROADMAP.md)
-
-**Próximas versões planejadas**:
-- **v3.0.0** - Arquitetura Modular (pacote Python profissional)
-- **v3.1.0** - Pipeline Resiliente (checkpoints, retomada de execução)
-- **v3.2.0** - CLI Completa (modos headless, não-interativo)
-- **v3.3.0** - Extração Seletiva (semanas e frentes específicas)
-- **v3.4.0** - Interface Gráfica (GUI para usuários não-técnicos)
-
-Ver [ROADMAP.md](./ROADMAP.md) para detalhes completos.
-
----
-
-## 📦 Releases e Changelog
-
-### Versões Disponíveis
-
-Este projeto segue [Semantic Versioning](https://semver.org/). 
-
-📋 **Histórico completo**: [`CHANGELOG.md`](./CHANGELOG.md)  
-🏷️ **Releases**: [GitHub Releases](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases)
-
-#### [v2.0.0 - Sistema de Enriquecimento Inteligente](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases/tag/v2.0.0) **(Atual)**
-- Sistema de enriquecimento automático de dados (30 campos)
-- Ancoragem inteligente de autoestudos
-- Múltiplos formatos de saída (CSV básico, CSV enriquecido, JSONL)
-- Documentação profissional completa
-
-#### [v1.0.0 - Consolidação](https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/releases/tag/v1.0.0)
-- Primeira versão consolidada e funcional
-- Script único unificado
-- Extração automatizada completa
-- Estrutura organizacional básica
-
----
-
-## 🏆 Começando Agora
-
-### 3 Passos Rápidos:
-
-```bash
-# 1. Instale
-pip install -r requirements.txt && playwright install chromium
-
-# 2. Configure
-cp .env.example .env && nano .env  # edite com suas credenciais
-
-# 3. Execute
-python adalove_extractor.py
-```
-
-**Pronto!** Os dados estarão em `dados_extraidos/nome_turma/` em 3 formatos.
-
----
-
-**🎉 Ferramenta completa para extração acadêmica do AdaLove com enriquecimento inteligente de dados!**
-
-📖 **Dúvidas?** Consulte a [documentação completa](./documents/)
+**🎉 Adalove Extract Cards v2.0 - Extração rápida e inteligente via API!**
