@@ -41,7 +41,7 @@ dev = [
 ]
 
 [project.scripts]
-adalove-extract = "adalove_extractor.cli.main:main"
+# adalove-extract = "adalove_extractor.cli.main:main"  # CLI legado removido
 
 [project.urls]
 Homepage = "https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced"
@@ -50,9 +50,9 @@ Repository = "https://github.com/fernando-bertholdo/adalove_extract_cards_enhanc
 Issues = "https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced/issues"
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src"]
 include = ["adalove_extractor*"]
-exclude = ["tests*", "arquivos_antigos*"]
+exclude = ["tests*", "legacy*"]
 
 [tool.black]
 line-length = 100
@@ -99,7 +99,7 @@ addopts = [
 asyncio_mode = "auto"
 
 [tool.coverage.run]
-source = ["adalove_extractor"]
+source = ["src/adalove_extractor"]
 omit = [
     "*/tests/*",
     "*/venv/*",

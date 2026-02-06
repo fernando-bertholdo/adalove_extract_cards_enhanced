@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """
-Script de extração completa de uma turma.
+Módulo de extração completa de uma turma.
 Extrai todas as semanas com detalhes e organiza por pasta.
-
-Uso: python extrair_turma_completa.py [nome_turma]
-Exemplo: python extrair_turma_completa.py "2026-1A-T13"
 """
 
 import asyncio
@@ -16,13 +13,14 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 
-sys.path.insert(0, str(Path(__file__).parent))
-
 from adalove_extractor.api import AdaLoveAPIClient
 from adalove_extractor.api.endpoints import Endpoints
 from adalove_extractor.config.settings import Settings
 from adalove_extractor.models.api_card_types import get_type_name, get_type_portuguese
 from adalove_extractor.extractors.api.anchor import organize_by_encontros
+
+# Raiz do projeto (4 níveis acima: extractors -> adalove_extractor -> src -> projeto)
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 
 
 # Configurar logging
@@ -103,7 +101,7 @@ async def extrair_turma_completa(turma_nome: str):
     logger.info("=" * 70)
     
     settings = Settings()
-    output_base = Path(__file__).parent / "output" / "api_extraction"
+    output_base = PROJECT_ROOT / "output" / "api_extraction"
     
     async with AdaLoveAPIClient() as client:
         # 1. Autenticar

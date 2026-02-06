@@ -13,14 +13,14 @@ from rich.panel import Panel
 from rich.text import Text
 from rich import print as rprint
 
-# Add current directory to path
-sys.path.insert(0, str(Path(__file__).parent))
+# Add src directory to path for package imports
+sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from adalove_extractor.api import AdaLoveAPIClient
 from adalove_extractor.api.endpoints import Endpoints
 from adalove_extractor.api.exceptions import AuthenticationError
 from adalove_extractor.config.settings import Settings
-from extrair_turma_completa import extrair_turma_completa
+from adalove_extractor.extractors.turma_completa import extrair_turma_completa
 
 # Configure basic logging to file only to not mess up TUI
 logging.basicConfig(
