@@ -34,7 +34,7 @@ console = Console()
 
 def show_banner():
     """Exibe o banner inicial."""
-    title = Text("🚀 ADALOVE EXTRACTOR SQUAD", style="bold magenta")
+    title = Text("🚀🤖 ADALOVE EXTRACTOR by 0xftb", style="bold magenta")
     subtitle = Text("Ferramenta CLI para extração de cards e materiais", style="cyan")
     
     panel = Panel(
