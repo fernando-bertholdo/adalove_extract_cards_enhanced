@@ -2,7 +2,29 @@
 Utilitários para manipulação e comparação de texto.
 """
 
+import html
 import re
+
+
+def decode_html_entities(text: str) -> str:
+    """
+    Decodifica entidades HTML em texto legível.
+    
+    Converte entidades como &aacute; para á, &ccedil; para ç, etc.
+    
+    Args:
+        text: Texto com possíveis entidades HTML
+        
+    Returns:
+        Texto com entidades decodificadas
+        
+    Example:
+        >>> decode_html_entities("Lideran&ccedil;a Situacional")
+        "Liderança Situacional"
+    """
+    if not text:
+        return ""
+    return html.unescape(text)
 
 
 def normalize_title(title: str) -> str:

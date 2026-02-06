@@ -18,6 +18,7 @@ from adalove_extractor.api.endpoints import Endpoints
 from adalove_extractor.config.settings import Settings
 from adalove_extractor.models.api_card_types import get_type_name, get_type_portuguese
 from adalove_extractor.extractors.api.anchor import organize_by_encontros
+from adalove_extractor.utils.text import decode_html_entities
 
 # Raiz do projeto (4 níveis acima: extractors -> adalove_extractor -> src -> projeto)
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
@@ -50,7 +51,7 @@ def simplificar_atividade(activity: Dict[str, Any], semana: str) -> Dict[str, An
     card = {
         "semana": semana,
         "titulo": activity.get("caption", ""),
-        "descricao": activity.get("description", ""),
+        "descricao": decode_html_entities(activity.get("description", "")),
         "card_type": get_type_name(tipo_num),
         "data_hora": activity.get("date"),
         "professor": activity.get("professorName"),
