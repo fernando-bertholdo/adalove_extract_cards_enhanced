@@ -126,7 +126,7 @@ async def main():
                 return
             
             # Confirmation
-            if not questionary.confirm(f"Confirmar extração da turma: {selected_turma}?").ask():
+            if not await questionary.confirm(f"Confirmar extração da turma: {selected_turma}?").ask_async():
                 rprint("[yellow]Operação cancelada.[/yellow]")
                 return
             
@@ -144,7 +144,7 @@ async def main():
                 ))
                 
                 # Open folder option (Mac specific)
-                if sys.platform == "darwin" and questionary.confirm("Abrir pasta dos arquivos?").ask():
+                if sys.platform == "darwin" and await questionary.confirm("Abrir pasta dos arquivos?").ask_async():
                     import subprocess
                     subprocess.run(["open", str(result_dir)])
             else:

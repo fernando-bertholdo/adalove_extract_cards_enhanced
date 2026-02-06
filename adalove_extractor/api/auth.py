@@ -5,13 +5,18 @@ Este módulo lida com a autenticação do usuário via Google OAuth
 e obtenção de tokens do AWS Cognito para acesso à API do AdaLove.
 """
 
+import asyncio
 import logging
 from typing import Optional
 from playwright.async_api import async_playwright, Browser, Page
+from rich.console import Console
 
 from .exceptions import AuthenticationError, TokenExpiredError
 from pathlib import Path
 import json
+
+# Timeout para autenticação OAuth (segundos)
+AUTH_TIMEOUT_SECONDS = 35
 
 
 
@@ -39,7 +44,8 @@ class CognitoAuthenticator:
     async def authenticate_google_oauth(
         self, 
         login: str, 
-        senha: str
+        senha: str,
+        timeout_seconds: int = AUTH_TIMEOUT_SECONDS
     ) -> str:
         """
         Autentica via Google OAuth e obtém token Cognito.
@@ -50,14 +56,33 @@ class CognitoAuthenticator:
         Args:
             login: Email do usuário
             senha: Senha do usuário
+            timeout_seconds: Timeout em segundos (padrão: 60)
             
         Returns:
             Token de acesso Cognito
             
         Raises:
-            AuthenticationError: Se autenticação falhar
+            AuthenticationError: Se autenticação falhar ou timeout
         """
+        console = Console()
         self.logger.info("🔐 Iniciando autenticação via Google OAuth...")
+        console.print(f"[dim]⏱️  Timeout de autenticação: {timeout_seconds}s[/dim]")
+        
+        try:
+            return await asyncio.wait_for(
+                self._perform_oauth_login(login, senha),
+                timeout=timeout_seconds
+            )
+        except asyncio.TimeoutError:
+            error_msg = f"Autenticação excedeu o timeout de {timeout_seconds}s. Pode ser necessário renovar manualmente."
+            self.logger.error(f"⏰ {error_msg}")
+            console.print(f"[bold red]⏰ TIMEOUT:[/bold red] {error_msg}")
+            console.print("[yellow]💡 Dica: Tente limpar o cache (.token_cache) e reiniciar.[/yellow]")
+            raise AuthenticationError(error_msg)
+    
+    async def _perform_oauth_login(self, login: str, senha: str) -> str:
+        """Executa o fluxo de login OAuth (chamado internamente com timeout)."""
+        console = Console()
         
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
@@ -66,15 +91,18 @@ class CognitoAuthenticator:
             
             try:
                 # Navegar para AdaLove
+                console.print("[dim]   🌐 Acessando AdaLove...[/dim]")
                 await page.goto(self.adalove_url)
                 await page.wait_for_timeout(2000)
                 
                 # Clicar em "Entrar com o Google"
+                console.print("[dim]   🔘 Logando com OAuth Google...[/dim]")
                 await page.get_by_role("button", name="Entrar com o Google").click()
                 await page.wait_for_timeout(3000)
                 
                 # Preencher credenciais Google
                 if "accounts.google.com" in page.url:
+                    console.print("[dim]   📧 Preenchendo credenciais...[/dim]")
                     # Email
                     email_field = page.locator("input[type='email']").first
                     await email_field.fill(login)
@@ -88,6 +116,7 @@ class CognitoAuthenticator:
                     await page.wait_for_timeout(5000)
                 
                 # Aguardar redirecionamento para AdaLove
+                console.print("[dim]   ⏳ Aguardando redirecionamento...[/dim]")
                 for _ in range(20):
                     await page.wait_for_timeout(1000)
                     if "adalove.inteli.edu.br" in page.url and "/login" not in page.url:
@@ -102,9 +131,12 @@ class CognitoAuthenticator:
                 self.token = token
                 self.save_token(token)
                 self.logger.info("✅ Autenticação bem-sucedida!")
+                console.print("[bold green]   ✅ Token obtido com sucesso![/bold green]")
                 
                 return token
                 
+            except AuthenticationError:
+                raise
             except Exception as e:
                 self.logger.error(f"❌ Erro na autenticação: {e}")
                 raise AuthenticationError(f"Falha na autenticação: {e}")
