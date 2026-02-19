@@ -201,7 +201,7 @@ curl -X GET "https://apiv2.inteli.edu.br/sections" \
 
 #### GET `/sections/{section_uuid}/userdata`
 
-Dados de progresso do aluno em uma seção específica.
+Dados de progresso do aluno em uma seção específica. Retorna todas as atividades com seus dados de avaliação.
 
 **Parâmetros de Path:**
 
@@ -215,6 +215,48 @@ curl -X GET "https://apiv2.inteli.edu.br/sections/{section_uuid}/userdata" \
   -H "Authorization: Bearer {token}" \
   -H "Origin: https://adalove.inteli.edu.br"
 ```
+
+**Response (campos por atividade):**
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `studentActivityUuid` | string | UUID da atividade do estudante |
+| `status` | int | Status da atividade (1=pendente, 3=concluída) |
+| `sort` | int | Ordem de exibição |
+| `type` | int | Tipo da atividade (ver tabela de tipos) |
+| `caption` | string | Título da atividade |
+| `description` | string | Descrição (HTML com entidades) |
+| `basicActivityURL` | string | URL do material de referência |
+| `professorName` | string | Nome do professor responsável |
+| `date` | string\|null | Data/hora agendada (ISO 8601) |
+| `folder` | string | UUID da pasta/seção |
+| `folderCaption` | string | Nome da pasta (ex: "Semana 02") |
+| `gradeWeight` | int | Peso da nota (0 = não ponderada) |
+| `checkWeight` | int | Peso de check |
+| `conceptWeight` | int | Peso de conceito |
+| **`studyQuestion`** | **string** | **Texto da pergunta da avaliação (HTML)** |
+| **`studyAnswer`** | **string** | **Resposta submetida pelo aluno** |
+| **`evaluated`** | **int** | **Status de avaliação (0=não, 1=sim)** |
+| **`gradeResult`** | **string** | **Nota atribuída ("-1.0" = não avaliado)** |
+| **`blocked`** | **int** | **Se a atividade está bloqueada (0/1)** |
+| `checkResult` | int | Resultado de check (-1 = sem resultado) |
+| `conceptResult` | int | Resultado de conceito (-1 = sem resultado) |
+| `activityFeedback` | string | Feedback do professor |
+| `required` | int | Se é obrigatória (1=sim) |
+| `exam` | int | Se é prova (0/1) |
+
+> [!IMPORTANT]
+> Os campos `studyQuestion` e `studyAnswer` contêm o conteúdo da aba **"Avaliação"** visível no AdaLove. O `studyQuestion` contém HTML com entidades codificadas (ex: `&eacute;` → `é`).
+
+**Mapeamento de Tipos de Atividade (`type`):**
+
+| Código | Nome Interno | Nome em Português |
+|--------|-------------|--------------------|
+| 1 | `encontro_orientacao` | Encontro de Orientação |
+| 2 | `encontro_instrucao` | Encontro de Instrução |
+| 11 | `autoestudo` | Autoestudo |
+| 21 | `projeto` | Desenvolvimento de Projetos |
+| 31 | `avaliacao` | Avaliação e Pesquisa |
 
 ---
 
@@ -264,7 +306,7 @@ curl -X GET "https://apiv2.inteli.edu.br/student-course-descriptions/section/{se
 
 #### GET `/student-activities/{student_activity_uuid}/activity/data`
 
-Retorna dados detalhados de uma atividade específica.
+Retorna dados detalhados de uma atividade específica (conteúdos, assuntos, materiais).
 
 **Parâmetros de Path:**
 
@@ -278,6 +320,44 @@ curl -X GET "https://apiv2.inteli.edu.br/student-activities/{student_activity_uu
   -H "Authorization: Bearer {token}" \
   -H "Origin: https://adalove.inteli.edu.br"
 ```
+
+**Response:**
+```json
+{
+  "studentActivity": {
+    "activityStatus": 1,
+    "attendance1": -1,
+    "attendance2": -1,
+    "attendance3": -1,
+    "checkResult": -1,
+    "conceptResult": -1,
+    "gradeResult": "-1.0",
+    "activityFeedback": "",
+    "activityFeedbackGroup": "",
+    "studentUuid": "uuid-do-aluno",
+    "activityUuid": "uuid-da-atividade",
+    "activityType": 11,
+    "activityId": 43165,
+    "metaprojectUuid": "uuid-do-metaprojeto"
+  },
+  "subjects": [
+    { "uuid": "uuid", "subject": "Nome do assunto" }
+  ],
+  "contents": [
+    { "uuid": "uuid", "caption": "Título", "reference": "https://..." }
+  ],
+  "prerequisites": [
+    { "caption": "Título", "uuid": "uuid", "relationship": "tipo" }
+  ],
+  "tasks": [],
+  "activityStudyMaterial": [],
+  "metaprojectUuid": "uuid-do-metaprojeto",
+  "activityVideoMaterial": []
+}
+```
+
+> [!NOTE]
+> Este endpoint **não contém** a pergunta da avaliação (`studyQuestion`) nem a resposta do aluno (`studyAnswer`). Esses dados estão disponíveis no endpoint `/sections/{section_uuid}/userdata`.
 
 ---
 
@@ -353,6 +433,22 @@ class APIActivity(BaseModel):
     materials: List[Dict]             # Materiais de estudo
     links: List[Dict]                 # Links externos
     files: List[Dict]                 # Arquivos anexados
+```
+
+### Campos de Avaliação (Ponderada)
+
+Campos presentes no response de `/sections/{uuid}/userdata` para atividades com `gradeWeight > 0`:
+
+```python
+# Campos de avaliação (disponíveis em userdata, NÃO em activity/data)
+studyQuestion: str        # Pergunta da avaliação (HTML)
+studyAnswer: str          # Resposta submetida pelo aluno
+evaluated: int            # 0 = não avaliado, 1 = avaliado
+gradeResult: str          # Nota: "-1.0" = não avaliado, "X.X" = nota
+blocked: int              # 0 = desbloqueado, 1 = bloqueado
+gradeWeight: int          # Peso da avaliação (0 = não ponderada)
+checkWeight: int          # Peso de check
+conceptWeight: int        # Peso de conceito
 ```
 
 ### APIUserDetails
@@ -505,6 +601,6 @@ await client.auth.authenticate_google_oauth(
 
 ---
 
-**Última atualização:** 2026-02-06  
+**Última atualização:** 2026-02-11  
 **Versão da API:** v2  
 **Mantido por:** Fernando Bertholdo
