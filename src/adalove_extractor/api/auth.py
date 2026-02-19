@@ -16,7 +16,7 @@ from pathlib import Path
 import json
 
 # Timeout para autenticação OAuth (segundos)
-AUTH_TIMEOUT_SECONDS = 35
+AUTH_TIMEOUT_SECONDS = 120
 
 
 
@@ -85,7 +85,10 @@ class CognitoAuthenticator:
         console = Console()
         
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            # Headless configurável via env var (debug: ADALOVE_HEADLESS=false)
+            import os
+            headless = os.getenv("ADALOVE_HEADLESS", "true").lower() != "false"
+            browser = await p.chromium.launch(headless=headless)
             context = await browser.new_context()
             page = await context.new_page()
             
@@ -115,11 +118,62 @@ class CognitoAuthenticator:
                     await page.get_by_role("button", name="Next").click()
                     await page.wait_for_timeout(5000)
                 
-                # Aguardar redirecionamento para AdaLove
+                # Aguardar redirecionamento para AdaLove ou detectar 2FA
                 console.print("[dim]   ⏳ Aguardando redirecionamento...[/dim]")
-                for _ in range(20):
+                
+                # Verificar se há prompt de 2FA (verificação adicional)
+                two_fa_detected = False
+                for attempt in range(120):  # 2 minutos máximo
                     await page.wait_for_timeout(1000)
-                    if "adalove.inteli.edu.br" in page.url and "/login" not in page.url:
+                    
+                    # Detectar tela de verificação do Google
+                    current_url = page.url
+                    page_content = await page.content()
+                    
+                    # Debug: log URL changes
+                    if attempt % 10 == 0:
+                        self.logger.info(f"[2FA Check {attempt}/120] URL: {current_url[:80]}...")
+                    
+                    # Detectar várias formas de 2FA do Google
+                    is_2fa_page = (
+                        "challenge" in current_url.lower() or  # challenge/dp, challenge/selection, etc
+                        "verifyidentitychallenge" in current_url.lower() or
+                        "Verify it's you" in page_content or
+                        "verify your identity" in page_content.lower() or
+                        "confirm it's you" in page_content.lower()
+                    )
+                    
+                    if is_2fa_page:
+                        if not two_fa_detected:
+                            two_fa_detected = True
+                            # Print to stderr para aparecer mesmo com console.status ativo
+                            import sys
+                            print("\n\n" + "="*60, file=sys.stderr)
+                            print("🔐 VERIFICAÇÃO EM DUAS ETAPAS DETECTADA!", file=sys.stderr)
+                            print("="*60, file=sys.stderr)
+                            print("Por favor, complete a verificação:", file=sys.stderr)
+                            print("  • Verifique seu e-mail, SMS ou app Google", file=sys.stderr)
+                            print("  • Insira o código ou aprove a solicitação", file=sys.stderr)
+                            print("  • Timeout em 2 minutos", file=sys.stderr)
+                            print("="*60 + "\n", file=sys.stderr)
+                            self.logger.warning("⚠️ Aguardando verificação 2FA no dispositivo do usuário...")
+                        
+                        # Mostrar progresso a cada 10s
+                        if attempt % 10 == 0 and attempt > 0:
+                            remaining = 120 - attempt
+                            print(f"⏳ Aguardando 2FA... ({remaining}s restantes)", file=sys.stderr)
+                        continue
+                    
+                    # Verificou com sucesso e redirecionou
+                    if "adalove.inteli.edu.br" in current_url and "/login" not in current_url:
+                        if two_fa_detected:
+                            import sys
+                            print("\n✅ Verificação 2FA completada!\n", file=sys.stderr)
+                            self.logger.info("✅ Verificação 2FA bem-sucedida")
+                        break
+                    
+                    # Limite de tentativas sem 2FA
+                    if not two_fa_detected and attempt > 20:
                         break
                 
                 # Capturar token do localStorage ou cookies
