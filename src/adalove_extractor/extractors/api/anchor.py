@@ -254,6 +254,9 @@ def organize_by_encontros(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
                 "is_ponderada": card.get("is_ponderada", False),
                 "autoestudos": {}  # Agora é um dicionário com título como chave
             }
+            # Inclui avaliação se existir (cards ponderados)
+            if "avaliacao" in card:
+                encontro_entry["avaliacao"] = card["avaliacao"]
             encontros_temp.append(encontro_entry)
             autoestudos_por_encontro[card.get("sort")] = encontro_entry
         else:
@@ -261,7 +264,7 @@ def organize_by_encontros(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
             ancora_sort = card.get("ancora_encontro_sort")
             if ancora_sort and ancora_sort in autoestudos_por_encontro:
                 titulo_autoestudo = card.get("titulo", "Sem título")
-                autoestudos_por_encontro[ancora_sort]["autoestudos"][titulo_autoestudo] = {
+                autoestudo_entry = {
                     "descricao": card.get("descricao"),
                     "professor": card.get("professor"),
                     "conteudos_relacionados": card.get("conteudos_relacionados", []),
@@ -270,6 +273,10 @@ def organize_by_encontros(cards: List[Dict[str, Any]]) -> Dict[str, Any]:
                     "ancora_metodo": card.get("ancora_metodo"),
                     "ancora_confianca": card.get("ancora_confianca")
                 }
+                # Inclui avaliação se existir (cards ponderados)
+                if "avaliacao" in card:
+                    autoestudo_entry["avaliacao"] = card["avaliacao"]
+                autoestudos_por_encontro[ancora_sort]["autoestudos"][titulo_autoestudo] = autoestudo_entry
             else:
                 sem_ancora.append(card)
     

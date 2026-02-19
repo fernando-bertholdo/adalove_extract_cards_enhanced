@@ -49,6 +49,7 @@ def simplificar_atividade(activity: Dict[str, Any], semana: str) -> Dict[str, An
     """Simplifica uma atividade extraindo campos essenciais."""
     tipo_num = activity.get("type")
     card = {
+        "student_activity_uuid": activity.get("studentActivityUuid"),
         "semana": semana,
         "titulo": activity.get("caption", ""),
         "descricao": decode_html_entities(activity.get("description", "")),
@@ -80,6 +81,28 @@ def simplificar_atividade(activity: Dict[str, Any], semana: str) -> Dict[str, An
     # Ponderada
     grade_weight = activity.get("gradeWeight", 0) or 0
     card["is_ponderada"] = grade_weight > 0 or tipo_num == 21
+    
+    # Avaliação (conteúdo da aba "Avaliação" para cards ponderados)
+    if card["is_ponderada"]:
+        study_question = activity.get("studyQuestion", "") or ""
+        study_answer = activity.get("studyAnswer", "") or ""
+        grade_result_raw = activity.get("gradeResult", "-1.0")
+        
+        # Converter gradeResult para float (-1.0 = não avaliado)
+        try:
+            grade_result = float(grade_result_raw)
+        except (ValueError, TypeError):
+            grade_result = -1.0
+        
+        card["avaliacao"] = {
+            "peso": grade_weight,
+            "pergunta": decode_html_entities(study_question),
+            "resposta": decode_html_entities(study_answer) if study_answer else None,
+            "respondida": bool(study_answer.strip()),
+            "nota": grade_result if grade_result >= 0 else None,
+            "avaliada": activity.get("evaluated", 0) == 1,
+            "bloqueada": activity.get("blocked", 0) == 1,
+        }
     
     return card
 
