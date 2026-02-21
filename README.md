@@ -20,7 +20,7 @@ A versão 2.0.0 introduz um **novo paradigma de extração**:
 | Recurso | v1 (Playwright) | v2 (API) |
 |---------|-----------------|----------|
 | **Método** | Automação de browser | Requisições HTTP diretas |
-| **Velocidade** | ~5 min/turma | ~60 seg/turma |
+| **Velocidade** | ~5 min/turma | ~10 seg/turma |
 | **Estabilidade** | Depende de UI | Independente de UI |
 | **Dados** | Scraping HTML | JSON estruturado da API |
 | **Autenticação** | Login visual | Token OAuth |
