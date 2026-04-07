@@ -25,6 +25,7 @@ from adalove_extractor.api.exceptions import AuthenticationError
 from adalove_extractor.config.settings import Settings
 from adalove_extractor.extractors.turma_completa import extrair_turma_completa
 from adalove_extractor.cli.icons import icons
+from adalove_extractor.io.calendar import ICalendarExport
 
 # Configure basic logging to file only to not mess up TUI
 logging.basicConfig(
@@ -391,6 +392,10 @@ async def menu_turma(client: AdaLoveAPIClient, turma_nome: str, turma_uuid: str)
             choices.append(
                 questionary.Choice(title=f"{icons.view} Ver atividades ponderadas", value="ponderadas")
             )
+            # Add Exportar Calendário here
+            choices.append(
+                questionary.Choice(title=f"{icons.calendar} Exportar Calendário (.ics)", value="calendario")
+            )
 
         choices.append(questionary.Separator())
         choices.append(questionary.Choice(title=f"{icons.back} Voltar", value="__BACK__"))
@@ -409,6 +414,9 @@ async def menu_turma(client: AdaLoveAPIClient, turma_nome: str, turma_uuid: str)
 
         elif selected == "ponderadas":
             await ver_ponderadas(client, turma_nome, turma_uuid)
+            
+        elif selected == "calendario":
+            await exportar_calendario(turma_nome)
 
 
 async def executar_extracao(turma_nome: str):
@@ -453,6 +461,57 @@ async def executar_extracao(turma_nome: str):
                 subprocess.run(["open", str(result_dir)])
     else:
         rprint(f"[bold red]{icons.error} Falha na extração. Verifique adalove_cli.log[/bold red]")
+
+
+async def exportar_calendario(turma_nome: str):
+    """Exporta os encontros da extração para formato .ics."""
+    data = carregar_extracao(turma_nome)
+    if not data:
+        rprint(f"[red]{icons.error} Dados de extração não encontrados para a turma {turma_nome}.[/red]")
+        return
+        
+    output_path = OUTPUT_DIR / turma_nome / f"{turma_nome.replace(' ', '_')}_calendario.ics"
+    
+    # Perguntar sobre o horário de início (padrão assumido: 10:00)
+    horario_padrao = await questionary.text(
+        "Qual o horário de início que os encontros dessa turma começam? (ex: 10:00 ou 14:00)",
+        default="10:00"
+    ).ask_async()
+
+    if not horario_padrao:
+        return
+        
+    # Perguntar sobre a duração dos encontros (padrão assumido: 2 horas)
+    duracao_str = await questionary.text(
+        "Qual a duração dos encontros em horas?",
+        default="2"
+    ).ask_async()
+    
+    if not duracao_str:
+        return
+        
+    try:
+        duracao_padrao = int(duracao_str)
+    except ValueError:
+        duracao_padrao = 2
+
+    with console.status("[bold cyan]Gerando arquivo de calendário...[/bold cyan]", spinner="dots"):
+        exporter = ICalendarExport(horario_padrao=horario_padrao, duracao_padrao=duracao_padrao)
+        sucesso = exporter.gerar_calendario(data, output_path)
+        
+    if sucesso:
+        rprint(Panel(
+            f"[bold green]{icons.success} Calendário gerado com sucesso![/bold green]\n\n"
+            f"Arquivo salvo em:\n[blue]{output_path}[/blue]",
+            title="Exportação Concluída"
+        ))
+        if sys.platform == "darwin":
+            abrir = await questionary.confirm("Abrir pasta do arquivo?").ask_async()
+            if abrir:
+                import subprocess
+                subprocess.run(["open", "-R", str(output_path)])
+    else:
+        rprint(f"[bold yellow]{icons.warning} Não foi possível gerar o calendário (sem dados ou erro).[/bold yellow]")
 
 
 async def ver_ponderadas(client: AdaLoveAPIClient, turma_nome: str, turma_uuid: str):
