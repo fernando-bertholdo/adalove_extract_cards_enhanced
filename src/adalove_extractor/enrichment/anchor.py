@@ -115,7 +115,13 @@ class AnchorEngine:
                 best_method = method
                 best_confidence = confidence
         
-        if best_instruction:
+        # Define o threshold de score baseado no tipo do card
+        # Ponderadas exigem vínculo mais forte (score maior) para evitar falsos positivos
+        card_type = card.get("card_type", "")
+        is_ponderada = card.get("is_ponderada", False)
+        threshold = 2.5 if (card_type in ["avaliacao", "projeto"] or is_ponderada) else 1.0
+
+        if best_instruction and best_score >= threshold:
             return best_instruction, best_score, best_method, best_confidence
         
         return None
