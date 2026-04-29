@@ -87,7 +87,8 @@ class CognitoAuthenticator:
         async with async_playwright() as p:
             # Headless configurável via env var (debug: ADALOVE_HEADLESS=false)
             import os
-            headless = os.getenv("ADALOVE_HEADLESS", "true").lower() != "false"
+            # Padrão não-headless para auth interativa: usuário precisa ver o browser para 2FA
+            headless = os.getenv("ADALOVE_HEADLESS", "false").lower() != "false"
             browser = await p.chromium.launch(headless=headless)
             context = await browser.new_context()
             page = await context.new_page()
@@ -134,29 +135,49 @@ class CognitoAuthenticator:
                     if attempt % 10 == 0:
                         self.logger.info(f"[2FA Check {attempt}/120] URL: {current_url[:80]}...")
                     
-                    # Detectar várias formas de 2FA do Google
+                    # challenge/pwd = senha errada (não é 2FA)
+                    is_wrong_password = (
+                        "challenge/pwd" in current_url.lower() or
+                        "signin/rejected" in current_url.lower() or
+                        "Wrong password" in page_content or
+                        "senha incorreta" in page_content.lower()
+                    )
+
+                    if is_wrong_password:
+                        import sys
+                        print("\n\n" + "="*60, file=sys.stderr)
+                        print("❌ SENHA INCORRETA!", file=sys.stderr)
+                        print("="*60, file=sys.stderr)
+                        print("A senha informada no .env não corresponde à conta Google.", file=sys.stderr)
+                        print("  • Atualize SENHA= no arquivo .env", file=sys.stderr)
+                        print("  • Feche a janela do navegador", file=sys.stderr)
+                        print("="*60 + "\n", file=sys.stderr)
+                        raise AuthenticationError("Senha incorreta. Atualize SENHA= no arquivo .env.")
+
+                    # Detectar 2FA real: challenge/selection, challenge/totp, etc (nunca challenge/pwd)
                     is_2fa_page = (
-                        "challenge" in current_url.lower() or  # challenge/dp, challenge/selection, etc
+                        ("challenge" in current_url.lower() and "challenge/pwd" not in current_url.lower()) or
                         "verifyidentitychallenge" in current_url.lower() or
                         "Verify it's you" in page_content or
                         "verify your identity" in page_content.lower() or
                         "confirm it's you" in page_content.lower()
                     )
-                    
+
                     if is_2fa_page:
                         if not two_fa_detected:
                             two_fa_detected = True
-                            # Print to stderr para aparecer mesmo com console.status ativo
+                            # Trazer janela do browser para frente para o usuário interagir
+                            await page.bring_to_front()
                             import sys
                             print("\n\n" + "="*60, file=sys.stderr)
                             print("🔐 VERIFICAÇÃO EM DUAS ETAPAS DETECTADA!", file=sys.stderr)
                             print("="*60, file=sys.stderr)
-                            print("Por favor, complete a verificação:", file=sys.stderr)
-                            print("  • Verifique seu e-mail, SMS ou app Google", file=sys.stderr)
-                            print("  • Insira o código ou aprove a solicitação", file=sys.stderr)
+                            print("👆 Complete a verificação NA JANELA DO NAVEGADOR que abriu.", file=sys.stderr)
+                            print("  • Insira o código ou aprove a solicitação no app Google", file=sys.stderr)
+                            print("  • A extração continua automaticamente após confirmar", file=sys.stderr)
                             print("  • Timeout em 2 minutos", file=sys.stderr)
                             print("="*60 + "\n", file=sys.stderr)
-                            self.logger.warning("⚠️ Aguardando verificação 2FA no dispositivo do usuário...")
+                            self.logger.warning("⚠️ Aguardando verificação 2FA na janela do navegador...")
                         
                         # Mostrar progresso a cada 10s
                         if attempt % 10 == 0 and attempt > 0:
