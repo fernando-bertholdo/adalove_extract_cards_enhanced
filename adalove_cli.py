@@ -26,6 +26,9 @@ from adalove_extractor.config.settings import Settings
 from adalove_extractor.extractors.turma_completa import extrair_turma_completa
 from adalove_extractor.cli.icons import icons
 from adalove_extractor.io.calendar import ICalendarExport
+from adalove_extractor.ai.context_builder import ContextBuilder
+from adalove_extractor.ai.system_prompt import SystemPromptLoader
+from adalove_extractor.ai.answer_generator import AnswerGenerator, ClaudeNotFoundError
 
 # Configure basic logging to file only to not mess up TUI
 logging.basicConfig(
@@ -38,6 +41,7 @@ logging.basicConfig(
 console = Console()
 
 OUTPUT_DIR = Path(__file__).parent / "output" / "api_extraction"
+RASCUNHOS_SUBDIR = "rascunhos"
 
 # Estilo global para menus questionary
 MENU_STYLE = questionary.Style([
@@ -195,6 +199,7 @@ def extrair_ponderadas(data: dict) -> list[dict]:
                     "descricao": "",
                     "avaliacao": encontro.get("avaliacao", {}),
                     "tipo": "encontro",
+                    "student_activity_uuid": encontro.get("student_activity_uuid"),
                 })
 
             # Ponderadas dos autoestudos ancorados neste encontro
@@ -209,6 +214,7 @@ def extrair_ponderadas(data: dict) -> list[dict]:
                         "descricao": auto_data.get("descricao", ""),
                         "avaliacao": auto_data.get("avaliacao", {}),
                         "tipo": "autoestudo",
+                        "student_activity_uuid": auto_data.get("student_activity_uuid"),
                     })
 
         # Ponderadas sem âncora
@@ -223,6 +229,7 @@ def extrair_ponderadas(data: dict) -> list[dict]:
                     "descricao": card.get("descricao", ""),
                     "avaliacao": card.get("avaliacao", {}),
                     "tipo": "sem_ancora",
+                    "student_activity_uuid": card.get("student_activity_uuid"),
                 })
 
     return ponderadas
@@ -603,13 +610,255 @@ async def ver_ponderadas(client: AdaLoveAPIClient, turma_nome: str, turma_uuid: 
             return
 
         if isinstance(selected, int):
-            await menu_ponderada(ponderadas[selected])
+            await menu_ponderada(ponderadas[selected], client, turma_nome, data)
 
 
-async def menu_ponderada(pond: dict):
+def salvar_rascunho(turma_nome: str, pond: dict, resposta: str) -> Path:
+    """Salva rascunho de resposta gerado por IA em arquivo markdown."""
+    from datetime import date
+
+    rascunhos_dir = OUTPUT_DIR / turma_nome / RASCUNHOS_SUBDIR
+    rascunhos_dir.mkdir(parents=True, exist_ok=True)
+
+    titulo_slug = re.sub(r"[^\w\s-]", "", pond["titulo"])[:40].strip().replace(" ", "_")
+    filename = f"{date.today().isoformat()}_{titulo_slug}.md"
+    filepath = rascunhos_dir / filename
+
+    uuid = pond.get("student_activity_uuid", "desconhecido")
+    aval = pond.get("avaliacao", {})
+    conteudo = (
+        f"---\n"
+        f"ponderada: {pond['titulo']}\n"
+        f"semana: {pond['semana']}\n"
+        f"data: {pond['data_encontro']}\n"
+        f"student_activity_uuid: {uuid}\n"
+        f"peso: {aval.get('peso', '?')}\n"
+        f"---\n\n"
+        f"## Pergunta\n\n{aval.get('pergunta', '')}\n\n"
+        f"## Resposta Gerada\n\n{resposta}\n"
+    )
+    filepath.write_text(conteudo, encoding="utf-8")
+    return filepath
+
+
+async def gerar_resposta_ia(
+    client: AdaLoveAPIClient,
+    turma_nome: str,
+    pond: dict,
+    extracao_data: dict,
+):
+    """Fluxo completo de geração de resposta com IA para uma ponderada."""
+    import os
+    import subprocess as sp
+
+    context_builder = ContextBuilder()
+    prompt_loader = SystemPromptLoader()
+    generator = AnswerGenerator()
+
+    # Passo 1: Exibir contexto disponível
+    aval = pond.get("avaliacao", {})
+    rprint(Panel(
+        f"[bold]{pond['titulo']}[/bold]\n"
+        f"[dim]{pond['semana']} · {pond['data_encontro']}[/dim]\n\n"
+        f"[bold cyan]Pergunta:[/bold cyan]\n{aval.get('pergunta', '')}",
+        title="Contexto da Ponderada",
+        border_style="cyan",
+    ))
+
+    # Passo 2: Transcrição (opcional)
+    transcript_path = await questionary.text(
+        f"{icons.folder} Caminho para arquivo .txt de transcrição (Enter para pular):",
+        default="",
+        style=MENU_STYLE,
+    ).ask_async()
+
+    transcript = None
+    if transcript_path and transcript_path.strip():
+        try:
+            transcript = Path(transcript_path.strip()).read_text(encoding="utf-8")
+            rprint(f"[green]{icons.success} Transcrição carregada ({len(transcript)} chars)[/green]")
+        except Exception as e:
+            rprint(f"[yellow]{icons.warning} Não foi possível ler o arquivo: {e}[/yellow]")
+
+    # Passo 3: Notas do usuário (opcional)
+    user_notes_raw = await questionary.text(
+        f"{icons.document} Instruções extras ou notas (Enter para pular):",
+        default="",
+        style=MENU_STYLE,
+    ).ask_async()
+    user_notes = user_notes_raw.strip() if user_notes_raw else None
+
+    # Passo 4: System prompt
+    rprint(f"\n[dim]System prompt padrão carregado de config/default_system_prompt.md[/dim]")
+    sp_additions_raw = await questionary.text(
+        f"{icons.robot} Adicionar instruções ao system prompt desta geração (Enter para pular):",
+        default="",
+        style=MENU_STYLE,
+    ).ask_async()
+    sp_additions = sp_additions_raw.strip() if sp_additions_raw else None
+    system_prompt = prompt_loader.load(session_additions=sp_additions)
+
+    # Passo 5a: Gerar esqueleto
+    with console.status("[bold cyan]Gerando esqueleto da resposta...[/bold cyan]", spinner="dots"):
+        skeleton_prompt = context_builder.build(
+            pond, extracao_data,
+            transcript=transcript,
+            user_notes=user_notes,
+            skeleton_mode=True,
+        )
+        try:
+            skeleton = generator.generate(user_prompt=skeleton_prompt, system_prompt=system_prompt)
+        except ClaudeNotFoundError:
+            rprint(
+                f"[bold red]{icons.error} claude CLI não encontrado.[/bold red]\n"
+                "Instale com: npm install -g @anthropic-ai/claude-code"
+            )
+            return
+        except RuntimeError as e:
+            rprint(f"[bold red]{icons.error} Erro ao gerar esqueleto:[/bold red] {e}")
+            return
+
+    # Passo 5b: Exibir esqueleto
+    rprint(Panel(skeleton, title="Esqueleto da Resposta", border_style="yellow"))
+
+    # Passo 5c: Aprovação do esqueleto
+    esqueleto_ok = await questionary.select(
+        "O esqueleto está correto?",
+        choices=[
+            questionary.Choice(title=f"{icons.success} Correto — gerar resposta completa", value="ok"),
+            questionary.Choice(title=f"{icons.document} Ajustar com instrução adicional", value="ajustar"),
+            questionary.Choice(title=f"{icons.exit} Cancelar", value="cancelar"),
+        ],
+        style=MENU_STYLE,
+    ).ask_async()
+
+    if not esqueleto_ok or esqueleto_ok == "cancelar":
+        rprint("[dim]Geração cancelada.[/dim]")
+        return
+
+    if esqueleto_ok == "ajustar":
+        ajuste = await questionary.text(
+            "Instrução adicional para corrigir o esqueleto:",
+            style=MENU_STYLE,
+        ).ask_async()
+        if ajuste and ajuste.strip():
+            user_notes = (user_notes or "") + f"\n\nCORREÇÃO DE ESQUELETO: {ajuste.strip()}"
+
+    # Passo 6: Gerar resposta completa
+    with console.status("[bold cyan]Gerando resposta completa...[/bold cyan]", spinner="dots"):
+        full_prompt = context_builder.build(
+            pond, extracao_data,
+            transcript=transcript,
+            user_notes=user_notes,
+            skeleton_mode=False,
+        )
+        try:
+            resposta = generator.generate(user_prompt=full_prompt, system_prompt=system_prompt)
+        except RuntimeError as e:
+            rprint(f"[bold red]{icons.error} Erro ao gerar resposta:[/bold red] {e}")
+            return
+
+    # Passo 7: Exibir rascunho
+    rprint(Panel(resposta, title="Rascunho Gerado", border_style="green"))
+
+    # Passo 8: Menu de ação
+    uuid = pond.get("student_activity_uuid")
+    while True:
+        acao = await questionary.select(
+            "O que deseja fazer com a resposta?",
+            choices=[
+                questionary.Choice(title=f"{icons.success} Submeter via API AdaLove", value="submeter"),
+                questionary.Choice(title=f"{icons.document} Abrir no editor ($EDITOR) e submeter", value="editor"),
+                questionary.Choice(title=f"{icons.download} Regenerar com nota adicional", value="regenerar"),
+                questionary.Choice(title=f"{icons.folder} Salvar rascunho (sem submeter)", value="salvar"),
+                questionary.Choice(title=f"{icons.exit} Cancelar", value="cancelar"),
+            ],
+            style=MENU_STYLE,
+        ).ask_async()
+
+        if not acao or acao == "cancelar":
+            rprint("[dim]Operação cancelada.[/dim]")
+            return
+
+        if acao == "salvar":
+            filepath = salvar_rascunho(turma_nome, pond, resposta)
+            rprint(f"[green]{icons.success} Rascunho salvo em: [blue]{filepath}[/blue][/green]")
+            return
+
+        if acao == "editor":
+            import tempfile
+            editor = os.environ.get("EDITOR", "nano")
+            with tempfile.NamedTemporaryFile(
+                mode="w", suffix=".md", delete=False, encoding="utf-8"
+            ) as f:
+                f.write(resposta)
+                tmp_path = f.name
+            sp.run([editor, tmp_path])
+            resposta = Path(tmp_path).read_text(encoding="utf-8")
+            Path(tmp_path).unlink(missing_ok=True)
+            rprint(Panel(resposta, title="Resposta Editada", border_style="blue"))
+            continuar = await questionary.confirm(
+                "Submeter esta versão editada via API?"
+            ).ask_async()
+            if not continuar:
+                continue
+            acao = "submeter"
+
+        if acao == "regenerar":
+            nota_extra = await questionary.text(
+                "Instrução adicional para regenerar:",
+                style=MENU_STYLE,
+            ).ask_async()
+            if nota_extra and nota_extra.strip():
+                user_notes = (user_notes or "") + f"\n\nREGENERAÇÃO: {nota_extra.strip()}"
+            with console.status("[bold cyan]Regenerando...[/bold cyan]", spinner="dots"):
+                full_prompt = context_builder.build(
+                    pond, extracao_data,
+                    transcript=transcript,
+                    user_notes=user_notes,
+                    skeleton_mode=False,
+                )
+                resposta = generator.generate(user_prompt=full_prompt, system_prompt=system_prompt)
+            rprint(Panel(resposta, title="Rascunho Regenerado", border_style="green"))
+            continue
+
+        if acao == "submeter":
+            if not uuid:
+                rprint(
+                    f"[yellow]{icons.warning} UUID da atividade não disponível. "
+                    "Salvando rascunho como alternativa.[/yellow]"
+                )
+                filepath = salvar_rascunho(turma_nome, pond, resposta)
+                rprint(f"[dim]Rascunho salvo em: {filepath}[/dim]")
+                return
+
+            with console.status("[bold cyan]Submetendo via API...[/bold cyan]", spinner="dots"):
+                sucesso = await client.submit_answer(uuid, resposta)
+
+            if sucesso:
+                rprint(Panel(
+                    f"[bold green]{icons.success} Resposta submetida com sucesso![/bold green]",
+                    title="Submissão Concluída",
+                ))
+                return
+            else:
+                rprint(f"[yellow]{icons.warning} Falha na submissão via API.[/yellow]")
+                salvar = await questionary.confirm(
+                    "Deseja salvar o rascunho em arquivo como alternativa?"
+                ).ask_async()
+                if salvar:
+                    filepath = salvar_rascunho(turma_nome, pond, resposta)
+                    rprint(
+                        f"[green]{icons.success} Rascunho salvo em: "
+                        f"[blue]{filepath}[/blue][/green]"
+                    )
+                return
+
+
+async def menu_ponderada(pond: dict, client: AdaLoveAPIClient, turma_nome: str, extracao_data: dict):
     """
     Sub-menu de uma atividade ponderada individual.
-    Mostra detalhes completos e opções futuras.
+    Mostra detalhes completos e opções de ação.
     """
     while True:
         aval = pond.get("avaliacao", {})
@@ -662,6 +911,7 @@ async def menu_ponderada(pond: dict):
 
         # Menu de opções
         choices = [
+            questionary.Choice(title=f"{icons.robot} Gerar resposta com IA", value="ia"),
             questionary.Separator(),
             questionary.Choice(title=f"{icons.back} Voltar", value="__BACK__"),
         ]
@@ -674,6 +924,9 @@ async def menu_ponderada(pond: dict):
 
         if not selected or selected == "__BACK__":
             return
+
+        if selected == "ia":
+            await gerar_resposta_ia(client, turma_nome, pond, extracao_data)
 
 
 # ═══════════════════════════════════════════════════════════════
