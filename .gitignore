@@ -31,6 +31,7 @@ MANIFEST
 # Arquivos de credenciais (IMPORTANTE - nunca commitar)
 .env
 .env.*
+!.env.example
 
 # Logs (podem conter informações sensíveis)
 logs/

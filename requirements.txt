@@ -1,5 +1,5 @@
-# Dependências mínimas para executar o AdaLove Extractor
-playwright==1.49.1
+# Dependências para executar o AdaLove Extractor
+httpx>=0.27.0
 python-dotenv==1.0.1
 pydantic>=2.7.0
 pydantic-settings>=2.0.0
