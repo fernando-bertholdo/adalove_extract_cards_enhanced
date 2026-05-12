@@ -28,6 +28,16 @@ class Endpoints:
     # Atividades - Detalhes
     STUDENT_ACTIVITY_DATA = "/student-activities/{student_activity_uuid}/activity/data"
     
+    # Submissão de resposta de atividade ponderada
+    STUDENT_ACTIVITY_ANSWER = "/student-activities/{student_activity_uuid}"
+
+    @staticmethod
+    def student_activity_answer(student_activity_uuid: str) -> str:
+        """Endpoint para submeter resposta de atividade ponderada via PUT."""
+        return Endpoints.STUDENT_ACTIVITY_ANSWER.format(
+            student_activity_uuid=student_activity_uuid
+        )
+
     # Notificações
     NOTIFICATIONS = "/notifications"
     

@@ -245,6 +245,78 @@ class AdaLoveAPIClient:
         
         raise APIError(f"Máximo de tentativas excedido para {endpoint}")
     
+    async def put(
+        self,
+        endpoint: str,
+        json: dict | None = None,
+        **kwargs,
+    ) -> dict:
+        """
+        PUT request com retry automático.
+
+        Args:
+            endpoint: Endpoint da API.
+            json: JSON body.
+
+        Returns:
+            Resposta JSON da API (dict vazio em respostas 204/sem corpo).
+
+        Raises:
+            APIError: Em caso de erro na requisição.
+        """
+        url = f"{self.base_url}{endpoint}"
+        headers = self._build_headers()
+
+        for attempt in range(self.max_retries):
+            try:
+                self.logger.debug(f"📡 PUT {endpoint} (tentativa {attempt + 1}/{self.max_retries})")
+                response = await self.session.put(
+                    url,
+                    headers=headers,
+                    json=json,
+                    **kwargs,
+                )
+                response.raise_for_status()
+                self.logger.debug(f"✅ PUT {endpoint} - {response.status_code}")
+                if response.status_code == 204 or not response.content:
+                    return {}
+                return response.json()
+            except Exception as e:
+                if attempt == self.max_retries - 1:
+                    raise APIError(f"Erro no PUT: {e}")
+                await asyncio.sleep(2 ** attempt)
+
+        raise APIError(f"Máximo de tentativas excedido para PUT {endpoint}")
+
+    async def submit_answer(
+        self,
+        student_activity_uuid: str,
+        answer_text: str,
+    ) -> bool:
+        """
+        Submete resposta para uma atividade ponderada.
+
+        O endpoint PUT /student-activities/{uuid} com body {"studyAnswer": "..."}
+        é a abordagem REST mais provável dado que a leitura usa o campo studyAnswer
+        via section_userdata. Se a API retornar 404/405, execute
+        scripts/inspect_ponderada_raw.py para descobrir o endpoint correto.
+
+        Args:
+            student_activity_uuid: UUID da atividade do estudante.
+            answer_text: Texto da resposta a submeter.
+
+        Returns:
+            True se submissão bem-sucedida, False caso contrário.
+        """
+        endpoint = Endpoints.student_activity_answer(student_activity_uuid)
+        try:
+            await self.put(endpoint, json={"studyAnswer": answer_text})
+            self.logger.info(f"✅ Resposta submetida para {student_activity_uuid}")
+            return True
+        except Exception as e:
+            self.logger.error(f"❌ Falha ao submeter resposta: {e}")
+            return False
+
     async def close(self):
         """Fecha a sessão HTTP."""
         await self.session.aclose()
