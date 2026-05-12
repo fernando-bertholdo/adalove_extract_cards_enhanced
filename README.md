@@ -1,178 +1,78 @@
-# 🚀 Adalove Extract Cards - *Enhanced* v2.0
+# Adalove Extract Cards — Enhanced
 
-![Release](https://img.shields.io/badge/version-2.0.0-blue)
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Architecture](https://img.shields.io/badge/architecture-API--first-brightgreen)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue)](CHANGELOG.md)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Architecture](https://img.shields.io/badge/architecture-API--first-brightgreen)](#arquitetura)
 
-> **📋 DISCLAIMER**: Este projeto tem **fins puramente acadêmicos e educacionais**, visando otimizar o aprendizado e organização de materiais de estudo. O autor não se responsabiliza pelo uso inadequado da ferramenta. Use por sua conta e risco, respeitando os termos de uso da plataforma AdaLove e políticas institucionais.
+> **Aviso:** Este projeto tem fins acadêmicos e educacionais. Use com responsabilidade e respeite os termos de uso da plataforma AdaLove e as políticas institucionais do Inteli.
 
-**Sistema de extração de dados da plataforma AdaLove via API com organização inteligente e ancoragem de autoestudos**
-
----
-
-## 🎉 Novidades - v2.0.0: Extração via API
-
-A versão 2.0.0 introduz um **novo paradigma de extração**:
-
-### ✨ Principais Mudanças
-
-| Recurso | v1 (Playwright) | v2 (API) |
-|---------|-----------------|----------|
-| **Método** | Automação de browser | Requisições HTTP diretas |
-| **Velocidade** | ~5 min/turma | ~10 seg/turma |
-| **Estabilidade** | Depende de UI | Independente de UI |
-| **Dados** | Scraping HTML | JSON estruturado da API |
-| **Autenticação** | Login visual | Token OAuth |
-| **Formato saída** | CSV/JSONL | JSON hierárquico |
-
-### 🆕 Novos Recursos
-
-- 🔗 **Ancoragem multi-fator** de autoestudos (professor + proximidade + similaridade). É possível extrair cards de autoestudo que estejam fora da sua ordem original e ainda assim eles serão atrelados aos encontros corretos
-- 📅 **Organização por data** com dia da semana em português
-- 📁 **Estrutura por turma** com pastas individuais por semana
-- 🎯 **JSON hierárquico** com datas e títulos como chaves de acesso
+CLI interativa para extrair cards da plataforma AdaLove via API, organizar encontros e autoestudos por semana, e gerar respostas para atividades ponderadas com IA.
 
 ---
 
-## 📑 Índice
-
-- [Como Funciona](#-como-funciona)
-- [Instalação](#-instalação)
-- [Configuração](#-configuração)
-- [Uso](#-uso)
-- [Estrutura de Saída](#-estrutura-de-saída)
-- [Arquitetura](#-arquitetura)
-- [Documentação](#-documentação)
-- [Licença](#-licença)
-
----
-
-## 💡 Como Funciona
-
-### Fluxo de Extração v2
-
-```
-1. Autenticação via Google OAuth (token capturado do navegador)
-2. Requisição à API para listar turmas
-3. Requisição para atividades de cada semana
-4. Busca detalhes de cada atividade
-5. Ancoragem de autoestudos aos encontros
-6. Organização hierárquica por data
-7. Salvamento em JSON estruturado
-```
-
-### Sistema de Ancoragem
-
-O sistema usa **pontuação multi-fator** para vincular autoestudos aos encontros:
-
-| Fator | Pontos | Descrição |
-|-------|--------|-----------|
-| **Professor** | +3.0 | Mesmo professor no autoestudo e encontro |
-| **Proximidade** | +1.5 - 0.1×delta | Posição de sort próxima |
-| **Similaridade** | +2.0 × sim | Títulos semelhantes |
-
----
-
-## ⚡ Instalação
-
-### 1. Clone e Configure Ambiente
+## Quick Start
 
 ```bash
+# 1. Clone e configure o ambiente
 git clone https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced.git
 cd adalove_extract_cards_enhanced
+python -m venv venv && source venv/bin/activate
 
-# Ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# ou: .\venv\Scripts\activate  # Windows
-
-# Dependências
+# 2. Instale as dependências
 pip install -r requirements.txt
-```
 
-### 2. Dependências Principais
-
-- `httpx` - Cliente HTTP assíncrono
-- `pydantic` - Validação de dados
-- `python-dotenv` - Gerenciamento de credenciais
-
----
-
-## 🔐 Configuração
-
-### Configure o `.env`
-
-```bash
+# 3. Configure suas credenciais
 cp .env.example .env
-```
+# edite .env com seu login e senha do AdaLove
 
-Edite `.env` com suas credenciais do AdaLove:
-```env
-LOGIN=seu.email@sou.inteli.edu.br
-SENHA=sua_senha
-```
-
-> ✅ **Autenticação automática**: O sistema faz login via Google OAuth automaticamente usando essas credenciais. Não é necessário capturar tokens manualmente.
-
----
-
-## 🚀 Uso
-
-### Extração Completa de uma Turma
-
-```bash
-python extrair_turma_completa.py "2026-1A-T13"
-```
-
-### Saída
-
-```
-📊 RESUMO DA EXTRAÇÃO
-======================================================================
-   🏫 Turma: 2026-1A-T13
-   📁 Pasta: output/api_extraction/2026-1A-T13
-   📊 Semanas: 10
-   📚 Total de atividades: 132
-   📝 Ponderadas: 20
-   🔗 Cards ancorados: 86
-======================================================================
+# 4. Execute
+python adalove_cli.py
 ```
 
 ---
 
-## 📁 Estrutura de Saída
+## O que faz
 
-### Hierarquia de Pastas
+| Recurso | Descrição |
+|---------|-----------|
+| **Extração via API** | Extrai cards sem automação de browser (~10s/turma) |
+| **Organização por semana** | JSON hierárquico com encontros e autoestudos por data |
+| **Ancoragem multi-fator** | Vincula autoestudos aos encontros (professor + proximidade + título) |
+| **Viewer de ponderadas** | Lista atividades avaliativas com status de prazo e nota |
+| **Exportação de calendário** | Gera `.ics` importável no Google Calendar / Apple Calendar |
+| **Resposta com IA** | Gera rascunho de resposta para ponderadas usando Claude |
+
+---
+
+## Estrutura de Saída
 
 ```
 output/api_extraction/
 └── 2026-1A-T13/
-    ├── extracao_completa.json    # Todas as semanas
+    ├── extracao_completa.json      # Todas as semanas consolidadas
+    ├── 2026-1A-T13_calendario.ics  # Exportação para calendário
+    ├── rascunhos/                  # Rascunhos gerados por IA
     └── semanas/
         ├── semana_01.json
         ├── semana_02.json
         └── ...
 ```
 
-### Formato JSON
-
-O JSON usa **datas como chaves** para fácil acesso:
+**Formato do JSON por semana:**
 
 ```json
 {
   "encontros": {
     "2026-03-23": {
       "dia_semana": "Segunda-feira",
-      "titulo": "Suporte ao Projeto - Integração",
+      "titulo": "Suporte ao Projeto — Integração",
       "tipo": "encontro_instrucao",
-      "professor": "Ovidio Lopes da Cruz Netto",
+      "professor": "Nome do Professor",
       "autoestudos": {
-        "Suporte aos projetos dos grupos": {
+        "Título do autoestudo": {
           "descricao": "...",
-          "professor": "Ovidio Lopes da Cruz Netto",
-          "conteudos_relacionados": [...],
-          "is_ponderada": false,
+          "professor": "...",
           "ancora_confianca": "high"
         }
       }
@@ -181,112 +81,92 @@ O JSON usa **datas como chaves** para fácil acesso:
 }
 ```
 
-### Acesso Programático
-
-```python
-import json
-
-with open("semana_08.json") as f:
-    data = json.load(f)
-
-# Acessar encontro de 23/03
-encontro = data["encontros"]["2026-03-23"]
-print(encontro["titulo"])  # "Suporte ao Projeto - Integração"
-
-# Acessar autoestudo específico
-auto = encontro["autoestudos"]["Suporte aos projetos dos grupos"]
-print(auto["professor"])  # "Ovidio Lopes da Cruz Netto"
-```
-
 ---
 
-## 🏗️ Arquitetura
-
-### Estrutura do Projeto
+## Arquitetura
 
 ```
 adalove_extract_cards_enhanced/
-├── extrair_turma_completa.py     # 🎯 Script principal v2
-├── adalove_extractor/            # Pacote Python
-│   ├── api/                      # Cliente HTTP
-│   │   ├── client.py
-│   │   └── endpoints.py
-│   ├── extractors/
-│   │   └── api/
-│   │       └── anchor.py         # Sistema de ancoragem
-│   ├── models/
-│   │   └── api_card_types.py     # Mapeamento de tipos
-│   └── config/
-│       └── settings.py           # Configurações
-├── output/                       # Dados extraídos
-│   └── api_extraction/
-└── documents/                    # Documentação
+├── adalove_cli.py                  # Entry point — CLI interativa
+├── src/adalove_extractor/
+│   ├── api/                        # Cliente HTTP + autenticação AWS Cognito
+│   ├── extractors/                 # Extração completa de turma
+│   ├── enrichment/                 # Ancoragem multi-fator de autoestudos
+│   ├── ai/                         # Geração de respostas com IA (claude CLI)
+│   ├── io/                         # Writers, calendário, checkpoints
+│   ├── models/                     # Modelos de dados (Card, EnrichedCard)
+│   ├── config/                     # Settings (Pydantic) + system prompt padrão
+│   └── utils/                      # Hash, texto, helpers
+├── tests/                          # Testes unitários
+├── output/                         # Dados extraídos (gerado em runtime)
+└── docs/                           # Documentação técnica
 ```
-
-### Módulos Principais
 
 | Módulo | Responsabilidade |
-|--------|------------------|
-| `client.py` | Cliente HTTP com autenticação OAuth |
-| `endpoints.py` | Mapeamento de endpoints da API |
-| `anchor.py` | Sistema de ancoragem multi-fator |
-| `api_card_types.py` | Tradução de tipos de cards |
+|--------|-----------------|
+| `api/client.py` | HTTP assíncrono com auth, retry e submissão de respostas |
+| `api/auth.py` | Autenticação via AWS Cognito / Google OAuth |
+| `extractors/turma_completa.py` | Orquestra extração completa de uma turma |
+| `enrichment/anchor.py` | Sistema de ancoragem multi-fator |
+| `ai/context_builder.py` | Monta contexto para geração de resposta |
+| `ai/answer_generator.py` | Chama `claude` CLI como subprocess |
+| `io/calendar.py` | Exportação para formato iCalendar (.ics) |
 
 ---
 
-## 📚 Documentação
+## Configuração
 
-### Guias de Uso
-- 📖 [**GUIA_CAPTURA_REDE.md**](./docs/GUIA_CAPTURA_REDE.md) - Captura de tokens
-- 📖 [**api-extraction-design.md**](./docs/api-extraction-design.md) - Design da extração
-- 📖 [**ESTRUTURA_SAIDA.md**](./docs/ESTRUTURA_SAIDA.md) - Formato JSON de saída
+Edite o arquivo `.env` (criado a partir de `.env.example`):
 
-### Referências
-- 📖 [**MAPEAMENTO_TIPOS_CARDS.md**](./referencias/MAPEAMENTO_TIPOS_CARDS.md) - Tipos de cards
+```env
+LOGIN=seu.email@sou.inteli.edu.br
+SENHA=sua_senha
+```
 
-### Histórico (v1 - Playwright)
-- 📖 [**GUIA_EXTRACAO.md**](./documents/GUIA_EXTRACAO.md) - Extração v1 (legado)
-- 📖 [**ENRIQUECIMENTO.md**](./documents/ENRIQUECIMENTO.md) - Sistema de enriquecimento v1
+### Personalizar estilo das respostas geradas por IA
 
----
+Edite o arquivo de system prompt padrão para ajustar o estilo de escrita, formato de entrega e qualquer instrução recorrente:
 
-## 🔄 Migração v1 → v2
-
-### Principais Diferenças
-
-| Aspecto | v1 (Playwright) | v2 (API) |
-|---------|-----------------|----------|
-| **Script principal** | `adalove_extractor.py` | `extrair_turma_completa.py` |
-| **Entrada** | Interativo no browser | Argumento de linha de comando |
-| **Saída** | `dados_extraidos/` (CSV) | `output/api_extraction/` (JSON) |
-| **Ancoragem** | Pelo índice visual | Multi-fator (professor, sort, título) |
-
-### Comandos
-
-```bash
-# v1 (Playwright - legado)
-python adalove_extractor.py
-
-# v2 (API - recomendado)
-python extrair_turma_completa.py "NOME-DA-TURMA"
+```
+src/adalove_extractor/config/default_system_prompt.md
 ```
 
 ---
 
-## 📄 Licença
+## Feature: Gerar Resposta com IA
 
-Este projeto está licenciado sob a **MIT License**.
+Na tela de uma atividade ponderada, selecione **"Gerar resposta com IA"** para:
 
-### 🌟 Créditos
-- **Projeto original**: [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards)
-- **Esta versão**: Desenvolvida e expandida por Fernando Bertholdo
+1. Usar os materiais dos autoestudos relacionados como contexto
+2. Adicionar opcionalmente uma transcrição de aula (arquivo `.txt`)
+3. Adicionar notas e instruções extras
+4. Validar um esqueleto da resposta antes de gerar o texto completo
+5. Revisar, editar no `$EDITOR`, ou submeter diretamente via API
 
-### ⚖️ Responsabilidade
-- Este software é fornecido "como está", sem garantias
-- O uso é por **conta e risco** do usuário
-- **Fins acadêmicos e educacionais** recomendados
-- Respeite os **termos de uso** da plataforma AdaLove
+> **Requisito:** O `claude` CLI deve estar instalado e autenticado.
+> Instale via: `npm install -g @anthropic-ai/claude-code`
 
 ---
 
-**🎉 Adalove Extract Cards v2.0 - Extração rápida e inteligente via API!**
+## Desenvolvimento
+
+```bash
+# Instalar com dependências de desenvolvimento
+pip install -e ".[dev]"
+
+# Rodar todos os testes
+pytest tests/ -v
+
+# Verificar tipos
+mypy src/adalove_extractor/
+```
+
+---
+
+## Créditos e Licença
+
+- **Projeto original:** [Tony Jonas](https://github.com/tonyJonas/adalove_extract_cards)
+- **Esta versão:** Fernando Bertholdo — expandida com extração via API, ancoragem multi-fator e geração de respostas com IA
+- **Licença:** MIT — veja [LICENSE](LICENSE)
+
+> Para histórico completo de mudanças, consulte o [CHANGELOG.md](CHANGELOG.md).
