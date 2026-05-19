@@ -131,6 +131,36 @@ Edite o arquivo de system prompt padrão para ajustar o estilo de escrita, forma
 src/adalove_extractor/config/default_system_prompt.md
 ```
 
+### Classificação de áreas no calendário (`config/areas.json`)
+
+O exportador iCalendar (`.ics`) prefixa cada evento com a área da aula — `[COMP]`, `[MAT]`, `[UX]`, `[BSS]`, `[LID]`, `[ORI]` (orientação), `[PRV]` (prova) ou `[??]` (indeterminado).
+
+A decisão segue uma cascata de sinais, do mais confiável ao mais frágil:
+
+1. **Tipo do encontro** — `encontro_orientacao` vira `[ORI]` por padrão; com override por palavra (ex.: título contendo "prova" → `[PRV]`).
+2. **Domínio das URLs** dos autoestudos — ex.: `discrete.openmathbooks.org` → `[MAT]`. Sinal forte porque é o material que você efetivamente estuda.
+3. **Nome do professor** (substring) — mapeamento estável, geralmente um professor leciona uma área no módulo.
+4. **Palavras no título + assuntos relacionados** — heurística por substring.
+5. **Fallback `[??]`** — explicitamente visível no calendário, sinalizando que nenhum sinal bateu (em vez de chutar uma área).
+
+Para ajustar, edite [`config/areas.json`](config/areas.json) — não precisa mexer no código. Estrutura:
+
+```json
+{
+  "tipos_encontro": { "encontro_orientacao": { "default": "ORI", "overrides_por_palavra": { "PRV": ["prova"] } } },
+  "dominios":       { "discrete.openmathbooks.org": "MAT" },
+  "professores":    { "pizzo": "MAT", "romualdo": "COMP" },
+  "palavras":       { "MAT": ["grafo", "conexidade"], "COMP": ["software", "algoritmo"] }
+}
+```
+
+**Fluxo de manutenção quando um novo módulo é extraído:**
+
+1. Gera o `.ics` da turma nova.
+2. Olha quantos eventos saíram como `[??]` (visível no Google Calendar e no log).
+3. Identifica o padrão (professor recorrente, domínio comum, palavra-chave faltando).
+4. Adiciona em `config/areas.json` e regera o `.ics`. Sem mudar código.
+
 ---
 
 ## Feature: Gerar Resposta com IA
