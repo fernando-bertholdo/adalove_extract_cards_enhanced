@@ -123,7 +123,7 @@ class TestCascataEtapa3Professor:
 
 
 class TestCascataEtapa4Palavras:
-    """Etapa 4: classificação por substring no título + assuntos_relacionados."""
+    """Etapa 4: classificação por substring no título + assuntos_relacionados + autoestudos."""
 
     def test_palavra_no_titulo(self, exporter):
         card = {
@@ -139,6 +139,61 @@ class TestCascataEtapa4Palavras:
             "titulo": "Aula da semana",
             "professor": None,
             "assuntos_relacionados": ["Conceitos de grafo direcionado"],
+        }
+        assert exporter._determinar_prefixo(card) == "[MAT] "
+
+    def test_palavra_em_chave_de_autoestudo(self, tmp_path: Path):
+        """Sinal salvador do caso Filipe — autoestudo chamado 'Liderança Situacional'.
+
+        Sem incluir as chaves de `autoestudos` no texto, esse card cairia em [COMP]
+        por "dados" no título. Com a inclusão e longest-match, ganha [LID].
+        """
+        cfg = {
+            "tipos_encontro": {},
+            "dominios": {},
+            "professores": {},
+            "palavras": {
+                "LID": ["liderança"],
+                "COMP": ["dados"],
+            },
+        }
+        caminho = tmp_path / "areas.json"
+        caminho.write_text(json.dumps(cfg), encoding="utf-8")
+        exp = ICalendarExport(areas_config_path=caminho)
+        card = {
+            "tipo": "encontro_instrucao",
+            "titulo": "Limitações de dados e informações",
+            "professor": None,
+            "autoestudos": {"Liderança Situacional": {}, "Variáveis proxy": {}},
+        }
+        assert exp._determinar_prefixo(card) == "[LID] "
+
+    def test_longest_match_bigram_vence_substring(self, tmp_path: Path):
+        """Bigrama mais específico vence substring curto entre áreas diferentes."""
+        cfg = {
+            "tipos_encontro": {},
+            "dominios": {},
+            "professores": {},
+            "palavras": {
+                "BSS": ["direito"],
+                "LID": ["direitos humanos"],
+            },
+        }
+        caminho = tmp_path / "areas.json"
+        caminho.write_text(json.dumps(cfg), encoding="utf-8")
+        exp = ICalendarExport(areas_config_path=caminho)
+        card = {
+            "tipo": "encontro_instrucao",
+            "titulo": "Direitos Humanos e as relações organizacionais",
+        }
+        assert exp._determinar_prefixo(card) == "[LID] "
+
+    def test_autoestudos_como_lista_tambem_funciona(self, exporter):
+        """Suporta formato alternativo onde autoestudos é list[dict] com chave titulo."""
+        card = {
+            "tipo": "encontro_instrucao",
+            "titulo": "Aula",
+            "autoestudos": [{"titulo": "Estudo sobre grafo orientado"}],
         }
         assert exporter._determinar_prefixo(card) == "[MAT] "
 

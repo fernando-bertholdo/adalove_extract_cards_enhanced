@@ -141,11 +141,8 @@ class ICalendarExport:
             self.logger.debug(f"prefixo via professor: {area} ({card.get('titulo')!r})")
             return f"[{area}] "
 
-        # 4. Texto (título + assuntos_relacionados)
-        texto = (
-            (card.get("titulo") or "") + " "
-            + " ".join(card.get("assuntos_relacionados") or [])
-        ).lower()
+        # 4. Texto (título + assuntos_relacionados + títulos dos autoestudos)
+        texto = self._montar_texto_card(card)
         area = self._classificar_por_palavras(texto)
         if area:
             self.logger.debug(f"prefixo via palavras: {area} ({card.get('titulo')!r})")
@@ -229,14 +226,50 @@ class ICalendarExport:
                 return area
         return None
 
+    def _montar_texto_card(self, card: dict) -> str:
+        """Concatena título, assuntos_relacionados e títulos dos autoestudos em texto único.
+
+        Os títulos dos autoestudos (chaves do dict `autoestudos`) frequentemente
+        carregam o sinal mais forte de área — ex.: um card de "Limitações de dados"
+        cujo autoestudo se chama "Liderança Situacional" é claramente LID.
+        """
+        partes: list[str] = []
+        if titulo := card.get("titulo"):
+            partes.append(titulo)
+        partes.extend(card.get("assuntos_relacionados") or [])
+
+        autoestudos = card.get("autoestudos") or {}
+        if isinstance(autoestudos, dict):
+            partes.extend(autoestudos.keys())
+        elif isinstance(autoestudos, list):
+            partes.extend(
+                a.get("titulo", "") for a in autoestudos if isinstance(a, dict)
+            )
+        return " ".join(partes).lower()
+
     def _classificar_por_palavras(self, texto_lower: str) -> str | None:
-        """Primeira área cuja lista de palavras-chave bate como substring no texto."""
+        """Área da palavra-chave mais longa que bate como substring no texto.
+
+        Estratégia "longest-match" em vez de "first-match": resolve colisões entre
+        áreas onde uma palavra curta é prefixo/sub-bigrama de outra mais específica.
+        Ex.: "direito" (7 chars, BSS) ⊂ "direitos humanos" (16 chars, LID) — sem essa
+        regra, "Direitos Humanos e relações organizacionais" ia parar em [BSS].
+
+        Em empate de comprimento, a ordem de declaração no JSON desempata
+        (dict preserva insertion order desde Python 3.7+).
+        """
         if not texto_lower:
             return None
-        for area, palavras in (self._areas.get("palavras") or {}).items():
-            if any(p.lower() in texto_lower for p in palavras):
-                return area
-        return None
+        candidatos: list[tuple[int, int, str]] = []
+        for ordem, (area, palavras) in enumerate((self._areas.get("palavras") or {}).items()):
+            for p in palavras:
+                pl = p.lower()
+                if pl in texto_lower:
+                    candidatos.append((-len(pl), ordem, area))
+        if not candidatos:
+            return None
+        candidatos.sort()
+        return candidatos[0][2]
 
     def _adicionar_evento(self, cal: Calendar, card: dict, semana_nome: str, date_key: str = "") -> bool:
         """Adiciona um único evento ao calendário se possuir horários válidos."""

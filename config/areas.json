@@ -31,11 +31,12 @@
     "cestari": "UX"
   },
 
+  "_nota_palavras": "Bigramas/trigramas (palavras mais longas) vencem substrings curtos via longest-match. Ex.: 'direitos humanos' (LID) tem precedência sobre 'direito' (BSS) num texto que contenha ambos.",
   "palavras": {
     "MAT": ["matemática", "matematica", "cálculo", "estatística", "álgebra", "física", "grafo", "discreta", "combinatória", "combinatoria", "conexidade", "isomorfismo"],
     "UX": ["ux", "design", "usabilidade", "interface", "pesquisa", "usuário"],
-    "BSS": ["negócios", "negocios", "business", "mercado", "economia", "direito", "trabalho"],
-    "LID": ["liderança", "lideranca", "carreira", "comunicação", "pitch"],
-    "COMP": ["computação", "computacao", "programação", "software", "algoritmo", "dados", "arquitetura", "qualidade", "código"]
+    "BSS": ["gestão empresarial", "planejamento tributário", "negócios", "negocios", "business", "mercado", "economia", "direito", "trabalho"],
+    "LID": ["liderança situacional", "direitos humanos", "ética organizacional", "princípio da pirâmide", "liderança", "lideranca", "carreira", "comunicação", "pitch"],
+    "COMP": ["engenharia de software", "ciclo de vida de software", "continuous deployment", "continuous integration", "ci/cd", "computação", "computacao", "programação", "software", "algoritmo", "dados", "arquitetura", "qualidade", "código"]
   }
 }
