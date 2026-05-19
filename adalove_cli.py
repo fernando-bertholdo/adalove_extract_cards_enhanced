@@ -1066,8 +1066,8 @@ async def _listar_cli(remote: bool):
         await client.__aexit__(None, None, None)
 
 
-async def _extrair_cli(nomes: list[str], force: bool, dry_run: bool, todas: bool):
-    """Extrai uma ou mais turmas (ou todas via API). Honra --force e --dry-run."""
+async def _extrair_cli(nomes: list[str], force: bool, dry_run: bool, todas: bool, paralelo: int = 1):
+    """Extrai uma ou mais turmas (ou todas via API). Honra --force, --dry-run, --paralelo."""
     sections, client = await _carregar_sections_via_api()
     nomes_disponiveis = {s.get("caption", s.get("name", "")): s for s in sections}
 
@@ -1106,15 +1106,24 @@ async def _extrair_cli(nomes: list[str], force: bool, dry_run: bool, todas: bool
         print("\nNada para executar (tudo pulado).")
         return
 
-    print(f"\nExecutando {len(a_executar)} extração(ões)...\n")
-    falhas = []
-    for i, nome in enumerate(a_executar, 1):
-        print(f"\n=== [{i}/{len(a_executar)}] {nome} ===")
-        try:
-            await extrair_turma_completa(nome)
-        except Exception as e:
-            print(f"❌ Falhou {nome}: {e}", file=sys.stderr)
-            falhas.append((nome, str(e)))
+    print(f"\nExecutando {len(a_executar)} extração(ões) com paralelismo={paralelo}...\n")
+    falhas: list[tuple[str, str]] = []
+    sem = asyncio.Semaphore(max(1, paralelo))
+    contador = {"feitas": 0}
+
+    async def _executar_uma(nome: str):
+        async with sem:
+            idx = contador["feitas"] + 1
+            contador["feitas"] = idx
+            print(f"=== [{idx}/{len(a_executar)}] iniciando: {nome} ===", flush=True)
+            try:
+                await extrair_turma_completa(nome)
+                print(f"✅ {nome}", flush=True)
+            except Exception as e:
+                print(f"❌ Falhou {nome}: {e}", file=sys.stderr, flush=True)
+                falhas.append((nome, str(e)))
+
+    await asyncio.gather(*[_executar_uma(n) for n in a_executar])
 
     print(f"\n{'=' * 60}")
     print(f"Concluído: {len(a_executar) - len(falhas)}/{len(a_executar)} sucesso(s)")
@@ -1138,6 +1147,9 @@ def _parse_args(argv: list[str]):
     parser.add_argument("--extrair-todas", action="store_true", help="Extrai todas as turmas listadas pela API.")
     parser.add_argument("--force", action="store_true", help="Sobrescreve extrações existentes.")
     parser.add_argument("--dry-run", action="store_true", help="Mostra o plano de extração sem executar.")
+    parser.add_argument("--paralelo", type=int, default=1, metavar="N",
+                        help="Número de extrações concorrentes (asyncio.Semaphore). Default=1 (sequencial). "
+                             "Recomendado: 3-5. Maior risco de rate-limit acima disso.")
     args = parser.parse_args(argv)
     modo_interativo = not (args.list or args.extrair or args.extrair_todas)
     return args, modo_interativo
@@ -1156,6 +1168,7 @@ if __name__ == "__main__":
                 force=args.force,
                 dry_run=args.dry_run,
                 todas=args.extrair_todas,
+                paralelo=args.paralelo,
             ))
     except KeyboardInterrupt:
         rprint("\n[yellow]Interrompido pelo usuário[/yellow]")
