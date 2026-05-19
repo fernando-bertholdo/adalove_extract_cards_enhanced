@@ -1,0 +1,41 @@
+{
+  "_comment_pt": "Configuração de classificação de aulas em áreas para o prefixo do calendário (.ics). Carregado a cada execução do ICalendarExport — edite à vontade. Sinais aplicados em cascata: 1) tipo do encontro (com override por palavra no título); 2) domínio das URLs dos autoestudos; 3) substring do nome do professor; 4) palavra no título + assuntos_relacionados; 5) fallback [??] (visível, sinalizando incerteza).",
+  "_areas_validas": ["COMP", "MAT", "UX", "BSS", "LID", "ORI", "PRV"],
+
+  "tipos_encontro": {
+    "encontro_orientacao": {
+      "default": "ORI",
+      "overrides_por_palavra": {
+        "PRV": ["prova"]
+      }
+    }
+  },
+
+  "dominios": {
+    "discrete.openmathbooks.org": "MAT",
+    "mathematicalgemstones.com": "MAT",
+    "mathworld.wolfram.com": "MAT"
+  },
+
+  "professores": {
+    "pizzo": "MAT",
+    "stateri": "UX",
+    "romualdo": "COMP",
+    "hermano": "COMP",
+    "daxbacher": "BSS",
+    "claudio": "LID",
+    "filipe": "LID",
+    "ovidio": "COMP",
+    "rafael": "COMP",
+    "teberga": "BSS",
+    "cestari": "UX"
+  },
+
+  "palavras": {
+    "MAT": ["matemática", "matematica", "cálculo", "estatística", "álgebra", "física", "grafo", "discreta", "combinatória", "combinatoria", "conexidade", "isomorfismo"],
+    "UX": ["ux", "design", "usabilidade", "interface", "pesquisa", "usuário"],
+    "BSS": ["negócios", "negocios", "business", "mercado", "economia", "direito", "trabalho"],
+    "LID": ["liderança", "lideranca", "carreira", "comunicação", "pitch"],
+    "COMP": ["computação", "computacao", "programação", "software", "algoritmo", "dados", "arquitetura", "qualidade", "código"]
+  }
+}
