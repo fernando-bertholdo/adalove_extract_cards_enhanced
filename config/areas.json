@@ -19,24 +19,31 @@
 
   "professores": {
     "pizzo": "MAT",
+    "ganassim": "MAT",
+    "mohallem": "MAT",
+    "morais": "MAT",
     "stateri": "UX",
     "romualdo": "COMP",
     "hermano": "COMP",
+    "gramani": "COMP",
+    "quiroz": "COMP",
+    "kano": "COMP",
     "daxbacher": "BSS",
+    "valdo": "BSS",
+    "teberga": "BSS",
     "claudio": "LID",
     "filipe": "LID",
+    "cestari": "UX",
     "ovidio": "COMP",
-    "rafael": "COMP",
-    "teberga": "BSS",
-    "cestari": "UX"
+    "rafael": "COMP"
   },
 
   "_nota_palavras": "Bigramas/trigramas (palavras mais longas) vencem substrings curtos via longest-match. Ex.: 'direitos humanos' (LID) tem precedência sobre 'direito' (BSS) num texto que contenha ambos.",
   "palavras": {
     "MAT": ["matemática", "matematica", "cálculo", "estatística", "álgebra", "física", "grafo", "discreta", "combinatória", "combinatoria", "conexidade", "isomorfismo"],
-    "UX": ["ux", "design", "usabilidade", "interface", "pesquisa", "usuário"],
+    "UX": ["edição de vídeos", "edição de vídeo", "ux", "design", "usabilidade", "interface", "pesquisa", "usuário"],
     "BSS": ["gestão empresarial", "planejamento tributário", "gestão de projetos", "negócios", "negocios", "business", "mercado", "economia", "direito", "trabalho"],
     "LID": ["liderança situacional", "direitos humanos", "ética organizacional", "princípio da pirâmide", "metodologias ágeis", "métodos ágeis", "liderança", "lideranca", "carreira", "comunicação", "pitch"],
-    "COMP": ["engenharia de software", "engenharia de requisitos", "ciclo de vida de software", "continuous deployment", "continuous integration", "ci/cd", "computação", "computacao", "programação", "software", "algoritmo", "dados", "arquitetura", "qualidade", "código"]
+    "COMP": ["engenharia de software", "engenharia de requisitos", "ciclo de vida de software", "modelagem de projeto", "processamento de áudio", "processamento de audio", "continuous deployment", "continuous integration", "ci/cd", "computação", "computacao", "programação", "software", "algoritmo", "dados", "arquitetura", "qualidade", "código"]
   }
 }
