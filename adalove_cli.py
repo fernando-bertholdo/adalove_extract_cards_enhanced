@@ -983,8 +983,163 @@ async def main():
             rprint(f"[bold red]❌ Erro fatal:[/bold red] {e}")
 
 
-if __name__ == "__main__":
+# ============================================================================
+# Modo não-interativo (CLI flags) — para ambientes sem TTY ou automação
+# ============================================================================
+
+async def _carregar_sections_via_api():
+    """Autentica e retorna a lista de sections da API. Reusa cache de token."""
+    settings = Settings()
+    if not settings.login or not settings.senha:
+        print("ERRO: .env sem LOGIN/SENHA", file=sys.stderr)
+        sys.exit(1)
+    client = AdaLoveAPIClient()
+    await client.__aenter__()
     try:
-        asyncio.run(main())
+        await client.authenticate(settings.login, settings.senha)
+        try:
+            resp = await client.get(Endpoints.SECTIONS)
+        except AuthenticationError:
+            client.auth.token = None
+            await client.authenticate(settings.login, settings.senha)
+            resp = await client.get(Endpoints.SECTIONS)
+        sections = resp.get("sections", []) if isinstance(resp, dict) else resp
+        return sections, client
+    except Exception:
+        await client.__aexit__(None, None, None)
+        raise
+
+
+async def _listar_cli(remote: bool):
+    """Lista turmas em formato tabular. --remote=True consulta API; senão usa output/."""
+    if not remote:
+        if not OUTPUT_DIR.exists():
+            print("(nenhuma turma extraída localmente em output/api_extraction/)")
+            return
+        rows = []
+        for d in sorted(OUTPUT_DIR.iterdir()):
+            arq = d / "extracao_completa.json"
+            if arq.exists():
+                try:
+                    ts = json.loads(arq.read_text(encoding="utf-8")).get("extração_timestamp", "?")
+                except Exception:
+                    ts = "?"
+                rows.append((d.name, ts))
+        if not rows:
+            print("(nenhuma turma extraída)")
+            return
+        print(f"{'STATUS':6} {'TURMA':50} TIMESTAMP")
+        for nome, ts in rows:
+            print(f"{'EXTR':6} {nome:50} {ts}")
+        return
+
+    sections, client = await _carregar_sections_via_api()
+    try:
+        ordenadas = sorted(
+            sections,
+            key=lambda x: x.get("caption", x.get("name", "zzz")),
+            reverse=True,
+        )
+        print(f"{'STATUS':6} {'TURMA':50} UUID")
+        for s in ordenadas:
+            nome = s.get("caption", s.get("name", "N/A"))
+            uuid = s.get("uuid", "")
+            status = "EXTR" if is_turma_extraida(nome) else "--"
+            print(f"{status:6} {nome:50} {uuid}")
+    finally:
+        await client.__aexit__(None, None, None)
+
+
+async def _extrair_cli(nomes: list[str], force: bool, dry_run: bool, todas: bool):
+    """Extrai uma ou mais turmas (ou todas via API). Honra --force e --dry-run."""
+    sections, client = await _carregar_sections_via_api()
+    nomes_disponiveis = {s.get("caption", s.get("name", "")): s for s in sections}
+
+    if todas:
+        alvos = list(nomes_disponiveis.keys())
+    else:
+        alvos = nomes
+        faltantes = [n for n in alvos if n not in nomes_disponiveis]
+        if faltantes:
+            print(f"ERRO: turmas não encontradas na API: {faltantes}", file=sys.stderr)
+            print(f"Use --list --remote para ver os nomes exatos.", file=sys.stderr)
+            await client.__aexit__(None, None, None)
+            sys.exit(1)
+
+    # Fechar o client de listagem — `extrair_turma_completa` abre o seu próprio
+    await client.__aexit__(None, None, None)
+
+    plano = []
+    for nome in alvos:
+        ja = is_turma_extraida(nome)
+        if ja and not force:
+            plano.append((nome, "PULAR (já extraída; use --force)"))
+        else:
+            plano.append((nome, "RE-EXTRAIR" if ja else "EXTRAIR"))
+
+    print("Plano de execução:")
+    for nome, acao in plano:
+        print(f"  [{acao}] {nome}")
+
+    if dry_run:
+        print("\n--dry-run: nada foi executado.")
+        return
+
+    a_executar = [nome for nome, acao in plano if acao in ("EXTRAIR", "RE-EXTRAIR")]
+    if not a_executar:
+        print("\nNada para executar (tudo pulado).")
+        return
+
+    print(f"\nExecutando {len(a_executar)} extração(ões)...\n")
+    falhas = []
+    for i, nome in enumerate(a_executar, 1):
+        print(f"\n=== [{i}/{len(a_executar)}] {nome} ===")
+        try:
+            await extrair_turma_completa(nome)
+        except Exception as e:
+            print(f"❌ Falhou {nome}: {e}", file=sys.stderr)
+            falhas.append((nome, str(e)))
+
+    print(f"\n{'=' * 60}")
+    print(f"Concluído: {len(a_executar) - len(falhas)}/{len(a_executar)} sucesso(s)")
+    if falhas:
+        print(f"Falhas:")
+        for nome, err in falhas:
+            print(f"  - {nome}: {err}")
+        sys.exit(1)
+
+
+def _parse_args(argv: list[str]):
+    """Argparse — retorna (args, modo_interativo: bool)."""
+    import argparse
+    parser = argparse.ArgumentParser(
+        description="AdaLove Extractor CLI. Sem flags: menu interativo. Com flags: modo não-interativo (script-friendly).",
+    )
+    parser.add_argument("--list", action="store_true", help="Lista turmas. Sem --remote, usa cache local (output/).")
+    parser.add_argument("--remote", action="store_true", help="Para --list: consulta API (precisa auth).")
+    parser.add_argument("--extrair", action="append", default=[], metavar="NOME",
+                        help="Extrai uma turma pelo nome exato. Pode ser repetido. Bloqueia se já extraída (use --force).")
+    parser.add_argument("--extrair-todas", action="store_true", help="Extrai todas as turmas listadas pela API.")
+    parser.add_argument("--force", action="store_true", help="Sobrescreve extrações existentes.")
+    parser.add_argument("--dry-run", action="store_true", help="Mostra o plano de extração sem executar.")
+    args = parser.parse_args(argv)
+    modo_interativo = not (args.list or args.extrair or args.extrair_todas)
+    return args, modo_interativo
+
+
+if __name__ == "__main__":
+    args, interativo = _parse_args(sys.argv[1:])
+    try:
+        if interativo:
+            asyncio.run(main())
+        elif args.list:
+            asyncio.run(_listar_cli(remote=args.remote))
+        else:
+            asyncio.run(_extrair_cli(
+                nomes=args.extrair,
+                force=args.force,
+                dry_run=args.dry_run,
+                todas=args.extrair_todas,
+            ))
     except KeyboardInterrupt:
         rprint("\n[yellow]Interrompido pelo usuário[/yellow]")

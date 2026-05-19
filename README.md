@@ -11,6 +11,22 @@ CLI interativa para extrair cards da plataforma AdaLove via API, organizar encon
 
 ---
 
+## Uso
+
+```bash
+# Menu interativo (default — requer TTY real)
+python adalove_cli.py
+
+# Modo não-interativo (script-friendly, sem TTY)
+python adalove_cli.py --list                 # lista turmas extraídas localmente
+python adalove_cli.py --list --remote        # lista todas as turmas via API
+python adalove_cli.py --extrair "2026-1B-T13"            # extrai uma turma
+python adalove_cli.py --extrair-todas --dry-run --force  # planeja extração de tudo
+python adalove_cli.py --extrair-todas --force            # re-extrai tudo
+```
+
+---
+
 ## Quick Start
 
 ```bash
