@@ -141,11 +141,25 @@ class ICalendarExport:
             self.logger.debug(f"prefixo via professor: {area} ({card.get('titulo')!r})")
             return f"[{area}] "
 
-        # 4. Texto (título + assuntos_relacionados + títulos dos autoestudos)
+        # 4a. Bigramas longos (>=10 chars) no TÍTULO têm prioridade absoluta.
+        # Bigramas/trigramas são sinais específicos da disciplina (ex.: "engenharia
+        # de requisitos", "métodos ágeis"); evitam que palavras dos autoestudos
+        # sequestrem a decisão. Substrings curtas no título ("dados", "código") não
+        # disparam aqui — caem na 4b com longest-match no texto completo.
+        titulo_lower = (card.get("titulo") or "").lower()
+        area = self._classificar_por_palavras(titulo_lower, min_len=10)
+        if area:
+            self.logger.debug(f"prefixo via palavras-titulo: {area} ({card.get('titulo')!r})")
+            return f"[{area}] "
+
+        # 4b. Palavras no texto agregado (título + assuntos + autoestudos.keys())
+        # com longest-match. Acionado quando 4a não encontra bigrama longo no
+        # título — caso do Filipe, onde "Limitações de dados" depende do autoestudo
+        # "Liderança Situacional" pra resolver.
         texto = self._montar_texto_card(card)
         area = self._classificar_por_palavras(texto)
         if area:
-            self.logger.debug(f"prefixo via palavras: {area} ({card.get('titulo')!r})")
+            self.logger.debug(f"prefixo via palavras-texto: {area} ({card.get('titulo')!r})")
             return f"[{area}] "
 
         # 5. Fallback visível: deixa explícito que nenhum sinal bateu
@@ -247,13 +261,16 @@ class ICalendarExport:
             )
         return " ".join(partes).lower()
 
-    def _classificar_por_palavras(self, texto_lower: str) -> str | None:
+    def _classificar_por_palavras(self, texto_lower: str, min_len: int = 0) -> str | None:
         """Área da palavra-chave mais longa que bate como substring no texto.
 
         Estratégia "longest-match" em vez de "first-match": resolve colisões entre
         áreas onde uma palavra curta é prefixo/sub-bigrama de outra mais específica.
         Ex.: "direito" (7 chars, BSS) ⊂ "direitos humanos" (16 chars, LID) — sem essa
         regra, "Direitos Humanos e relações organizacionais" ia parar em [BSS].
+
+        Parâmetro `min_len` filtra palavras curtas — usado pela sub-etapa 4a para
+        considerar apenas bigramas/trigramas específicos no título.
 
         Em empate de comprimento, a ordem de declaração no JSON desempata
         (dict preserva insertion order desde Python 3.7+).
@@ -264,6 +281,8 @@ class ICalendarExport:
         for ordem, (area, palavras) in enumerate((self._areas.get("palavras") or {}).items()):
             for p in palavras:
                 pl = p.lower()
+                if len(pl) < min_len:
+                    continue
                 if pl in texto_lower:
                     candidatos.append((-len(pl), ordem, area))
         if not candidatos:

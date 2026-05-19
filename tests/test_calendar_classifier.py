@@ -197,6 +197,32 @@ class TestCascataEtapa4Palavras:
         }
         assert exporter._determinar_prefixo(card) == "[MAT] "
 
+    def test_titulo_tem_prioridade_sobre_autoestudos(self, tmp_path: Path):
+        """Sub-etapa 4a: título com sinal forte ignora ruído nos autoestudos.
+
+        Antes desta sub-etapa, "Métodos Ágeis - Avançado" cujo autoestudo cita
+        "gestão de projetos" virava [BSS] por empate de comprimento. Com 4a, o
+        match no título decide antes de o texto agregado ser considerado.
+        """
+        cfg = {
+            "tipos_encontro": {},
+            "dominios": {},
+            "professores": {},
+            "palavras": {
+                "BSS": ["gestão de projetos"],
+                "LID": ["métodos ágeis"],
+            },
+        }
+        caminho = tmp_path / "areas.json"
+        caminho.write_text(json.dumps(cfg), encoding="utf-8")
+        exp = ICalendarExport(areas_config_path=caminho)
+        card = {
+            "tipo": "encontro_instrucao",
+            "titulo": "Métodos Ágeis - Avançado",
+            "autoestudos": {"Curso sobre gestão de projetos": {}},
+        }
+        assert exp._determinar_prefixo(card) == "[LID] "
+
 
 class TestCascataEtapa5Fallback:
     """Etapa 5: fallback visível [??] quando nenhum sinal bateu."""
