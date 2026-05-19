@@ -140,7 +140,7 @@ A decisão segue uma cascata de sinais, do mais confiável ao mais frágil:
 1. **Tipo do encontro** — `encontro_orientacao` vira `[ORI]` por padrão; com override por palavra (ex.: título contendo "prova" → `[PRV]`).
 2. **Domínio das URLs** dos autoestudos — ex.: `discrete.openmathbooks.org` → `[MAT]`. Sinal forte porque é o material que você efetivamente estuda.
 3. **Nome do professor** (substring) — mapeamento estável, geralmente um professor leciona uma área no módulo.
-4. **Palavras no título + assuntos relacionados** — heurística por substring.
+4. **Palavras no título + assuntos relacionados + títulos dos autoestudos** — heurística "longest-match": entre todas as palavras-chave que batem como substring, ganha a mais longa (bigramas/trigramas vencem palavras curtas). Resolve colisões como `direitos humanos`→LID vencendo `direito`→BSS.
 5. **Fallback `[??]`** — explicitamente visível no calendário, sinalizando que nenhum sinal bateu (em vez de chutar uma área).
 
 Para ajustar, edite [`config/areas.json`](config/areas.json) — não precisa mexer no código. Estrutura:
