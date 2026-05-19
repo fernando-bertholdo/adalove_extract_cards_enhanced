@@ -72,9 +72,25 @@ def show_banner():
     rprint(panel)
 
 
+def _turma_slug(turma_nome: str) -> str:
+    """Normaliza o nome da turma para o nome da pasta no disco.
+
+    `extrair_turma_completa` salva o diretório como `nome.replace(" ", "_")` —
+    ex.: "Trilha de ensino..." vira `Trilha_de_ensino_...`. Toda construção de
+    caminho dentro de `output/` deve usar este slug, ou turmas com espaço no
+    nome ficam invisíveis (falso negativo em `is_turma_extraida`).
+    """
+    return turma_nome.replace(" ", "_")
+
+
+def _turma_dir(turma_nome: str) -> Path:
+    """Diretório da turma no disco, com normalização correta do nome."""
+    return OUTPUT_DIR / _turma_slug(turma_nome)
+
+
 def is_turma_extraida(turma_nome: str) -> bool:
     """Verifica se uma turma já foi extraída."""
-    return (OUTPUT_DIR / turma_nome / "extracao_completa.json").exists()
+    return (_turma_dir(turma_nome) / "extracao_completa.json").exists()
 
 
 def limpar_html(html: str) -> str:
@@ -168,7 +184,7 @@ def status_prazo(data_encontro: str, respondida: bool) -> tuple[str, str]:
 
 def carregar_extracao(turma_nome: str) -> dict | None:
     """Carrega o JSON de extração de uma turma."""
-    filepath = OUTPUT_DIR / turma_nome / "extracao_completa.json"
+    filepath = _turma_dir(turma_nome) / "extracao_completa.json"
     if not filepath.exists():
         return None
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -243,7 +259,7 @@ async def atualizar_status_ponderadas(client: AdaLoveAPIClient, turma_nome: str,
     Returns:
         True se atualização bem-sucedida, False caso contrário
     """
-    filepath = OUTPUT_DIR / turma_nome / "extracao_completa.json"
+    filepath = _turma_dir(turma_nome) / "extracao_completa.json"
     if not filepath.exists():
         return False
     
@@ -477,7 +493,7 @@ async def exportar_calendario(turma_nome: str):
         rprint(f"[red]{icons.error} Dados de extração não encontrados para a turma {turma_nome}.[/red]")
         return
         
-    output_path = OUTPUT_DIR / turma_nome / f"{turma_nome.replace(' ', '_')}_calendario.ics"
+    output_path = _turma_dir(turma_nome) / f"{_turma_slug(turma_nome)}_calendario.ics"
     
     # Perguntar sobre o horário de início (padrão assumido: 10:00)
     horario_padrao = await questionary.text(
@@ -617,7 +633,7 @@ def salvar_rascunho(turma_nome: str, pond: dict, resposta: str) -> Path:
     """Salva rascunho de resposta gerado por IA em arquivo markdown."""
     from datetime import date
 
-    rascunhos_dir = OUTPUT_DIR / turma_nome / RASCUNHOS_SUBDIR
+    rascunhos_dir = _turma_dir(turma_nome) / RASCUNHOS_SUBDIR
     rascunhos_dir.mkdir(parents=True, exist_ok=True)
 
     titulo_slug = re.sub(r"[^\w\s-]", "", pond["titulo"])[:40].strip().replace(" ", "_")
