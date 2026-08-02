@@ -7,7 +7,7 @@
 
 > **Aviso:** Este projeto tem fins acadêmicos e educacionais. Use com responsabilidade e respeite os termos de uso da plataforma AdaLove e as políticas institucionais do Inteli.
 
-CLI interativa para extrair cards da plataforma AdaLove via API, organizar encontros e autoestudos por semana, e gerar respostas para atividades ponderadas com IA.
+CLI interativa para extrair cards da plataforma AdaLove via API, organizar encontros e autoestudos por semana e exportar seu cronograma para o calendário.
 
 ---
 
