@@ -969,15 +969,19 @@ async def main():
 
     async with AdaLoveAPIClient() as client:
         try:
-            with console.status("[bold green]Autenticando e buscando turmas...[/bold green]", spinner="dots"):
-                await client.authenticate(settings.login, settings.senha)
+            # Autenticação fica FORA do spinner: o login pode exigir que o
+            # usuário aja na janela do navegador, e o spinner do Rich sobrescreve
+            # as instruções de 2FA impressas no terminal.
+            await client.authenticate(settings.login, settings.senha)
 
-                try:
+            try:
+                with console.status("[bold green]Buscando turmas...[/bold green]", spinner="dots"):
                     sections_resp = await client.get(Endpoints.SECTIONS)
-                except AuthenticationError:
-                    rprint("[yellow]⚠️ Token expirado. Renovando autenticação...[/yellow]")
-                    client.auth.token = None
-                    await client.authenticate(settings.login, settings.senha)
+            except AuthenticationError:
+                rprint("[yellow]⚠️ Token expirado. Renovando autenticação...[/yellow]")
+                client.auth.token = None
+                await client.authenticate(settings.login, settings.senha)
+                with console.status("[bold green]Buscando turmas...[/bold green]", spinner="dots"):
                     sections_resp = await client.get(Endpoints.SECTIONS)
 
             # Extract list
