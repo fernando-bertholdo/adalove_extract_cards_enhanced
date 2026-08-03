@@ -141,6 +141,24 @@ class TestClassifyLoginState:
     def test_adalove_login_page_is_not_ready(self):
         assert classify_login_state("https://adalove.inteli.edu.br/login", "") != LoginState.ADALOVE_READY
 
+    @pytest.mark.parametrize(
+        "url",
+        [
+            "https://adalove.inteli.edu.br",
+            "https://adalove.inteli.edu.br/",
+            "https://adalove.inteli.edu.br/?redirect=1",
+            "https://adalove.inteli.edu.br/#/",
+        ],
+    )
+    def test_adalove_root_is_not_ready(self, url):
+        """REGRESSÃO: a raiz renderiza a tela de login e não traz '/login' na URL.
+
+        Tratá-la como autenticada fazia o auto-preenchimento concluir que
+        não havia nada a fazer e retornar sem sequer clicar em "Entrar com
+        o Google" — a janela ficava parada na tela de login até o timeout.
+        """
+        assert classify_login_state(url, "") != LoginState.ADALOVE_READY
+
     def test_cognito_redirect_is_unknown(self):
         url = "https://adalove.auth.us-east-2.amazoncognito.com/oauth2/authorize?client_id=x"
         assert classify_login_state(url, "") == LoginState.UNKNOWN

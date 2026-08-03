@@ -99,6 +99,11 @@ addopts = [
     "--cov=adalove_extractor",
     "--cov-report=term-missing",
     "--cov-report=html",
+    # Testes de rede ficam de fora por padrão; rode com: pytest -m rede
+    "-m", "not rede",
+]
+markers = [
+    "rede: exige internet e browser real (ex.: validar seletores da tela de login do Google)",
 ]
 asyncio_mode = "auto"
 
