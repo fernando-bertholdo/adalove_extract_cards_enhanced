@@ -38,6 +38,12 @@ from .exceptions import AuthenticationError, TokenExpiredError
 AUTH_TIMEOUT_SECONDS = int(os.getenv("ADALOVE_AUTH_TIMEOUT", "300"))
 # Sessão já salva no perfil: se demorar mais que isso, algo mudou.
 HEADLESS_TIMEOUT_SECONDS = 45
+# Orçamento do auto-preenchimento. Sem um teto próprio, os timeouts internos
+# dele (goto 45s + cliques 20s + waits 30s) consumiam a fase inteira antes de
+# o polling sequer começar.
+AUTOFILL_BUDGET_SECONDS = 60
+# Tempo máximo esperando a SPA do AdaLove decidir entre "logado" e "tela de login".
+SPA_SETTLE_SECONDS = 15
 # Margem para não iniciar uma extração com token prestes a vencer.
 TOKEN_EXPIRY_SKEW_SECONDS = 120
 # Intervalo de polling da condição de sucesso.
@@ -45,6 +51,10 @@ POLL_INTERVAL_MS = 500
 
 # Diretório do perfil persistente do Chrome (sessão Google fica aqui).
 AUTH_PROFILE_DIR = Path(".auth_profile")
+# Marcador escrito só após um login bem-sucedido. O diretório sozinho não serve
+# como sinal: ele é criado em toda tentativa, inclusive nas que falham, e uma
+# tentativa headless sobre perfil vazio é garantidamente inútil — só queima tempo.
+SESSION_MARKER = AUTH_PROFILE_DIR / ".session_ok"
 
 # O Google localiza a interface por IP, então o rótulo do botão varia.
 # Sempre há fallback para a tecla Enter, que independe de idioma.
@@ -52,6 +62,24 @@ NEXT_BUTTON_RE = re.compile(
     r"^\s*(next|avan[çc]ar|pr[óo]xim[ao]|siguiente|weiter|suivant)\s*$", re.IGNORECASE
 )
 GOOGLE_LOGIN_BUTTON_RE = re.compile(r"entrar com o google|sign in with google", re.IGNORECASE)
+
+# O Google altera a estrutura da tela de login sem aviso. Hoje o campo de e-mail
+# é <input type="text" id="identifierId" name="identifier"> — NÃO existe nenhum
+# input[type=email] na página. O seletor antigo casava com zero elementos e só
+# estourava timeout de 15s, deixando o campo vazio. Uma lista de candidatos
+# degrada graciosamente em vez de travar quando a estrutura muda de novo.
+EMAIL_SELECTORS = (
+    "#identifierId",
+    "input[name='identifier']",
+    "input[type='email']:visible",
+    "input[autocomplete='username']:visible",
+    "input[type='text']:visible",
+)
+PASSWORD_SELECTORS = (
+    "input[type='password']:visible",
+    "input[name='Passwd']",
+    "#password input",
+)
 
 WRONG_PASSWORD_MARKERS = (
     "wrong password",
@@ -179,7 +207,14 @@ def classify_login_state(url: str, content: str = "") -> LoginState:
 
         return LoginState.UNKNOWN
 
-    if "adalove.inteli.edu.br" in u and "/login" not in u:
+    if "adalove.inteli.edu.br" in u:
+        # A raiz do AdaLove renderiza a própria tela de login, e a URL não
+        # contém "/login". Inferir sessão só pela ausência desse trecho fazia
+        # o auto-preenchimento concluir "já autenticado" e retornar sem nunca
+        # clicar em "Entrar com o Google".
+        path = u.split("adalove.inteli.edu.br", 1)[1].split("?")[0].split("#")[0]
+        if path in ("", "/") or "/login" in path:
+            return LoginState.UNKNOWN
         return LoginState.ADALOVE_READY
 
     return LoginState.UNKNOWN
@@ -243,10 +278,11 @@ class CognitoAuthenticator:
 
         self.logger.info("🔐 Iniciando autenticação via Google OAuth...")
 
-        # Guarda externa: só dispara se o Playwright travar de forma anômala.
-        # O controle normal de tempo é feito pelo deadline interno do polling,
-        # que encerra o browser de forma limpa.
-        hard_limit = timeout_seconds + 60
+        # Guarda externa: só deve disparar se o Playwright travar de forma anômala.
+        # Precisa cobrir AMBAS as fases (headless + interativa) mais a abertura do
+        # Chrome com perfil persistente, que é lenta. Um limite menor que a soma
+        # das fases cancelava o login com tempo ainda sobrando no relógio interno.
+        hard_limit = HEADLESS_TIMEOUT_SECONDS + timeout_seconds + 120
         try:
             return await asyncio.wait_for(
                 self._perform_oauth_login(login, senha, timeout_seconds),
@@ -272,8 +308,8 @@ class CognitoAuthenticator:
         forced_headless = os.getenv("ADALOVE_HEADLESS", "").lower() in ("true", "1", "yes")
         non_interactive = os.getenv("ADALOVE_INTERACTIVE", "").lower() in ("false", "0", "no")
 
-        # Nível 2: perfil salvo → tenta headless, sem incomodar o usuário.
-        if AUTH_PROFILE_DIR.exists():
+        # Nível 2: sessão comprovadamente salva → tenta headless, sem incomodar.
+        if SESSION_MARKER.exists():
             console.print("[dim]   🔎 Reaproveitando sessão salva...[/dim]")
             token = await self._run_oauth_session(
                 login,
@@ -332,19 +368,37 @@ class CognitoAuthenticator:
         """
         console = Console()
         AUTH_PROFILE_DIR.mkdir(parents=True, exist_ok=True)
+        deadline = time.monotonic() + timeout_seconds
 
         async with async_playwright() as p:
             context = await self._launch_context(p, headless=headless)
             try:
                 page = context.pages[0] if context.pages else await context.new_page()
 
-                await self._try_autofill(page, login, senha, console=console)
-                return await self._wait_for_authentication(
+                # O auto-preenchimento recebe teto próprio para não devorar o
+                # orçamento da fase antes de o polling começar.
+                autofill_budget = min(
+                    AUTOFILL_BUDGET_SECONDS, max(5.0, deadline - time.monotonic())
+                )
+                try:
+                    await asyncio.wait_for(
+                        self._try_autofill(page, login, senha, console=console),
+                        timeout=autofill_budget,
+                    )
+                except asyncio.TimeoutError:
+                    self.logger.info(
+                        f"Auto-preenchimento excedeu {autofill_budget:.0f}s; usuário assume"
+                    )
+
+                token = await self._wait_for_authentication(
                     page,
-                    timeout_seconds=timeout_seconds,
+                    deadline=deadline,
                     interactive=interactive,
                     console=console,
                 )
+                if token:
+                    self._mark_session_ok()
+                return token
             except Exception as e:
                 # Nenhuma exceção do fluxo derruba o login: em modo interativo
                 # a janela continua disponível e o polling segue tentando.
@@ -390,24 +444,28 @@ class CognitoAuthenticator:
             console.print("[dim]   🌐 Acessando AdaLove...[/dim]")
             await page.goto(self.adalove_url, wait_until="domcontentloaded", timeout=45000)
 
-            # Se o perfil já tem sessão, o AdaLove entra direto: nada a preencher.
-            try:
-                await page.wait_for_url(
-                    re.compile(r"accounts\.google\.com|adalove\.inteli\.edu\.br/(?!login)"),
-                    timeout=8000,
-                )
-            except Exception:
-                pass
-
-            state, _ = await self._read_state(page)
-            if state == LoginState.ADALOVE_READY:
-                return
+            # A SPA leva um tempo para decidir entre "já logado" e "tela de
+            # login", e a URL é a MESMA nos dois casos enquanto isso. Só o token
+            # distingue de verdade — inferir pela URL fazia esta função concluir
+            # "já autenticado" e retornar sem clicar em nada, deixando a janela
+            # parada na tela de login até o timeout.
+            google_btn = page.get_by_role("button", name=GOOGLE_LOGIN_BUTTON_RE).first
+            settle_deadline = time.monotonic() + SPA_SETTLE_SECONDS
+            while time.monotonic() < settle_deadline:
+                if await self._extract_token_from_page(page, strict=True):
+                    return  # sessão do perfil já valeu; nada a preencher
+                if "accounts.google.com" in page.url:
+                    break
+                try:
+                    if await google_btn.is_visible(timeout=500):
+                        break
+                except Exception:
+                    pass
+                await asyncio.sleep(0.5)
 
             if "accounts.google.com" not in page.url:
                 console.print("[dim]   🔘 Iniciando OAuth Google...[/dim]")
-                await page.get_by_role("button", name=GOOGLE_LOGIN_BUTTON_RE).first.click(
-                    timeout=20000
-                )
+                await google_btn.click(timeout=20000)
                 # Espera pela CONDIÇÃO de chegada ao Google, não por tempo fixo.
                 await page.wait_for_url(re.compile(r"accounts\.google\.com"), timeout=30000)
 
@@ -415,18 +473,65 @@ class CognitoAuthenticator:
 
             if state == LoginState.GOOGLE_EMAIL:
                 console.print("[dim]   📧 Preenchendo e-mail...[/dim]")
-                await page.locator("input[type='email']").first.fill(login, timeout=15000)
+                if not await self._fill_first_available(
+                    page, EMAIL_SELECTORS, login, campo="e-mail"
+                ):
+                    return  # usuário assume na janela
                 await self._submit_step(page)
-                await page.wait_for_url(re.compile(r"challenge/pwd"), timeout=30000)
+
+                # Espera a CONDIÇÃO real (campo de senha visível) em vez da URL
+                # challenge/pwd: se o Google mudar a rota, a espera por URL trava
+                # os 30s inteiros mesmo com a tela de senha já na frente.
+                try:
+                    await page.locator(PASSWORD_SELECTORS[0]).wait_for(
+                        state="visible", timeout=25000
+                    )
+                except Exception:
+                    pass
                 state, _ = await self._read_state(page)
 
             if state == LoginState.GOOGLE_PASSWORD:
                 console.print("[dim]   🔑 Preenchendo senha...[/dim]")
-                await page.locator("input[type='password']").first.fill(senha, timeout=15000)
+                if not await self._fill_first_available(
+                    page, PASSWORD_SELECTORS, senha, campo="senha"
+                ):
+                    return  # usuário assume na janela
                 await self._submit_step(page)
 
         except Exception as e:
             self.logger.info(f"Auto-preenchimento incompleto ({type(e).__name__}); usuário assume")
+
+    async def _fill_first_available(
+        self, page: Page, selectors: tuple[str, ...], value: str, *, campo: str
+    ) -> bool:
+        """Preenche o primeiro seletor que existir e estiver editável.
+
+        Cada candidato recebe um timeout curto: com um seletor único e errado,
+        o Playwright espera o timeout inteiro por um elemento inexistente e o
+        campo fica vazio sem explicação. Falhar rápido e tentar o próximo é o
+        que permite sobreviver a mudanças de layout do Google.
+
+        Args:
+            selectors: Candidatos em ordem de preferência
+            campo: Nome do campo, apenas para log
+
+        Returns:
+            True se algum seletor foi preenchido.
+        """
+        for selector in selectors:
+            try:
+                loc = page.locator(selector).first
+                await loc.wait_for(state="visible", timeout=3000)
+                await loc.fill(value, timeout=5000)
+                self.logger.info(f"Campo '{campo}' preenchido via seletor {selector!r}")
+                return True
+            except Exception:
+                continue
+
+        self.logger.warning(
+            f"Nenhum seletor funcionou para o campo '{campo}' — usuário assume o preenchimento"
+        )
+        return False
 
     async def _submit_step(self, page: Page) -> None:
         """Avança uma etapa do formulário Google.
@@ -446,7 +551,7 @@ class CognitoAuthenticator:
         self,
         page: Page,
         *,
-        timeout_seconds: int,
+        deadline: float,
         interactive: bool,
         console,
     ) -> Optional[str]:
@@ -457,15 +562,17 @@ class CognitoAuthenticator:
         enquanto o usuário ainda digitava o e-mail.
 
         Args:
-            timeout_seconds: Orçamento total de espera
+            deadline: Instante (time.monotonic) em que a espera acaba. É
+                absoluto, e não uma duração, para que o tempo já gasto na
+                abertura do browser e no auto-preenchimento seja descontado
+                deste mesmo orçamento.
             interactive: Se há um humano capaz de agir na janela
 
         Returns:
             Token, ou None se o tempo acabar.
         """
-        deadline = time.monotonic() + timeout_seconds
         announced: set[LoginState] = set()
-        last_progress = 0.0
+        last_progress = time.monotonic()
 
         while time.monotonic() < deadline:
             # A condição de sucesso tem precedência sobre qualquer heurística.
@@ -522,9 +629,8 @@ class CognitoAuthenticator:
                     )
 
             # Feedback de progresso a cada 15s, sem poluir o terminal.
-            elapsed = time.monotonic() - (deadline - timeout_seconds)
-            if interactive and elapsed - last_progress >= 15:
-                last_progress = elapsed
+            if interactive and time.monotonic() - last_progress >= 15:
+                last_progress = time.monotonic()
                 restante = int(deadline - time.monotonic())
                 print(
                     f"⏳ Aguardando conclusão do login... ({restante}s restantes)",
@@ -576,6 +682,18 @@ class CognitoAuthenticator:
         print("=" * 62 + "\n", file=sys.stderr, flush=True)
 
     # ── Persistência de token ─────────────────────────────────────────────
+
+    def _mark_session_ok(self) -> None:
+        """Registra que este perfil já concluiu um login com sucesso.
+
+        Só a partir daí vale tentar o atalho headless. A existência do
+        diretório não serve como sinal: ele é criado em toda tentativa,
+        inclusive nas que falham.
+        """
+        try:
+            SESSION_MARKER.write_text("ok", encoding="utf-8")
+        except Exception as e:
+            self.logger.debug(f"Não foi possível marcar a sessão: {e}")
 
     def save_token(self, token: str):
         """Salva token em arquivo de cache com permissão restrita."""
