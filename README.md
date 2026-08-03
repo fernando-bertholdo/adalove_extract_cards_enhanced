@@ -29,14 +29,21 @@ python adalove_cli.py --extrair-todas --force            # re-extrai tudo
 
 ## Quick Start
 
+Requer **Python 3.11+** e, de preferência, o **Google Chrome** instalado (o
+extrator usa o Chrome do sistema no login; sem ele, recorre ao Chromium do
+Playwright, que o Google às vezes recusa por "navegador não seguro").
+
+### macOS / Linux
+
 ```bash
 # 1. Clone e configure o ambiente
 git clone https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced.git
 cd adalove_extract_cards_enhanced
-python -m venv venv && source venv/bin/activate
+python3 -m venv venv && source venv/bin/activate
 
-# 2. Instale as dependências
+# 2. Instale as dependências (inclui o browser do Playwright)
 pip install -r requirements.txt
+playwright install chromium
 
 # 3. Configure suas credenciais
 cp .env.example .env
@@ -45,6 +52,45 @@ cp .env.example .env
 # 4. Execute
 python adalove_cli.py
 ```
+
+### Windows (PowerShell)
+
+```powershell
+# 1. Clone e configure o ambiente
+git clone https://github.com/fernando-bertholdo/adalove_extract_cards_enhanced.git
+cd adalove_extract_cards_enhanced
+py -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# 2. Instale as dependências (inclui o browser do Playwright)
+pip install -r requirements.txt
+playwright install chromium
+
+# 3. Configure suas credenciais
+copy .env.example .env
+notepad .env    # preencha LOGIN e SENHA
+
+# 4. Execute
+python adalove_cli.py
+```
+
+Se o PowerShell bloquear o `Activate.ps1`, libere só para esta sessão:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+### Primeiro login
+
+A janela do navegador abre e **permanece aberta** até você concluir o login,
+incluindo a verificação em duas etapas. A sessão fica salva em `.auth_profile/`,
+então as execuções seguintes autenticam sozinhas, sem abrir janela.
+
+| Situação | macOS / Linux | Windows (PowerShell) |
+|---|---|---|
+| Mais tempo para o 2FA | `ADALOVE_AUTH_TIMEOUT=600 python adalove_cli.py` | `$env:ADALOVE_AUTH_TIMEOUT=600; python adalove_cli.py` |
+| Acompanhar o log | `tail -f adalove_cli.log` | `Get-Content adalove_cli.log -Wait -Tail 30` |
+| Recomeçar a sessão do zero | `rm -rf .auth_profile .token_cache` | `rmdir /s /q .auth_profile; del .token_cache` |
 
 ---
 
