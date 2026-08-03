@@ -31,11 +31,28 @@ from adalove_extractor.ai.system_prompt import SystemPromptLoader
 from adalove_extractor.ai.answer_generator import AnswerGenerator, ClaudeNotFoundError
 
 # Configure basic logging to file only to not mess up TUI
+# No Windows o console e os arquivos usam a codepage local (cp1252 em pt-BR).
+# Como as mensagens de status e de log contêm emojis, isso gera
+# UnicodeEncodeError — silencioso no logging (a mensagem some) e fatal nos
+# prints quando a saída é redirecionada. Forçar UTF-8 resolve ambos.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # stream substituído ou não reconfigurável
+        pass
+
+# force=True porque basicConfig é no-op se o root logger já tiver handler:
+# basta um módulo importado acima configurar logging para esta chamada ser
+# ignorada e os logs vazarem para o terminal, por cima da TUI.
+# encoding='utf-8' é obrigatório: sem ele o FileHandler usa o locale do sistema
+# e 75 das 109 mensagens de log (as que têm emoji) falham no Windows.
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     filename='adalove_cli.log',
-    filemode='a'
+    filemode='a',
+    encoding='utf-8',
+    force=True
 )
 
 console = Console()
@@ -998,6 +1015,20 @@ async def main():
             # Entrar no menu principal (loop)
             await menu_principal(client, sections_list)
 
+        except AuthenticationError as e:
+            # Falha de login é condição esperada, não defeito: traceback aqui só
+            # esconde a orientação útil no meio de ruído.
+            rprint(f"\n[bold red]❌ Não foi possível autenticar:[/bold red] {e}")
+            rprint("[yellow]O que tentar:[/yellow]")
+            rprint("  • Concluir o login na janela do navegador antes do tempo acabar")
+            rprint("  • Dar mais tempo: [cyan]ADALOVE_AUTH_TIMEOUT=600 python adalove_cli.py[/cyan]")
+            limpar = (
+                "rmdir /s /q .auth_profile & del .token_cache"
+                if sys.platform == "win32"
+                else "rm -rf .auth_profile .token_cache"
+            )
+            rprint(f"  • Recomeçar a sessão: [cyan]{limpar}[/cyan]")
+            rprint("  • Detalhes em [cyan]adalove_cli.log[/cyan]")
         except Exception as e:
             console.print_exception()
             rprint(f"[bold red]❌ Erro fatal:[/bold red] {e}")

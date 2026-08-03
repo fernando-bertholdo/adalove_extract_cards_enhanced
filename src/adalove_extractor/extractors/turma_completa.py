@@ -24,11 +24,11 @@ from adalove_extractor.utils.text import decode_html_entities
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 
 
-# Configurar logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+# NÃO chamar logging.basicConfig() aqui: este é um módulo de biblioteca, e o
+# import acontece antes do basicConfig do CLI. Como basicConfig é no-op quando o
+# root logger já tem handler, configurar aqui anulava a config do CLI — os logs
+# iam para o terminal (poluindo a TUI) e adalove_cli.log nunca era criado.
+# Quem decide o destino dos logs é o entry point.
 logger = logging.getLogger(__name__)
 
 
