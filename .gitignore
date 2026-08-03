@@ -84,6 +84,10 @@ prompts/
 output/
 .token_cache
 
+# Perfil persistente do navegador — contém cookies de sessão do Google.
+# NUNCA commitar: equivale a compartilhar a conta logada.
+.auth_profile/
+
 # Logs locais gerados pela CLI/TUI
 adalove_cli.log
 
